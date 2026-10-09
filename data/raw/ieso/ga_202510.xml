@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="https://reports-public.ieso.ca/docrefs/stylesheet/GlobalAdjustment_HTML_t1-2.xsl" ?>
+<Document docID="GlobalAdjustment" xmlns="http://www.ieso.ca/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ieso.ca/schema https://reports-public.ieso.ca/docrefs/schema/GlobalAdjustment_r1.xsd">
+<DocHeader>
+<DocTitle>IESO Global Adjustment Class B Rates</DocTitle>
+<DocRevision>1</DocRevision>
+<DocConfidentiality>
+<DocConfClass>PUB</DocConfClass>
+</DocConfidentiality>
+<CreatedAt>2025-11-17T14:30:12</CreatedAt>
+</DocHeader>
+<DocBody>
+<TradeMonth>2025-10</TradeMonth>
+<GAValues>
+<FirstEstimateRate>74.82</FirstEstimateRate>
+<SecondEstimate>457889369</SecondEstimate>
+<SecondEstimateRate>42.2</SecondEstimateRate>
+<Actual>445161830</Actual>
+<ActualRate>48.85</ActualRate>
+</GAValues>
+</DocBody>
+</Document>

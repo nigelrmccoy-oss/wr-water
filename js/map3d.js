@@ -2,6 +2,7 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { DATA } from '../data/facilities.js';
+import { STORAGE_ZONE } from '../data/network.js';
 
 const LAT0 = 43.43, LON0 = -80.49;
 const KX = Math.cos(LAT0 * Math.PI / 180) * 1113.2, KZ = 1105.4; // 1 unit = 100 m
@@ -90,7 +91,7 @@ export class Map3D {
       else if (t.type === 'intake') { m = new THREE.Mesh(new THREE.ConeGeometry(1.5, 3, 4), mat('#2f8fd8')); m.position.y = 1.5; }
       else if (t.type === 'recharge') { m = new THREE.Mesh(new THREE.BoxGeometry(4, 0.4, 4), mat('#3a6f8f')); m.position.y = 0.2; }
       else { m = new THREE.Mesh(new THREE.CylinderGeometry(Math.min(4, 1.2 + Math.sqrt(t.volM3) / 100), Math.min(4, 1.2 + Math.sqrt(t.volM3) / 100), 1, 16), mat('#4f6d86')); m.position.y = 0.5; }
-      m.position.x = x; m.position.z = z; m.userData = { storage: t.id, name: `${t.name} (${t.volM3 ? t.volM3.toLocaleString() + ' m³' + (t.volEst ? ' est' : '') : ''})`, zone: t.zone };
+      m.position.x = x; m.position.z = z; m.userData = { storage: t.id, name: `${t.name} (${t.volM3 ? t.volM3.toLocaleString() + ' m³' + (t.volEst ? ' est' : '') : ''})`, zone: STORAGE_ZONE[t.id] || t.zone };
       this.scene.add(m); this.markers.push(m);
     }
     this.legend.push(['#9fe8b8', 'Site label green = location from Kitchener GIS / OSM; white = approximate']);

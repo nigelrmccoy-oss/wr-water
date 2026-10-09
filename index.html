@@ -3,21 +3,22 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>WR-WATER v0.1 · Region of Waterloo water supply SCADA trainer</title>
+<title>WR-WATER v0.2 · Region of Waterloo water supply SCADA trainer</title>
 <link rel="stylesheet" href="css/style.css" />
 <script type="importmap">{ "imports": { "three": "./vendor/three.module.min.js", "three/addons/controls/OrbitControls.js": "./vendor/OrbitControls.js" } }</script>
 </head>
 <body>
 <header id="top">
-  <div class="brand">WR-WATER <span>v0.1</span><small>Region of Waterloo water supply · operator trainer (unofficial)</small></div>
+  <div class="brand">WR-WATER <span>v0.2</span><small>Region of Waterloo water supply · operator trainer (unofficial)</small></div>
   <nav id="tabs">
     <button data-view="board" class="on">Master board</button>
+    <button data-view="net">Transfers</button>
     <button data-view="map">3D overview</button>
     <button data-view="alarms">Alarms <b id="almCount">0</b></button>
     <button data-view="costs">Daily totals &amp; cost</button>
     <button data-view="help">Help / data</button>
   </nav>
-  <div id="clock"><span id="simDate">—</span> <b id="simTime">--:--</b> <span id="tou" class="tou">—</span></div>
+  <div id="clock"><span id="simDate">—</span> <b id="simTime">--:--</b> <span id="tou" class="tou">—</span> <span id="ici" class="ici off">ICI</span></div>
   <div id="speed">
     <button data-speed="0" title="Pause">❚❚</button><button data-speed="1">1×</button><button data-speed="10">10×</button><button data-speed="60" class="on">60×</button><button data-speed="300">300×</button><button data-speed="900">900×</button>
   </div>
@@ -26,6 +27,7 @@
 <div id="kpis"></div>
 <main>
   <section id="view-board" class="view on"></section>
+  <section id="view-net" class="view"></section>
   <section id="view-map" class="view"><div id="mapWrap"><canvas id="map3d"></canvas><div id="mapLegend"></div><div id="mapTip"></div></div></section>
   <section id="view-alarms" class="view"></section>
   <section id="view-costs" class="view"></section>

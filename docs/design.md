@@ -29,3 +29,12 @@ WR-WATER v0.1 deliberately ships **no build step** (plain ES modules + vendored 
 - **v0.2**: power outage scenario (sites without standby power drop; generators at Middleton/Mannheim/township WTPs start after delay); main break (zone leak + pressure drop + isolate); per-site mini 3D scene (wellhouse/plant interior, P&ID-style); lead-pump rotation; operator log/handover sheet; save/load state.
 - **v0.3**: Cambridge/Kitchener HGLs and real pressure zones, inter-zone transfers (Cam 1W rechloramination, Shingletown/Baden valves, Maryhill interconnect), simple EPANET-lite network hydraulics on trunk mains, DBP/water-age proxy, filter backwash cycle at Mannheim and greensand plants.
 - **v0.4**: instructor console (inject faults live, grade), scenario editor, Class A/B electricity option (HOEP + GA, peak-demand avoidance), port to Vite/TS shared with wwtp-na.
+
+## v0.2 design additions
+- **Zones and transfers** (`data/network.js`, `js/sim.js`): per-zone mass balance in − out − demand. Each transfer is a PI controller holding the receiving zone (or, for K50, the sending zone) at a level setpoint: kp = V/180 L/s per %, ki = kp/2400, integral clamped to capacity, ramp 4 L/s/s. Modes AUTO/MAN/CLOSED. `capFrac` gives partial capacity and `isolated` gives zero. Pump-station kW = 9.81·Q·H/0.7.
+- **Pressure (IUS)**: p = 9.81·(50 − drawdown − 6·(D/D̄)² + 4 − low-level penalty − leak/20) kPa, with drawdown = (100 − level)% × 8 m (tanked) or 20 m (closed zones).
+- **Power**: each site has grid, generator and latch state, and the generator is shared between a site and its pump stations (billing deducts generator kW once). Feeders are scenario-defined with an inrush limit.
+- **Filters**: solids += q·(0.5 + settled NTU)·dt; headloss ∝ solids/Sterm; breakthrough = 0.6·(e^((S−Sbt)/(0.12·Sbt)) − 1); at terminal headloss the filter delivers 50 %.
+- **AOP**: orders = (kW/(m³/h))/EEO, EEO = 0.15·2.5·(1 + 3/H₂O₂); out = raw·10^−orders (τ = 600 s).
+- **Billing**: Class A = OZP + 4 ¢ + PDF × GA(month) accrued per second; Class B = OZP + GA_B + 4 ¢; RPP = TOU or tiered + 4 ¢; diesel on generator. The peak tracker stores each hour's Class A kW.
+- **Scenarios**: `setup / tick / objectives[]` plus optional `actions(sim)` (buttons in the scenario panel) and `decisionNote(sim)`. A PLC interlock now stops HAND pumps too.
