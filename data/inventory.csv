@@ -1,0 +1,56 @@
+id,name,kind,wells,treatment,clearwell_m3,highlift_pumps,mdwl_m3d,avg2025_m3d,maxday2025_m3d,peak_raw_Ls_2025,training_zone,lat,lon,loc_quality,standby_power
+G4,Well G4/G4A,well,G4 G4A,"UV, naocl",,,1900.0,1276.0,1428.0,17.37,CAM,43.41948,-80.30786,est,False
+G5,Well G5/G5A,well,G5 G5A,naocl,,,4320.0,1289.0,1440.0,33.23,CAM,43.43748,-80.32186,est,False
+G9,Well G9,well,G9,naocl,,,3280.0,1189.0,1365.0,18.23,CAM,43.37899,-80.33525,est,False
+H3,Well H3/H3A,well,H3 H3A,naocl,,,1642.0,847.0,1080.0,17.01,CAM,43.43548,-80.29986,est,False
+H4,Well H4A,well,H4A,naocl,,,2074.0,1006.0,1080.0,16.96,CAM,43.42548,-80.29586,est,False
+H5,Well H5/H5A,well,H5 H5A,naocl,,,1987.0,804.0,865.0,17.01,CAM,43.44348,-80.30986,est,False
+MID,Middleton WTP (AOP/UV),wtp,G1 G1A G2 G3 G14 G15,"AOP, UV, naocl",5000,4,40349.0,21619.0,26460.0,406.66,CAM,43.34895,-80.31824,est,True
+PIN,Pinebush WTP (greensand),wtp,P10A P10B P11 P17 P19,"greensand, naocl",527,2,10368.0,2018.0,3112.0,43.64,CAM,43.40986,-80.3177,est,False
+P16,Well P16,well,P16,naocl,,,1961.0,0.0,0.0,0.0,CAM,43.40386,-80.3117,est,False
+P9,Rahmans – Well P9,well,P9,naocl,,,1728.0,1552.0,1620.0,19.33,CAM,43.40001,-80.35151,est,False
+P15,Rahmans – Well P15A,well,P15A,naocl,,,1728.0,1279.0,1434.0,18.14,CAM,43.39801,-80.34751,est,False
+SHM,Shades Mill WTP (greensand + UV),wtp,G7 G8 G38 G39 G40,"greensand, UV, naocl",627,2,12960.0,4965.0,8055.0,111.75,CAM,43.37975,-80.29244,est,False
+TUR,Turnbull WTP (greensand),wtp,G6 G16 G17 G18,"greensand, naocl",537,2,10368.0,2980.0,7612.0,106.7,CAM,43.40435,-80.30224,est,False
+GRB,Greenbrook WTP (greensand·AOP·GAC),wtp,K1A K2A K4C K5A K8,"greensand, AOP, GAC, UV, naocl, nh4, h2o2",9940,3,12269.0,5241.0,6458.0,143.33,K5,43.43016,-80.49759,real,False
+K34,K34 WTP (K34/K36),wtp,K34 K36,"greensand, naocl, nh4",90,2,6868.0,3588.0,3979.0,58.0,K5,43.44243,-80.46325,est,False
+PKW,Parkway WTP (K31/K32/K33),wtp,K31 K33,"naocl, nh4",14269,3,13737.0,0.0,0.0,0.0,K5,43.41511,-80.44869,real,False
+STR,Strange Street WTP,wtp,K10A K11A K13B K18 K19 W1B W2B W2C W3A,"greensand, naocl, nh4",250,3,21600.0,10053.0,17685.0,107.43,K5,43.44647,-80.50686,real,False
+WOO,Woolners Wells (K80/K81/K82),well,K80 K81 K82,naocl,,,11146.0,0.0,0.0,0.0,K5,43.48496,-80.43773,est,False
+K21,Well K21,well,K21,naocl,,,2765.0,1791.0,2071.0,25.14,K4M,43.40947,-80.53654,est,False
+K21A,Well K21A,well,K21A,naocl,,,2160.0,1623.0,1901.0,35.02,K4M,43.39263,-80.52896,est,False
+K25,Well K25,well,K25,naocl,,,6826.0,4256.0,4528.0,70.99,K4M,43.41339,-80.52223,est,False
+K29,Well K29,well,K29,naocl,,,5270.0,3702.0,4278.0,61.38,K4M,43.40088,-80.54408,est,False
+K91,Well K91,well,K91,naocl,,,4492.0,2406.0,3217.0,39.19,K4M,43.39469,-80.51623,est,False
+K92,Well K92,well,K92,naocl,,,4492.0,2581.0,3499.0,42.3,K4M,43.42077,-80.53457,est,False
+K93,Well K93,well,K93,naocl,,,4492.0,2520.0,3452.0,58.1,K4M,43.38582,-80.53903,est,False
+K94,Well K94,well,K94,naocl,,,4492.0,2540.0,3607.0,75.0,K4M,43.4108,-80.50961,est,False
+ASR1,ASR1 (ASR well),asr,ASR1,,,,5010.0,77.0,1136.0,20.68,K4M,43.40711,-80.53891,est,False
+ASR2,ASR2 (ASR well),asr,ASR2,,,,3283.0,185.0,1147.0,27.55,K4M,43.39388,-80.52545,est,False
+ASR3,ASR3 (ASR well),asr,ASR3,,,,3974.0,52.0,306.0,45.5,K4M,43.41412,-80.52653,est,False
+ASR4,ASR4 (ASR well),asr,ASR4,,,,5443.0,0.0,0.0,0.0,K4M,43.39737,-80.54028,est,False
+ASR5,ASR5 (ASR well),asr,ASR5,,,,5504.0,514.0,4273.0,50.29,K4M,43.40065,-80.51745,est,False
+RCW2,RCW2 (recovery well),asr,RCW2,,,,5443.0,489.0,3025.0,45.6,K4M,43.41443,-80.53766,est,False
+RCW3,RCW3 (recovery well),asr,RCW3,,,,2592.0,383.0,2420.0,30.46,K4M,43.38926,-80.53173,est,False
+RCW4,RCW4 (recovery well),asr,RCW4,,,,3888.0,531.0,3284.0,40.17,K4M,43.41306,-80.51843,est,False
+MWTP,Mannheim WTP (Grand River – Hidden Valley intake),surface,LL-1 LL-2,"UV, cl2gas, naocl, pacl, polymer, lox, nh4",15280,,72576.0,42929.0,66139.0,762.93,K4M,43.40339,-80.5299,real,True
+K22A,Well K22A,well,K22A,naocl,,,6566.0,0.0,0.0,0.0,K4M,43.40224,-80.54148,est,False
+K23,Well K23,well,K23,"UV, naocl",,,6566.0,1846.0,2060.0,25.84,K4M,43.39524,-80.53948,est,False
+K24,Well K24,well,K24,naocl,,,6566.0,2825.0,3456.0,51.03,K4M,43.40424,-80.54948,est,False
+K26,Well K26,well,K26,naocl,,,9850.0,5260.0,8209.0,107.65,K4M,43.39324,-80.55148,est,False
+K50,Shingletown Wells K50/K51,well,K50 K51,naocl,,,13651.0,10903.0,11728.0,156.47,NHB,43.38863,-80.60869,est,True
+ERB,Erb Street wells (W6B/W6C/W7/W8),well,W6B W6C W7 W8,"naocl, nh4",,,24139.0,11106.0,14260.0,153.36,W4,43.44252,-80.58402,real,False
+W10,Well W10,well,W10,"UV, naocl, nh4",,,2160.0,1704.0,1800.0,21.22,W4,43.46464,-80.56357,real,False
+LAU,Laurel WTP (W25),wtp,W25,"greensand, naocl, nh4",399,2,6826.0,3770.0,4760.0,82.19,W4,43.47725,-80.56778,est,True
+NHW,New Hamburg WTP (NH3/NH4),wtp,NH3 NH4,"greensand, naocl",2414,4,3542.0,1858.0,2872.0,49.6,NHB,43.37842,-80.70977,est,True
+AYR,Ayr WTP (A1/A2/A3),wtp,A1 A2 A3,"greensand, naocl",2500,3,5478.0,2067.0,3352.0,73.67,AYR,43.28551,-80.4507,est,True
+BRA,Branchton Meadows WTP,wtp,BM2 BM3,"greensand, naocl",58,3,130.0,30.0,79.0,2.0,BRA,43.31091,-80.2591,est,True
+ROS,Roseville WTP,wtp,R5 R6,"greensand, naocl",110,3,357.7,55.0,108.0,3.34,ROS,43.34143,-80.47582,est,True
+MHW,Maryhill WTP (MH1/MH2),wtp,MH1 MH2,"greensand, naocl",45,2,157.0,0.0,0.0,0.0,MAR,43.53051,-80.39067,est,False
+MHV,Maryhill Village Heights,wtp,MH4A MH5,naocl,174,3,812.0,94.0,221.0,15.06,MAR,43.53851,-80.38467,est,True
+LIN,Linwood WTP,wtp,L1A L2,"greensand, naocl",288,4,604.8,174.0,316.0,7.63,LIN,43.58153,-80.72836,est,True
+SCL,St. Clements WTP,wtp,SC2 SC3 SC4,"greensand, naocl",1250,4,1771.2,342.0,802.0,23.78,SCH,43.52309,-80.65203,est,True
+WEL,Wellesley WTP,wtp,WY1 WY5 WY6,"greensand, naocl",914,5,3006.0,631.0,842.0,45.84,WEL,43.4766,-80.7637,est,True
+FOX,Foxboro Green WTP,wtp,FG1 FG2A FG4,"greensand, naocl",81,4,288.0,74.0,117.0,3.7,FOX,43.317,-80.44,est,True
+NDU,New Dundee pump house,wtp,ND4 ND5,naocl,508,2,982.2,199.0,337.0,6.04,NDU,43.34948,-80.5361,est,True
+PET,Petersburg pump house,wtp,PE1,naocl,114,2,288.0,31.0,71.0,6.84,PET,43.41353,-80.60515,est,False

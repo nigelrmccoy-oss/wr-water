@@ -1,0 +1,6982 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-10-09T03:33:10Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 474901703,
+  "lat": 43.3149492,
+  "lon": -80.2383577,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 474902732,
+  "lat": 43.4889988,
+  "lon": -80.4324412,
+  "tags": {
+    "canvec:UUID": "24a5ab60c30348429ed0062c4a184693",
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 813751544,
+  "lat": 43.4115999,
+  "lon": -80.6220789,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 813751554,
+  "lat": 43.4159207,
+  "lon": -80.5664571,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 813751559,
+  "lat": 43.4132998,
+  "lon": -80.6198624,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 813751654,
+  "lat": 43.4126900,
+  "lon": -80.6171391,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 813751670,
+  "lat": 43.4118197,
+  "lon": -80.5842766,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 813751681,
+  "lat": 43.4158998,
+  "lon": -80.5936005,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 813751832,
+  "lat": 43.4178974,
+  "lon": -80.5717259,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 813751945,
+  "lat": 43.4116460,
+  "lon": -80.6221386,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 817892485,
+  "lat": 43.4103102,
+  "lon": -80.3007592,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 817893256,
+  "lat": 43.4102208,
+  "lon": -80.3007634,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818433381,
+  "lat": 43.4651841,
+  "lon": -80.4080665,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818433403,
+  "lat": 43.4652453,
+  "lon": -80.4090620,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818433429,
+  "lat": 43.4648402,
+  "lon": -80.4081644,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818433446,
+  "lat": 43.4647555,
+  "lon": -80.4083030,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818433471,
+  "lat": 43.4646623,
+  "lon": -80.4077016,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818433489,
+  "lat": 43.4655834,
+  "lon": -80.4079756,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818433493,
+  "lat": 43.4650730,
+  "lon": -80.4081022,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818433513,
+  "lat": 43.4647536,
+  "lon": -80.4090339,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818433536,
+  "lat": 43.4647133,
+  "lon": -80.4082670,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818433561,
+  "lat": 43.4644208,
+  "lon": -80.4073953,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818433577,
+  "lat": 43.4654780,
+  "lon": -80.4082570,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818433584,
+  "lat": 43.4645761,
+  "lon": -80.4074074,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818433606,
+  "lat": 43.4649920,
+  "lon": -80.4077320,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818433622,
+  "lat": 43.4655085,
+  "lon": -80.4080121,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818433645,
+  "lat": 43.4646977,
+  "lon": -80.4083339,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818433664,
+  "lat": 43.4645149,
+  "lon": -80.4073651,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818433680,
+  "lat": 43.4660064,
+  "lon": -80.4086075,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818433704,
+  "lat": 43.4647983,
+  "lon": -80.4082893,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818433729,
+  "lat": 43.4661019,
+  "lon": -80.4086388,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818433748,
+  "lat": 43.4647649,
+  "lon": -80.4084114,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818433769,
+  "lat": 43.4646249,
+  "lon": -80.4074289,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818433786,
+  "lat": 43.4655438,
+  "lon": -80.4079017,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818433791,
+  "lat": 43.4651730,
+  "lon": -80.4081072,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818433813,
+  "lat": 43.4654018,
+  "lon": -80.4093460,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818433844,
+  "lat": 43.4647507,
+  "lon": -80.4081684,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818433860,
+  "lat": 43.4647803,
+  "lon": -80.4081836,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818433884,
+  "lat": 43.4645710,
+  "lon": -80.4074833,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818433896,
+  "lat": 43.4655048,
+  "lon": -80.4081494,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818433906,
+  "lat": 43.4651217,
+  "lon": -80.4081237,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818433924,
+  "lat": 43.4651239,
+  "lon": -80.4092494,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818433953,
+  "lat": 43.4647826,
+  "lon": -80.4083562,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818433975,
+  "lat": 43.4644410,
+  "lon": -80.4073021,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818433997,
+  "lat": 43.4643490,
+  "lon": -80.4073440,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434013,
+  "lat": 43.4650182,
+  "lon": -80.4076741,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434033,
+  "lat": 43.4647864,
+  "lon": -80.4089615,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434055,
+  "lat": 43.4647330,
+  "lon": -80.4082235,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434071,
+  "lat": 43.4644048,
+  "lon": -80.4073014,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434088,
+  "lat": 43.4656011,
+  "lon": -80.4079205,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434108,
+  "lat": 43.4649521,
+  "lon": -80.4078686,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434127,
+  "lat": 43.4655678,
+  "lon": -80.4080426,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434147,
+  "lat": 43.4647683,
+  "lon": -80.4081132,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434161,
+  "lat": 43.4644872,
+  "lon": -80.4073616,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434175,
+  "lat": 43.4655415,
+  "lon": -80.4081005,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434180,
+  "lat": 43.4651534,
+  "lon": -80.4081507,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434195,
+  "lat": 43.4648146,
+  "lon": -80.4089153,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434220,
+  "lat": 43.4655857,
+  "lon": -80.4081482,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434237,
+  "lat": 43.4646617,
+  "lon": -80.4081226,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434254,
+  "lat": 43.4644989,
+  "lon": -80.4076425,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434271,
+  "lat": 43.4656191,
+  "lon": -80.4080261,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434275,
+  "lat": 43.4651354,
+  "lon": -80.4080450,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434292,
+  "lat": 43.4647573,
+  "lon": -80.4088965,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434315,
+  "lat": 43.4647712,
+  "lon": -80.4082361,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434336,
+  "lat": 43.4647980,
+  "lon": -80.4081284,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434359,
+  "lat": 43.4643613,
+  "lon": -80.4075753,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434371,
+  "lat": 43.4653472,
+  "lon": -80.4083361,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434376,
+  "lat": 43.4650887,
+  "lon": -80.4080352,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434393,
+  "lat": 43.4647226,
+  "lon": -80.4089572,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434411,
+  "lat": 43.4645497,
+  "lon": -80.4080471,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434430,
+  "lat": 43.4643712,
+  "lon": -80.4072626,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434443,
+  "lat": 43.4658787,
+  "lon": -80.4078562,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434453,
+  "lat": 43.4645077,
+  "lon": -80.4074293,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434466,
+  "lat": 43.4649763,
+  "lon": -80.4077989,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434487,
+  "lat": 43.4654974,
+  "lon": -80.4080528,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434502,
+  "lat": 43.4645939,
+  "lon": -80.4080948,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434522,
+  "lat": 43.4643977,
+  "lon": -80.4073655,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434535,
+  "lat": 43.4656857,
+  "lon": -80.4077819,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434542,
+  "lat": 43.4652195,
+  "lon": -80.4079562,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434557,
+  "lat": 43.4648159,
+  "lon": -80.4082341,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434562,
+  "lat": 43.4646178,
+  "lon": -80.4074930,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434579,
+  "lat": 43.4655347,
+  "lon": -80.4079541,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434594,
+  "lat": 43.4647293,
+  "lon": -80.4083609,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434611,
+  "lat": 43.4644761,
+  "lon": -80.4074023,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818434624,
+  "lat": 43.4656307,
+  "lon": -80.4079357,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818442915,
+  "lat": 43.4847687,
+  "lon": -80.4211469,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818443944,
+  "lat": 43.4962476,
+  "lon": -80.4140677,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818574912,
+  "lat": 43.3883464,
+  "lon": -80.6530934,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 818969820,
+  "lat": 43.4392259,
+  "lon": -80.6989909,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835404069,
+  "lat": 43.6126639,
+  "lon": -80.5669380,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835404104,
+  "lat": 43.5875003,
+  "lon": -80.6986775,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835404170,
+  "lat": 43.5927179,
+  "lon": -80.6792790,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835404227,
+  "lat": 43.6168401,
+  "lon": -80.6853092,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835404257,
+  "lat": 43.6173177,
+  "lon": -80.5506635,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835404364,
+  "lat": 43.5421878,
+  "lon": -80.6503078,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835404403,
+  "lat": 43.6049279,
+  "lon": -80.5406317,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835404507,
+  "lat": 43.5711854,
+  "lon": -80.6179718,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835404651,
+  "lat": 43.5674892,
+  "lon": -80.5256830,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835404745,
+  "lat": 43.5427976,
+  "lon": -80.6936439,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835404779,
+  "lat": 43.5647401,
+  "lon": -80.6940881,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835404835,
+  "lat": 43.5937036,
+  "lon": -80.6288162,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835404871,
+  "lat": 43.5665700,
+  "lon": -80.5818574,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835404991,
+  "lat": 43.5092699,
+  "lon": -80.7326226,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835405047,
+  "lat": 43.5817711,
+  "lon": -80.5574758,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835405082,
+  "lat": 43.6069441,
+  "lon": -80.6321988,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835405111,
+  "lat": 43.5237795,
+  "lon": -80.7296825,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835405140,
+  "lat": 43.5855380,
+  "lon": -80.6850375,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835405198,
+  "lat": 43.5231263,
+  "lon": -80.6842657,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835405254,
+  "lat": 43.6100127,
+  "lon": -80.5617244,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835405386,
+  "lat": 43.5578718,
+  "lon": -80.6412063,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835405488,
+  "lat": 43.6007276,
+  "lon": -80.5417701,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835405545,
+  "lat": 43.5647570,
+  "lon": -80.6883948,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835405606,
+  "lat": 43.6137315,
+  "lon": -80.6649007,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835405669,
+  "lat": 43.5326454,
+  "lon": -80.6434590,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835405743,
+  "lat": 43.5670088,
+  "lon": -80.5260964,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835405853,
+  "lat": 43.6147415,
+  "lon": -80.6775716,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835405958,
+  "lat": 43.5520967,
+  "lon": -80.6759508,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835406044,
+  "lat": 43.6153687,
+  "lon": -80.6972234,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835406238,
+  "lat": 43.6062643,
+  "lon": -80.6622824,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835406577,
+  "lat": 43.5603641,
+  "lon": -80.6843624,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835406661,
+  "lat": 43.6045879,
+  "lon": -80.5153486,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835406732,
+  "lat": 43.5894915,
+  "lon": -80.5910309,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835406856,
+  "lat": 43.6031587,
+  "lon": -80.7175855,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835406941,
+  "lat": 43.6196207,
+  "lon": -80.5328123,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835407022,
+  "lat": 43.5726855,
+  "lon": -80.6431839,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835407193,
+  "lat": 43.5440633,
+  "lon": -80.6673815,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835407505,
+  "lat": 43.5639371,
+  "lon": -80.6228678,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835407875,
+  "lat": 43.5392682,
+  "lon": -80.6311609,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835408294,
+  "lat": 43.6112359,
+  "lon": -80.7370000,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835408393,
+  "lat": 43.5792838,
+  "lon": -80.5758519,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835408559,
+  "lat": 43.5994748,
+  "lon": -80.6383281,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835408922,
+  "lat": 43.5640008,
+  "lon": -80.6230335,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835409032,
+  "lat": 43.6068559,
+  "lon": -80.6665366,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835409139,
+  "lat": 43.5502525,
+  "lon": -80.7282508,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835409251,
+  "lat": 43.5640736,
+  "lon": -80.6789315,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835409451,
+  "lat": 43.5104501,
+  "lon": -80.6477622,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835409577,
+  "lat": 43.5914375,
+  "lon": -80.5520583,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835409672,
+  "lat": 43.6178215,
+  "lon": -80.6126469,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835409970,
+  "lat": 43.5398845,
+  "lon": -80.6530288,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835410086,
+  "lat": 43.6159967,
+  "lon": -80.6076655,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835410361,
+  "lat": 43.5645937,
+  "lon": -80.7412200,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835410500,
+  "lat": 43.5820016,
+  "lon": -80.5806073,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835410643,
+  "lat": 43.5932336,
+  "lon": -80.6829730,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835411258,
+  "lat": 43.6127772,
+  "lon": -80.5672371,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835411802,
+  "lat": 43.5067425,
+  "lon": -80.6840721,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835412025,
+  "lat": 43.5779880,
+  "lon": -80.6614071,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835412391,
+  "lat": 43.5839398,
+  "lon": -80.7251483,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835413046,
+  "lat": 43.5603594,
+  "lon": -80.7041026,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835413180,
+  "lat": 43.5758484,
+  "lon": -80.6344364,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835413414,
+  "lat": 43.5883083,
+  "lon": -80.6407160,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835413541,
+  "lat": 43.5553717,
+  "lon": -80.6293186,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835413647,
+  "lat": 43.5865348,
+  "lon": -80.6572599,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835414009,
+  "lat": 43.6184867,
+  "lon": -80.5099962,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835414369,
+  "lat": 43.5518620,
+  "lon": -80.6750831,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835414505,
+  "lat": 43.6101526,
+  "lon": -80.6683622,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835415031,
+  "lat": 43.6144227,
+  "lon": -80.6657495,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835415422,
+  "lat": 43.5060259,
+  "lon": -80.6603844,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835415555,
+  "lat": 43.6054676,
+  "lon": -80.5985693,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835415638,
+  "lat": 43.5795715,
+  "lon": -80.6113625,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835415754,
+  "lat": 43.6024294,
+  "lon": -80.6375058,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835415858,
+  "lat": 43.5093655,
+  "lon": -80.6916513,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835415955,
+  "lat": 43.5777256,
+  "lon": -80.6504315,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835416171,
+  "lat": 43.6137180,
+  "lon": -80.6613567,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835416320,
+  "lat": 43.5740293,
+  "lon": -80.6086784,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835416476,
+  "lat": 43.5918665,
+  "lon": -80.5442550,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835416928,
+  "lat": 43.6186641,
+  "lon": -80.5576084,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835417402,
+  "lat": 43.5838277,
+  "lon": -80.7377278,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835417703,
+  "lat": 43.5529096,
+  "lon": -80.7312323,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835418106,
+  "lat": 43.5952655,
+  "lon": -80.5505307,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835418477,
+  "lat": 43.5166238,
+  "lon": -80.7119358,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835418837,
+  "lat": 43.6010685,
+  "lon": -80.7139517,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835419460,
+  "lat": 43.5153216,
+  "lon": -80.6815464,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835419618,
+  "lat": 43.5874597,
+  "lon": -80.5310810,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835419714,
+  "lat": 43.6123361,
+  "lon": -80.5520374,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835419838,
+  "lat": 43.5766271,
+  "lon": -80.6468731,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835419986,
+  "lat": 43.5015338,
+  "lon": -80.6739038,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835420142,
+  "lat": 43.5647656,
+  "lon": -80.6463293,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835420419,
+  "lat": 43.5286867,
+  "lon": -80.6999135,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835420593,
+  "lat": 43.6173153,
+  "lon": -80.5430801,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835420764,
+  "lat": 43.5731226,
+  "lon": -80.5671806,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835421180,
+  "lat": 43.5796972,
+  "lon": -80.6463127,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835421501,
+  "lat": 43.5965470,
+  "lon": -80.6307821,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835421637,
+  "lat": 43.5913157,
+  "lon": -80.5520846,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835421792,
+  "lat": 43.5632879,
+  "lon": -80.6739989,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835422028,
+  "lat": 43.5074767,
+  "lon": -80.6415078,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835422685,
+  "lat": 43.5249853,
+  "lon": -80.6614791,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835422814,
+  "lat": 43.5848971,
+  "lon": -80.6493327,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835423100,
+  "lat": 43.6045947,
+  "lon": -80.7209167,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835423265,
+  "lat": 43.5718017,
+  "lon": -80.5944067,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835423620,
+  "lat": 43.5162349,
+  "lon": -80.7114390,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835423823,
+  "lat": 43.6077068,
+  "lon": -80.5423035,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835424021,
+  "lat": 43.6177881,
+  "lon": -80.7417903,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835424389,
+  "lat": 43.6007442,
+  "lon": -80.5421371,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835424462,
+  "lat": 43.5790169,
+  "lon": -80.6118729,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835424850,
+  "lat": 43.5074971,
+  "lon": -80.6833025,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835425025,
+  "lat": 43.6187478,
+  "lon": -80.7454088,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835425327,
+  "lat": 43.5941556,
+  "lon": -80.6512332,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835425478,
+  "lat": 43.6023572,
+  "lon": -80.6203972,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835427212,
+  "lat": 43.5949376,
+  "lon": -80.5505109,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835427354,
+  "lat": 43.6006723,
+  "lon": -80.5417629,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835427516,
+  "lat": 43.5626638,
+  "lon": -80.6398416,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835427657,
+  "lat": 43.5097859,
+  "lon": -80.7240701,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835427794,
+  "lat": 43.5737055,
+  "lon": -80.7141960,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835428093,
+  "lat": 43.5590601,
+  "lon": -80.7091326,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835428281,
+  "lat": 43.5646129,
+  "lon": -80.5630513,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835428419,
+  "lat": 43.5972611,
+  "lon": -80.5350441,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835428758,
+  "lat": 43.5578836,
+  "lon": -80.6412770,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835429137,
+  "lat": 43.6128923,
+  "lon": -80.6253384,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835429264,
+  "lat": 43.5781739,
+  "lon": -80.6091515,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835429678,
+  "lat": 43.5110498,
+  "lon": -80.7173121,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835429912,
+  "lat": 43.5817968,
+  "lon": -80.5576288,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835430193,
+  "lat": 43.5446611,
+  "lon": -80.6581621,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835430258,
+  "lat": 43.6137602,
+  "lon": -80.6612317,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835430400,
+  "lat": 43.6192690,
+  "lon": -80.6872858,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835430462,
+  "lat": 43.5942123,
+  "lon": -80.6188072,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835430970,
+  "lat": 43.6186587,
+  "lon": -80.5570391,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835431066,
+  "lat": 43.5730866,
+  "lon": -80.5720155,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835431190,
+  "lat": 43.6130815,
+  "lon": -80.7310625,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835431268,
+  "lat": 43.5240123,
+  "lon": -80.7398224,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835431357,
+  "lat": 43.5996708,
+  "lon": -80.6289755,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835431622,
+  "lat": 43.5352683,
+  "lon": -80.7489240,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835431739,
+  "lat": 43.5853824,
+  "lon": -80.6221222,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835431838,
+  "lat": 43.6007900,
+  "lon": -80.6032651,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835432222,
+  "lat": 43.5283332,
+  "lon": -80.6805841,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835432318,
+  "lat": 43.6004872,
+  "lon": -80.6985711,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835432483,
+  "lat": 43.6094632,
+  "lon": -80.6550824,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835432541,
+  "lat": 43.5401103,
+  "lon": -80.6530319,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835432571,
+  "lat": 43.5972579,
+  "lon": -80.5351320,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835432594,
+  "lat": 43.6126630,
+  "lon": -80.5099055,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835432656,
+  "lat": 43.5246791,
+  "lon": -80.6654762,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835432811,
+  "lat": 43.5846222,
+  "lon": -80.7332269,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835433049,
+  "lat": 43.5707387,
+  "lon": -80.5848373,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835433073,
+  "lat": 43.6152761,
+  "lon": -80.5195861,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835433146,
+  "lat": 43.5428926,
+  "lon": -80.6617672,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835433205,
+  "lat": 43.5646943,
+  "lon": -80.5940061,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835433294,
+  "lat": 43.5645205,
+  "lon": -80.6134239,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835433342,
+  "lat": 43.5746668,
+  "lon": -80.6749001,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835433416,
+  "lat": 43.5551392,
+  "lon": -80.6294912,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835433447,
+  "lat": 43.6050856,
+  "lon": -80.6102412,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835433489,
+  "lat": 43.5951035,
+  "lon": -80.5505326,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835433583,
+  "lat": 43.5440342,
+  "lon": -80.6734234,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835433824,
+  "lat": 43.6042955,
+  "lon": -80.6574458,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835433913,
+  "lat": 43.6070436,
+  "lon": -80.7290518,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835434001,
+  "lat": 43.5914625,
+  "lon": -80.6032312,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835434160,
+  "lat": 43.5300599,
+  "lon": -80.7466307,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835434190,
+  "lat": 43.6171499,
+  "lon": -80.6717874,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835434233,
+  "lat": 43.5845480,
+  "lon": -80.5900435,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835434301,
+  "lat": 43.5876716,
+  "lon": -80.6986236,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835434345,
+  "lat": 43.5428757,
+  "lon": -80.6616115,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835434374,
+  "lat": 43.6134695,
+  "lon": -80.7360136,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835434431,
+  "lat": 43.5108602,
+  "lon": -80.6349062,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835434465,
+  "lat": 43.5811146,
+  "lon": -80.5093597,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835434577,
+  "lat": 43.5384230,
+  "lon": -80.6340293,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835434646,
+  "lat": 43.5978693,
+  "lon": -80.6955631,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835434707,
+  "lat": 43.5854096,
+  "lon": -80.6399826,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835434739,
+  "lat": 43.5939289,
+  "lon": -80.5242437,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835434768,
+  "lat": 43.5763073,
+  "lon": -80.6674908,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835434857,
+  "lat": 43.5334349,
+  "lon": -80.6909288,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835434953,
+  "lat": 43.6136315,
+  "lon": -80.6608380,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835435030,
+  "lat": 43.5947656,
+  "lon": -80.6888767,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835435122,
+  "lat": 43.6014196,
+  "lon": -80.5935625,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835435253,
+  "lat": 43.5229571,
+  "lon": -80.6661178,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835435296,
+  "lat": 43.6125315,
+  "lon": -80.5822819,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835435329,
+  "lat": 43.5675812,
+  "lon": -80.5916531,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835435367,
+  "lat": 43.6093426,
+  "lon": -80.6551701,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835435432,
+  "lat": 43.5923326,
+  "lon": -80.6946770,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835435496,
+  "lat": 43.5129633,
+  "lon": -80.7364772,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835435527,
+  "lat": 43.5653798,
+  "lon": -80.6085406,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835435624,
+  "lat": 43.5260697,
+  "lon": -80.6856550,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835435655,
+  "lat": 43.5870622,
+  "lon": -80.7347916,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835435728,
+  "lat": 43.6119978,
+  "lon": -80.7466582,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835435760,
+  "lat": 43.6099041,
+  "lon": -80.6224005,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835435945,
+  "lat": 43.5472656,
+  "lon": -80.6965617,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835436028,
+  "lat": 43.5939175,
+  "lon": -80.6098212,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835436095,
+  "lat": 43.6122037,
+  "lon": -80.5520547,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835436203,
+  "lat": 43.5706360,
+  "lon": -80.6454302,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835436281,
+  "lat": 43.5451151,
+  "lon": -80.7080637,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835436350,
+  "lat": 43.5741669,
+  "lon": -80.6323024,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835436795,
+  "lat": 43.5266380,
+  "lon": -80.6716572,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835436833,
+  "lat": 43.5996726,
+  "lon": -80.5171145,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835436861,
+  "lat": 43.5795175,
+  "lon": -80.5760629,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835437174,
+  "lat": 43.5536810,
+  "lon": -80.6464949,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835437560,
+  "lat": 43.6046519,
+  "lon": -80.6507713,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835437594,
+  "lat": 43.5968948,
+  "lon": -80.5303464,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835438435,
+  "lat": 43.6048596,
+  "lon": -80.6511522,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835438636,
+  "lat": 43.5113565,
+  "lon": -80.7372159,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835438773,
+  "lat": 43.5647412,
+  "lon": -80.5171839,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835438847,
+  "lat": 43.5819593,
+  "lon": -80.6075312,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835439017,
+  "lat": 43.5894490,
+  "lon": -80.7415797,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835439180,
+  "lat": 43.5372565,
+  "lon": -80.6793603,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835439364,
+  "lat": 43.5790988,
+  "lon": -80.6765654,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835439675,
+  "lat": 43.5802002,
+  "lon": -80.7186873,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835440286,
+  "lat": 43.5514843,
+  "lon": -80.6516365,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835440442,
+  "lat": 43.5652593,
+  "lon": -80.6843207,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835440768,
+  "lat": 43.5995864,
+  "lon": -80.6290642,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835440897,
+  "lat": 43.5706177,
+  "lon": -80.5530716,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835441164,
+  "lat": 43.5779790,
+  "lon": -80.6611372,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835441260,
+  "lat": 43.5707894,
+  "lon": -80.5851932,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835441333,
+  "lat": 43.6100219,
+  "lon": -80.5618331,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835441551,
+  "lat": 43.5599312,
+  "lon": -80.6586742,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835441648,
+  "lat": 43.5883155,
+  "lon": -80.6408129,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835441853,
+  "lat": 43.5836627,
+  "lon": -80.6891489,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835442379,
+  "lat": 43.5334199,
+  "lon": -80.6907849,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835442472,
+  "lat": 43.6027348,
+  "lon": -80.5070784,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835442545,
+  "lat": 43.6199121,
+  "lon": -80.5808573,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835442658,
+  "lat": 43.6112517,
+  "lon": -80.6719852,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835442827,
+  "lat": 43.5758574,
+  "lon": -80.6347063,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835442999,
+  "lat": 43.5175878,
+  "lon": -80.7418726,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835443400,
+  "lat": 43.5617156,
+  "lon": -80.6896123,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835443725,
+  "lat": 43.5995622,
+  "lon": -80.6384741,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835443801,
+  "lat": 43.5796261,
+  "lon": -80.6115809,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835443866,
+  "lat": 43.5714248,
+  "lon": -80.7120746,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835444024,
+  "lat": 43.5408948,
+  "lon": -80.6260136,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835444173,
+  "lat": 43.5732345,
+  "lon": -80.5667730,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835444384,
+  "lat": 43.5071900,
+  "lon": -80.6695735,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835444467,
+  "lat": 43.5653795,
+  "lon": -80.6845555,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835444622,
+  "lat": 43.5929494,
+  "lon": -80.6827278,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835444705,
+  "lat": 43.5968883,
+  "lon": -80.5305222,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835444959,
+  "lat": 43.5132872,
+  "lon": -80.7364748,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835445035,
+  "lat": 43.5766396,
+  "lon": -80.6544563,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835445098,
+  "lat": 43.5631253,
+  "lon": -80.5010208,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835445172,
+  "lat": 43.6126788,
+  "lon": -80.7415207,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835445327,
+  "lat": 43.5424184,
+  "lon": -80.6367441,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835445488,
+  "lat": 43.5931893,
+  "lon": -80.6830862,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835445781,
+  "lat": 43.5226149,
+  "lon": -80.6286993,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835445914,
+  "lat": 43.5759407,
+  "lon": -80.5415076,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835446190,
+  "lat": 43.5238795,
+  "lon": -80.7397279,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835446288,
+  "lat": 43.5671182,
+  "lon": -80.7038364,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835446431,
+  "lat": 43.5998777,
+  "lon": -80.6384737,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835446526,
+  "lat": 43.5646061,
+  "lon": -80.6135579,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835446778,
+  "lat": 43.5598038,
+  "lon": -80.7385220,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835446863,
+  "lat": 43.5963561,
+  "lon": -80.5881467,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835447010,
+  "lat": 43.5971733,
+  "lon": -80.7098690,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835447094,
+  "lat": 43.5105592,
+  "lon": -80.6761624,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835447421,
+  "lat": 43.5876087,
+  "lon": -80.5460686,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835447480,
+  "lat": 43.5710398,
+  "lon": -80.6181790,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835447657,
+  "lat": 43.5104106,
+  "lon": -80.6478490,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835447742,
+  "lat": 43.5879279,
+  "lon": -80.6100684,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835447807,
+  "lat": 43.6197017,
+  "lon": -80.5328114,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835447901,
+  "lat": 43.5746712,
+  "lon": -80.7364113,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835448063,
+  "lat": 43.5838682,
+  "lon": -80.7413965,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835448314,
+  "lat": 43.5559651,
+  "lon": -80.7425377,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835448414,
+  "lat": 43.6011399,
+  "lon": -80.5261524,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835448483,
+  "lat": 43.5630752,
+  "lon": -80.5009376,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835448739,
+  "lat": 43.5325282,
+  "lon": -80.6434588,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835449179,
+  "lat": 43.6099765,
+  "lon": -80.5618848,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835449300,
+  "lat": 43.5184062,
+  "lon": -80.7318253,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835449333,
+  "lat": 43.6021798,
+  "lon": -80.7074017,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835449424,
+  "lat": 43.5776574,
+  "lon": -80.7149868,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835449488,
+  "lat": 43.5363641,
+  "lon": -80.6631438,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835449523,
+  "lat": 43.5627763,
+  "lon": -80.6944706,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835449592,
+  "lat": 43.5016778,
+  "lon": -80.6735243,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835449628,
+  "lat": 43.5713100,
+  "lon": -80.5365448,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835449730,
+  "lat": 43.5461101,
+  "lon": -80.6800412,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835449789,
+  "lat": 43.5805316,
+  "lon": -80.6646091,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835449948,
+  "lat": 43.6179539,
+  "lon": -80.6759136,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835450041,
+  "lat": 43.6110385,
+  "lon": -80.7281444,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835450112,
+  "lat": 43.5521200,
+  "lon": -80.7163303,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835450142,
+  "lat": 43.6172152,
+  "lon": -80.5430747,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835450166,
+  "lat": 43.5746875,
+  "lon": -80.5345397,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835450200,
+  "lat": 43.5773822,
+  "lon": -80.7150114,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835450370,
+  "lat": 43.5777430,
+  "lon": -80.5723106,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835450481,
+  "lat": 43.5599779,
+  "lon": -80.6586843,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835450511,
+  "lat": 43.5935125,
+  "lon": -80.6098254,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835450534,
+  "lat": 43.6152090,
+  "lon": -80.5196696,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835450569,
+  "lat": 43.6173281,
+  "lon": -80.6719918,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835450599,
+  "lat": 43.5701169,
+  "lon": -80.6088384,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835450695,
+  "lat": 43.5077257,
+  "lon": -80.6867828,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835450733,
+  "lat": 43.6126024,
+  "lon": -80.5099745,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835450760,
+  "lat": 43.5935068,
+  "lon": -80.5510668,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835450828,
+  "lat": 43.5420183,
+  "lon": -80.6316548,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835450862,
+  "lat": 43.6188479,
+  "lon": -80.7454147,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835450918,
+  "lat": 43.5915894,
+  "lon": -80.7481358,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835450950,
+  "lat": 43.6188254,
+  "lon": -80.6215124,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835451045,
+  "lat": 43.5177382,
+  "lon": -80.7208079,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835451108,
+  "lat": 43.5911623,
+  "lon": -80.6186810,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835451141,
+  "lat": 43.5810639,
+  "lon": -80.7040865,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835451170,
+  "lat": 43.5177399,
+  "lon": -80.7209807,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835451199,
+  "lat": 43.6186898,
+  "lon": -80.6795774,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835451335,
+  "lat": 43.6191989,
+  "lon": -80.5686965,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835451442,
+  "lat": 43.5074173,
+  "lon": -80.7191945,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835451541,
+  "lat": 43.5758009,
+  "lon": -80.7041922,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835451613,
+  "lat": 43.5801044,
+  "lon": -80.6459982,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835451688,
+  "lat": 43.5469985,
+  "lon": -80.6881356,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835451733,
+  "lat": 43.5822641,
+  "lon": -80.6075215,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835451867,
+  "lat": 43.6099688,
+  "lon": -80.6677999,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835451944,
+  "lat": 43.5523769,
+  "lon": -80.7166832,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835452024,
+  "lat": 43.5720994,
+  "lon": -80.6272657,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835452266,
+  "lat": 43.5228649,
+  "lon": -80.6750742,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835452296,
+  "lat": 43.5641645,
+  "lon": -80.5770293,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835452366,
+  "lat": 43.5901555,
+  "lon": -80.7460069,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835452404,
+  "lat": 43.5707874,
+  "lon": -80.5848591,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835452434,
+  "lat": 43.5646515,
+  "lon": -80.6526119,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835452500,
+  "lat": 43.6084123,
+  "lon": -80.7184519,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835452568,
+  "lat": 43.5933903,
+  "lon": -80.6165867,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835452638,
+  "lat": 43.5621638,
+  "lon": -80.6606593,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835452669,
+  "lat": 43.5752785,
+  "lon": -80.7186221,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835452728,
+  "lat": 43.5645141,
+  "lon": -80.6523826,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835452759,
+  "lat": 43.6159394,
+  "lon": -80.6076464,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835452854,
+  "lat": 43.5016124,
+  "lon": -80.6289626,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835452885,
+  "lat": 43.5854081,
+  "lon": -80.6221141,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835452908,
+  "lat": 43.5705256,
+  "lon": -80.5565480,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835452943,
+  "lat": 43.6076604,
+  "lon": -80.7346746,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835453106,
+  "lat": 43.5420064,
+  "lon": -80.6317453,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835453136,
+  "lat": 43.5662199,
+  "lon": -80.5351763,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835453225,
+  "lat": 43.5608130,
+  "lon": -80.6746671,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835453255,
+  "lat": 43.5774019,
+  "lon": -80.5153687,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835453316,
+  "lat": 43.5763728,
+  "lon": -80.7214140,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835453382,
+  "lat": 43.5853327,
+  "lon": -80.6398457,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835453439,
+  "lat": 43.5060820,
+  "lon": -80.6985499,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835453581,
+  "lat": 43.5709396,
+  "lon": -80.5528949,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835453754,
+  "lat": 43.5202006,
+  "lon": -80.6384951,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835453859,
+  "lat": 43.5632990,
+  "lon": -80.6741193,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835454050,
+  "lat": 43.6128327,
+  "lon": -80.6743896,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835454451,
+  "lat": 43.5020309,
+  "lon": -80.6494641,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835454499,
+  "lat": 43.6121699,
+  "lon": -80.7465546,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835454564,
+  "lat": 43.5889299,
+  "lon": -80.5866569,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835454707,
+  "lat": 43.5742795,
+  "lon": -80.6323288,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835454914,
+  "lat": 43.5797409,
+  "lon": -80.6578663,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835454992,
+  "lat": 43.5601370,
+  "lon": -80.6692046,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835455069,
+  "lat": 43.6124287,
+  "lon": -80.5823145,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835455217,
+  "lat": 43.5395355,
+  "lon": -80.6984598,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835455394,
+  "lat": 43.5795996,
+  "lon": -80.5471278,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835455428,
+  "lat": 43.6105387,
+  "lon": -80.6506116,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835455501,
+  "lat": 43.5602309,
+  "lon": -80.6638216,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835455556,
+  "lat": 43.6106524,
+  "lon": -80.5108201,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835455619,
+  "lat": 43.5057851,
+  "lon": -80.7026654,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835455653,
+  "lat": 43.5681539,
+  "lon": -80.7418259,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835455710,
+  "lat": 43.5413105,
+  "lon": -80.6411697,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835455740,
+  "lat": 43.5876987,
+  "lon": -80.6101534,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835455765,
+  "lat": 43.6127610,
+  "lon": -80.5845669,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835455865,
+  "lat": 43.5405880,
+  "lon": -80.6260115,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835455896,
+  "lat": 43.5645441,
+  "lon": -80.5394169,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835455919,
+  "lat": 43.5697453,
+  "lon": -80.5483642,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835455983,
+  "lat": 43.5759333,
+  "lon": -80.5818381,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835456013,
+  "lat": 43.6069415,
+  "lon": -80.6665096,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835456074,
+  "lat": 43.5074016,
+  "lon": -80.7191004,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835456109,
+  "lat": 43.5735899,
+  "lon": -80.5360548,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835456135,
+  "lat": 43.5721927,
+  "lon": -80.5443121,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835456248,
+  "lat": 43.6027872,
+  "lon": -80.6986905,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835456309,
+  "lat": 43.5804782,
+  "lon": -80.6646136,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835456448,
+  "lat": 43.5540718,
+  "lon": -80.7254790,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835456507,
+  "lat": 43.6083729,
+  "lon": -80.7183775,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835456532,
+  "lat": 43.6076833,
+  "lon": -80.5875184,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835456594,
+  "lat": 43.5212456,
+  "lon": -80.6603422,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835456624,
+  "lat": 43.5722410,
+  "lon": -80.6271961,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835456681,
+  "lat": 43.5019788,
+  "lon": -80.6495301,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835456712,
+  "lat": 43.5907797,
+  "lon": -80.5582344,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835456766,
+  "lat": 43.5719472,
+  "lon": -80.5232958,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835456842,
+  "lat": 43.5601081,
+  "lon": -80.6634638,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835456872,
+  "lat": 43.6051063,
+  "lon": -80.6593359,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835456946,
+  "lat": 43.5854934,
+  "lon": -80.7444071,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835457008,
+  "lat": 43.5636973,
+  "lon": -80.6687764,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835457153,
+  "lat": 43.5502830,
+  "lon": -80.7284890,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835457338,
+  "lat": 43.5910490,
+  "lon": -80.6199447,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835457675,
+  "lat": 43.5664835,
+  "lon": -80.6993145,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835457870,
+  "lat": 43.6089896,
+  "lon": -80.7099853,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835457938,
+  "lat": 43.6133638,
+  "lon": -80.5253720,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835458001,
+  "lat": 43.5285609,
+  "lon": -80.6582840,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835458089,
+  "lat": 43.5899266,
+  "lon": -80.7462026,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835458119,
+  "lat": 43.5940266,
+  "lon": -80.5196913,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835458194,
+  "lat": 43.6159040,
+  "lon": -80.7382511,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835458424,
+  "lat": 43.5426179,
+  "lon": -80.6366439,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835458548,
+  "lat": 43.6021726,
+  "lon": -80.6061394,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835458705,
+  "lat": 43.5402102,
+  "lon": -80.6531985,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835458735,
+  "lat": 43.5843343,
+  "lon": -80.7329578,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835458791,
+  "lat": 43.5867380,
+  "lon": -80.6575057,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835458821,
+  "lat": 43.5764262,
+  "lon": -80.5249944,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835458929,
+  "lat": 43.5429046,
+  "lon": -80.6616767,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835458966,
+  "lat": 43.5766595,
+  "lon": -80.5033134,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835458989,
+  "lat": 43.5876792,
+  "lon": -80.5460586,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835459025,
+  "lat": 43.5785632,
+  "lon": -80.6333676,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835459059,
+  "lat": 43.5568822,
+  "lon": -80.6793624,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835459180,
+  "lat": 43.5060300,
+  "lon": -80.6602470,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835459234,
+  "lat": 43.5877027,
+  "lon": -80.5310781,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835459307,
+  "lat": 43.5071718,
+  "lon": -80.6939499,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835459473,
+  "lat": 43.6090620,
+  "lon": -80.7099873,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835459531,
+  "lat": 43.5937938,
+  "lon": -80.6436086,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835459594,
+  "lat": 43.5056563,
+  "lon": -80.7069260,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835459647,
+  "lat": 43.6052213,
+  "lon": -80.5986598,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835459710,
+  "lat": 43.5110412,
+  "lon": -80.7124383,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835459739,
+  "lat": 43.5777973,
+  "lon": -80.7063905,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835459796,
+  "lat": 43.5848903,
+  "lon": -80.6495085,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835459972,
+  "lat": 43.6084149,
+  "lon": -80.6122512,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835459999,
+  "lat": 43.6146753,
+  "lon": -80.5337050,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835460291,
+  "lat": 43.5861730,
+  "lon": -80.6971983,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835460464,
+  "lat": 43.5275181,
+  "lon": -80.6930002,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835460621,
+  "lat": 43.6181549,
+  "lon": -80.6178776,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835460733,
+  "lat": 43.5746452,
+  "lon": -80.6111738,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835461044,
+  "lat": 43.5583646,
+  "lon": -80.7159547,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835461170,
+  "lat": 43.6169983,
+  "lon": -80.6851229,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835461385,
+  "lat": 43.5748088,
+  "lon": -80.7367523,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835461496,
+  "lat": 43.5932760,
+  "lon": -80.6160648,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835461587,
+  "lat": 43.5241637,
+  "lon": -80.6908729,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835461617,
+  "lat": 43.6132439,
+  "lon": -80.5343099,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835461794,
+  "lat": 43.6030290,
+  "lon": -80.6472028,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835461949,
+  "lat": 43.5240837,
+  "lon": -80.6906628,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835462114,
+  "lat": 43.5767795,
+  "lon": -80.6548088,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835462322,
+  "lat": 43.5427321,
+  "lon": -80.6473611,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835462363,
+  "lat": 43.6053392,
+  "lon": -80.5986100,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835462394,
+  "lat": 43.5758249,
+  "lon": -80.5415693,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835462464,
+  "lat": 43.5441232,
+  "lon": -80.6673626,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835462496,
+  "lat": 43.5786860,
+  "lon": -80.5196728,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835462582,
+  "lat": 43.5891833,
+  "lon": -80.6073888,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835462611,
+  "lat": 43.5868054,
+  "lon": -80.6288026,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835462669,
+  "lat": 43.5455299,
+  "lon": -80.7027559,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835462722,
+  "lat": 43.5704373,
+  "lon": -80.5564521,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835462785,
+  "lat": 43.5197436,
+  "lon": -80.6280026,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835462823,
+  "lat": 43.5967365,
+  "lon": -80.7052323,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835462881,
+  "lat": 43.6116844,
+  "lon": -80.6592691,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835463036,
+  "lat": 43.5388685,
+  "lon": -80.6487784,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835463072,
+  "lat": 43.5806835,
+  "lon": -80.6832687,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835463157,
+  "lat": 43.5447127,
+  "lon": -80.7132313,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835463186,
+  "lat": 43.6113774,
+  "lon": -80.6594281,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835463246,
+  "lat": 43.5400247,
+  "lon": -80.6530589,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835463393,
+  "lat": 43.5260827,
+  "lon": -80.6857871,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835463516,
+  "lat": 43.5937872,
+  "lon": -80.6287773,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835463617,
+  "lat": 43.6045208,
+  "lon": -80.5154320,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835463703,
+  "lat": 43.5760313,
+  "lon": -80.6675654,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835463841,
+  "lat": 43.5440697,
+  "lon": -80.6669335,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835463875,
+  "lat": 43.5666565,
+  "lon": -80.6146073,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835463911,
+  "lat": 43.5679601,
+  "lon": -80.5078741,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835464014,
+  "lat": 43.5753742,
+  "lon": -80.7184929,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835464092,
+  "lat": 43.5305532,
+  "lon": -80.7232244,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835464164,
+  "lat": 43.5870375,
+  "lon": -80.7392620,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835464229,
+  "lat": 43.5618868,
+  "lon": -80.6605112,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835464286,
+  "lat": 43.5759445,
+  "lon": -80.5819585,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835464376,
+  "lat": 43.5578248,
+  "lon": -80.7363676,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835464406,
+  "lat": 43.6174075,
+  "lon": -80.5430383,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835464429,
+  "lat": 43.5963594,
+  "lon": -80.5880588,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835464463,
+  "lat": 43.6128804,
+  "lon": -80.7411598,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835464613,
+  "lat": 43.5647720,
+  "lon": -80.6464760,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835464786,
+  "lat": 43.5597895,
+  "lon": -80.6690663,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835464909,
+  "lat": 43.5885566,
+  "lon": -80.5866885,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835465255,
+  "lat": 43.5197733,
+  "lon": -80.6280180,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835465390,
+  "lat": 43.6076063,
+  "lon": -80.7347288,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835465674,
+  "lat": 43.6088269,
+  "lon": -80.7056953,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835465778,
+  "lat": 43.5664703,
+  "lon": -80.5754050,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835465904,
+  "lat": 43.5077601,
+  "lon": -80.6835292,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835465934,
+  "lat": 43.6020350,
+  "lon": -80.6877158,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835466002,
+  "lat": 43.5872523,
+  "lon": -80.7391450,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835466052,
+  "lat": 43.5533617,
+  "lon": -80.7402570,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835466090,
+  "lat": 43.5914293,
+  "lon": -80.6724063,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835466191,
+  "lat": 43.5568236,
+  "lon": -80.7326678,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835466228,
+  "lat": 43.6134385,
+  "lon": -80.5095836,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835466257,
+  "lat": 43.5724389,
+  "lon": -80.5442214,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835466412,
+  "lat": 43.5879742,
+  "lon": -80.6645431,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835466538,
+  "lat": 43.5911514,
+  "lon": -80.6638136,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835466676,
+  "lat": 43.5807735,
+  "lon": -80.6710911,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 835466783,
+  "lat": 43.5471261,
+  "lon": -80.7056358,
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "node",
+  "id": 1036456242,
+  "lat": 43.4513614,
+  "lon": -80.6131808,
+  "tags": {
+    "content": "silage",
+    "man_made": "storage_tank",
+    "source": "NRCan-CanVec-7.0"
+  }
+},
+{
+  "type": "node",
+  "id": 1036456334,
+  "lat": 43.4514640,
+  "lon": -80.6230830,
+  "tags": {
+    "content": "silage",
+    "man_made": "storage_tank",
+    "source": "NRCan-CanVec-7.0"
+  }
+},
+{
+  "type": "node",
+  "id": 1036456378,
+  "lat": 43.4509505,
+  "lon": -80.6198571,
+  "tags": {
+    "content": "silage",
+    "man_made": "storage_tank",
+    "source": "NRCan-CanVec-7.0"
+  }
+},
+{
+  "type": "node",
+  "id": 1036457601,
+  "lat": 43.4408404,
+  "lon": -80.6110816,
+  "tags": {
+    "content": "silage",
+    "man_made": "storage_tank",
+    "source": "NRCan-CanVec-7.0"
+  }
+},
+{
+  "type": "node",
+  "id": 1036457663,
+  "lat": 43.4412533,
+  "lon": -80.5990455,
+  "tags": {
+    "content": "silage",
+    "man_made": "storage_tank",
+    "source": "NRCan-CanVec-7.0"
+  }
+},
+{
+  "type": "node",
+  "id": 1036463031,
+  "lat": 43.4408605,
+  "lon": -80.6110369,
+  "tags": {
+    "content": "silage",
+    "man_made": "storage_tank",
+    "source": "NRCan-CanVec-7.0"
+  }
+},
+{
+  "type": "node",
+  "id": 1036463037,
+  "lat": 43.4407501,
+  "lon": -80.6111954,
+  "tags": {
+    "content": "silage",
+    "man_made": "storage_tank",
+    "source": "NRCan-CanVec-7.0"
+  }
+},
+{
+  "type": "node",
+  "id": 1036463043,
+  "lat": 43.4400458,
+  "lon": -80.6001662,
+  "tags": {
+    "content": "silage",
+    "man_made": "storage_tank",
+    "source": "NRCan-CanVec-7.0"
+  }
+},
+{
+  "type": "node",
+  "id": 1036463055,
+  "lat": 43.4410243,
+  "lon": -80.5940861,
+  "tags": {
+    "content": "silage",
+    "man_made": "storage_tank",
+    "source": "NRCan-CanVec-7.0"
+  }
+},
+{
+  "type": "node",
+  "id": 1036463161,
+  "lat": 43.4408086,
+  "lon": -80.6111149,
+  "tags": {
+    "content": "silage",
+    "man_made": "storage_tank",
+    "source": "NRCan-CanVec-7.0"
+  }
+},
+{
+  "type": "node",
+  "id": 1036463162,
+  "lat": 43.4406683,
+  "lon": -80.6113125,
+  "tags": {
+    "content": "silage",
+    "man_made": "storage_tank",
+    "source": "NRCan-CanVec-7.0"
+  }
+},
+{
+  "type": "node",
+  "id": 1036464842,
+  "lat": 43.4410286,
+  "lon": -80.5940617,
+  "tags": {
+    "content": "silage",
+    "man_made": "storage_tank",
+    "source": "NRCan-CanVec-7.0"
+  }
+},
+{
+  "type": "node",
+  "id": 1788009733,
+  "lat": 43.4754862,
+  "lon": -80.5530975,
+  "tags": {
+    "content": "silage",
+    "man_made": "storage_tank",
+    "material": "concrete"
+  }
+},
+{
+  "type": "node",
+  "id": 1838049307,
+  "lat": 43.4400774,
+  "lon": -80.5680652,
+  "tags": {
+    "man_made": "water_tower"
+  }
+},
+{
+  "type": "node",
+  "id": 1843406183,
+  "lat": 43.4017301,
+  "lon": -80.6767278,
+  "tags": {
+    "man_made": "water_tower",
+    "source": "Bing"
+  }
+},
+{
+  "type": "node",
+  "id": 1884314209,
+  "lat": 43.5125063,
+  "lon": -80.4517988,
+  "tags": {
+    "content": "silage",
+    "man_made": "storage_tank",
+    "source": "NRCan-CanVec-10.0"
+  }
+},
+{
+  "type": "node",
+  "id": 1884641707,
+  "lat": 43.6037692,
+  "lon": -80.3035798,
+  "tags": {
+    "content": "silage",
+    "man_made": "storage_tank",
+    "source": "NRCan-CanVec-10.0"
+  }
+},
+{
+  "type": "node",
+  "id": 1884641708,
+  "lat": 43.6037798,
+  "lon": -80.3033776,
+  "tags": {
+    "content": "silage",
+    "man_made": "storage_tank",
+    "source": "NRCan-CanVec-10.0"
+  }
+},
+{
+  "type": "node",
+  "id": 1884641709,
+  "lat": 43.6037873,
+  "lon": -80.3034745,
+  "tags": {
+    "content": "silage",
+    "man_made": "storage_tank",
+    "source": "NRCan-CanVec-10.0"
+  }
+},
+{
+  "type": "node",
+  "id": 1884642619,
+  "lat": 43.5794405,
+  "lon": -80.3327525,
+  "tags": {
+    "content": "silage",
+    "man_made": "storage_tank",
+    "source": "NRCan-CanVec-10.0"
+  }
+},
+{
+  "type": "node",
+  "id": 1951555148,
+  "lat": 43.4719636,
+  "lon": -80.5427542,
+  "tags": {
+    "content": "liquid_nitrogen",
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "node",
+  "id": 2602449773,
+  "lat": 43.3456058,
+  "lon": -80.3302990,
+  "tags": {
+    "man_made": "water_tower"
+  }
+},
+{
+  "type": "node",
+  "id": 2618143091,
+  "lat": 43.5390819,
+  "lon": -80.2968377,
+  "tags": {
+    "man_made": "water_tower",
+    "operator": "City of Guelph"
+  }
+},
+{
+  "type": "node",
+  "id": 3128164277,
+  "lat": 43.5575831,
+  "lon": -80.2949420,
+  "tags": {
+    "man_made": "water_tower"
+  }
+},
+{
+  "type": "node",
+  "id": 3654793229,
+  "lat": 43.3113498,
+  "lon": -80.6123279,
+  "tags": {
+    "man_made": "water_tower"
+  }
+},
+{
+  "type": "node",
+  "id": 4391132148,
+  "lat": 43.5935257,
+  "lon": -80.5868319,
+  "tags": {
+    "man_made": "water_tower"
+  }
+},
+{
+  "type": "node",
+  "id": 5215134174,
+  "lat": 43.3589499,
+  "lon": -80.7352477,
+  "tags": {
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "node",
+  "id": 5215134175,
+  "lat": 43.3585502,
+  "lon": -80.7349017,
+  "tags": {
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "node",
+  "id": 5215134176,
+  "lat": 43.3586574,
+  "lon": -80.7349259,
+  "tags": {
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "node",
+  "id": 5215134177,
+  "lat": 43.3588778,
+  "lon": -80.7349795,
+  "tags": {
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "node",
+  "id": 5215134178,
+  "lat": 43.3589265,
+  "lon": -80.7350358,
+  "tags": {
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "node",
+  "id": 5215134261,
+  "lat": 43.3499484,
+  "lon": -80.7315114,
+  "tags": {
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "node",
+  "id": 5215134262,
+  "lat": 43.3501200,
+  "lon": -80.7315959,
+  "tags": {
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "node",
+  "id": 5215134263,
+  "lat": 43.3501619,
+  "lon": -80.7315221,
+  "tags": {
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "node",
+  "id": 5215134264,
+  "lat": 43.3500800,
+  "lon": -80.7324609,
+  "tags": {
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "node",
+  "id": 5215134265,
+  "lat": 43.3501278,
+  "lon": -80.7325226,
+  "tags": {
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "node",
+  "id": 5215134266,
+  "lat": 43.3503112,
+  "lon": -80.7321109,
+  "tags": {
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "node",
+  "id": 5215134267,
+  "lat": 43.3462961,
+  "lon": -80.7462582,
+  "tags": {
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "node",
+  "id": 5215134268,
+  "lat": 43.3462356,
+  "lon": -80.7459377,
+  "tags": {
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "node",
+  "id": 5215134269,
+  "lat": 43.3463936,
+  "lon": -80.7460450,
+  "tags": {
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "node",
+  "id": 5215134310,
+  "lat": 43.3502205,
+  "lon": -80.7425393,
+  "tags": {
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "node",
+  "id": 5215134311,
+  "lat": 43.3502097,
+  "lon": -80.7425970,
+  "tags": {
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "node",
+  "id": 5215134312,
+  "lat": 43.3501941,
+  "lon": -80.7426654,
+  "tags": {
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "node",
+  "id": 5215134313,
+  "lat": 43.3499796,
+  "lon": -80.7430154,
+  "tags": {
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "node",
+  "id": 5215134314,
+  "lat": 43.3499601,
+  "lon": -80.7430892,
+  "tags": {
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "node",
+  "id": 5215134631,
+  "lat": 43.3534015,
+  "lon": -80.7378548,
+  "tags": {
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "node",
+  "id": 6938649058,
+  "lat": 43.4727183,
+  "lon": -80.5387523,
+  "tags": {
+    "content": "liquid_nitrogen",
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "node",
+  "id": 10687179810,
+  "lat": 43.3797135,
+  "lon": -80.3063562,
+  "tags": {
+    "content": "propane",
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "node",
+  "id": 10687179811,
+  "lat": 43.3796873,
+  "lon": -80.3063485,
+  "tags": {
+    "content": "propane",
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "node",
+  "id": 10861704147,
+  "lat": 43.3897523,
+  "lon": -80.3048372,
+  "tags": {
+    "man_made": "reservoir_covered"
+  }
+},
+{
+  "type": "node",
+  "id": 10861704148,
+  "lat": 43.3899062,
+  "lon": -80.3038685,
+  "tags": {
+    "man_made": "reservoir_covered"
+  }
+},
+{
+  "type": "node",
+  "id": 11884470720,
+  "lat": 43.4221688,
+  "lon": -80.4385178,
+  "tags": {
+    "man_made": "water_tower"
+  }
+},
+{
+  "type": "node",
+  "id": 11978692785,
+  "lat": 43.4449004,
+  "lon": -80.4947908,
+  "tags": {
+    "man_made": "water_well",
+    "pump": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 12824996657,
+  "lat": 43.4150228,
+  "lon": -80.2930088,
+  "tags": {
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "node",
+  "id": 13053184990,
+  "lat": 43.5231667,
+  "lon": -80.2033980,
+  "tags": {
+    "addr:city": "Guelph",
+    "addr:housenumber": "49",
+    "addr:street": "Robin Road",
+    "man_made": "pumping_station",
+    "name": "Barton Estates SPS",
+    "operator": "City of Guelph"
+  }
+},
+{
+  "type": "node",
+  "id": 13130957713,
+  "lat": 43.5788061,
+  "lon": -80.2483519,
+  "tags": {
+    "addr:street": "Longfellow Avenue",
+    "man_made": "pumping_station",
+    "operator": "City of Guelph"
+  }
+},
+{
+  "type": "node",
+  "id": 13366129888,
+  "lat": 43.5089169,
+  "lon": -80.5316125,
+  "tags": {
+    "content": "liquid_argon",
+    "man_made": "storage_tank",
+    "material": "metal"
+  }
+},
+{
+  "type": "node",
+  "id": 13629076980,
+  "lat": 43.4708770,
+  "lon": -80.5442130,
+  "tags": {
+    "content": "liquid_nitrogen",
+    "man_made": "storage_tank",
+    "material": "metal"
+  }
+},
+{
+  "type": "node",
+  "id": 13629076981,
+  "lat": 43.4708597,
+  "lon": -80.5442458,
+  "tags": {
+    "content": "liquid_nitrogen",
+    "man_made": "storage_tank",
+    "material": "metal"
+  }
+},
+{
+  "type": "node",
+  "id": 13979220303,
+  "lat": 43.5937237,
+  "lon": -80.5510832,
+  "tags": {
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 39945653,
+  "center": {
+    "lat": 43.4625243,
+    "lon": -80.5199000
+  },
+  "tags": {
+    "canvec:UUID": "ffbcba63e7944e43ac58705fe07636ba",
+    "content": "water",
+    "layer": "-1",
+    "man_made": "reservoir_covered",
+    "source": "CanVec_Import_2009"
+  }
+},
+{
+  "type": "way",
+  "id": 67792401,
+  "center": {
+    "lat": 43.4649026,
+    "lon": -80.4854941
+  },
+  "tags": {
+    "content": "water",
+    "layer": "-1",
+    "location": "underground",
+    "man_made": "reservoir_covered",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "way",
+  "id": 89355484,
+  "center": {
+    "lat": 43.4425207,
+    "lon": -80.5840200
+  },
+  "tags": {
+    "content": "water",
+    "man_made": "reservoir_covered",
+    "name": "Erb Street Reservoir",
+    "source": "NRCan-CanVec-7.0"
+  }
+},
+{
+  "type": "way",
+  "id": 95764646,
+  "center": {
+    "lat": 43.4939581,
+    "lon": -80.5724862
+  },
+  "tags": {
+    "building": "yes",
+    "content": "water",
+    "man_made": "storage_tank",
+    "source": "Bing"
+  }
+},
+{
+  "type": "way",
+  "id": 154430880,
+  "center": {
+    "lat": 43.4465271,
+    "lon": -80.5070013
+  },
+  "tags": {
+    "addr:city": "Kitchener",
+    "addr:housenumber": "25",
+    "addr:street": "Strange Street",
+    "man_made": "water_works"
+  }
+},
+{
+  "type": "way",
+  "id": 180348780,
+  "center": {
+    "lat": 43.4106963,
+    "lon": -80.3111315
+  },
+  "tags": {
+    "man_made": "storage_tank",
+    "source": "CanVec 6.0 - NRCan"
+  }
+},
+{
+  "type": "way",
+  "id": 186078972,
+  "center": {
+    "lat": 43.4125302,
+    "lon": -80.3929734
+  },
+  "tags": {
+    "man_made": "water_tower"
+  }
+},
+{
+  "type": "way",
+  "id": 208409003,
+  "center": {
+    "lat": 43.5273291,
+    "lon": -80.2805659
+  },
+  "tags": {
+    "building": "yes",
+    "man_made": "pumping_station"
+  }
+},
+{
+  "type": "way",
+  "id": 208936870,
+  "center": {
+    "lat": 43.4581888,
+    "lon": -80.4545346
+  },
+  "tags": {
+    "addr:city": "Kitchener",
+    "addr:housenumber": "451",
+    "addr:street": "Manchester Road",
+    "building": "service",
+    "man_made": "pumping_station",
+    "name": "Wastewater Pumping Station #11",
+    "operator": "City of Kitchener",
+    "pumping_station": "wastewater",
+    "ref": "11"
+  }
+},
+{
+  "type": "way",
+  "id": 227455126,
+  "center": {
+    "lat": 43.4393723,
+    "lon": -80.4308311
+  },
+  "tags": {
+    "building": "service",
+    "man_made": "pumping_station",
+    "substance": "wastewater"
+  }
+},
+{
+  "type": "way",
+  "id": 464614780,
+  "center": {
+    "lat": 43.3910059,
+    "lon": -80.3698116
+  },
+  "tags": {
+    "addr:city": "Cambridge",
+    "addr:housenumber": "932",
+    "addr:postcode": "N3H 5B7",
+    "addr:street": "Dover Street South",
+    "backup_generator": "yes",
+    "building": "yes",
+    "man_made": "pumping_station",
+    "name": "Dover Street Pumping Station",
+    "operator": "City of Cambridge",
+    "pumping_station": "sewage"
+  }
+},
+{
+  "type": "way",
+  "id": 618124796,
+  "center": {
+    "lat": 43.4630624,
+    "lon": -80.6833945
+  },
+  "tags": {
+    "building": "yes",
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 631423107,
+  "center": {
+    "lat": 43.4707484,
+    "lon": -80.6589561
+  },
+  "tags": {
+    "building": "yes",
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 631423108,
+  "center": {
+    "lat": 43.4707514,
+    "lon": -80.6588603
+  },
+  "tags": {
+    "building": "yes",
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 722813129,
+  "center": {
+    "lat": 43.4622983,
+    "lon": -80.5199181
+  },
+  "tags": {
+    "access": "no",
+    "addr:city": "Waterloo",
+    "addr:housenumber": "17,23",
+    "addr:street": "William Street East",
+    "man_made": "water_works",
+    "name": "William Street Pumping Station",
+    "operator": "Region of Waterloo",
+    "pumping_station": "water"
+  }
+},
+{
+  "type": "way",
+  "id": 799495393,
+  "center": {
+    "lat": 43.4883344,
+    "lon": -80.5098014
+  },
+  "tags": {
+    "building": "storage_tank",
+    "content": "sewage",
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 799495394,
+  "center": {
+    "lat": 43.4887178,
+    "lon": -80.5096404
+  },
+  "tags": {
+    "building": "storage_tank",
+    "content": "sewage",
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 861242283,
+  "center": {
+    "lat": 43.4637113,
+    "lon": -80.4518659
+  },
+  "tags": {
+    "addr:city": "Kitchener",
+    "addr:housenumber": "230",
+    "addr:street": "Carson Drive",
+    "building": "service",
+    "man_made": "pumping_station",
+    "name": "Wastewater Pumping Station #10",
+    "operator": "City of Kitchener",
+    "pumping_station": "wastewater",
+    "ref": "10"
+  }
+},
+{
+  "type": "way",
+  "id": 877305232,
+  "center": {
+    "lat": 43.5371400,
+    "lon": -80.2223314
+  },
+  "tags": {
+    "building": "yes",
+    "man_made": "water_tower",
+    "source": "microsoft/BuildingFootprints"
+  }
+},
+{
+  "type": "way",
+  "id": 882913720,
+  "center": {
+    "lat": 43.5545316,
+    "lon": -80.2658221
+  },
+  "tags": {
+    "building": "yes",
+    "man_made": "water_tower",
+    "source": "microsoft/BuildingFootprints"
+  }
+},
+{
+  "type": "way",
+  "id": 908324559,
+  "center": {
+    "lat": 43.5249747,
+    "lon": -80.2650708
+  },
+  "tags": {
+    "building": "yes",
+    "content": "sewage",
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 908324560,
+  "center": {
+    "lat": 43.5247415,
+    "lon": -80.2652058
+  },
+  "tags": {
+    "building": "yes",
+    "content": "sewage",
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 908324561,
+  "center": {
+    "lat": 43.5239603,
+    "lon": -80.2652414
+  },
+  "tags": {
+    "building": "yes",
+    "content": "sewage",
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 908324562,
+  "center": {
+    "lat": 43.5241069,
+    "lon": -80.2654945
+  },
+  "tags": {
+    "building": "yes",
+    "content": "sewage",
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 908324563,
+  "center": {
+    "lat": 43.5239104,
+    "lon": -80.2657033
+  },
+  "tags": {
+    "building": "yes",
+    "content": "sewage",
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 908980557,
+  "center": {
+    "lat": 43.5248852,
+    "lon": -80.2629055
+  },
+  "tags": {
+    "building": "yes",
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 908980558,
+  "center": {
+    "lat": 43.5247520,
+    "lon": -80.2630799
+  },
+  "tags": {
+    "building": "yes",
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 908980559,
+  "center": {
+    "lat": 43.5246205,
+    "lon": -80.2629041
+  },
+  "tags": {
+    "building": "yes",
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 908980561,
+  "center": {
+    "lat": 43.5245241,
+    "lon": -80.2631265
+  },
+  "tags": {
+    "building": "yes",
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 919348273,
+  "center": {
+    "lat": 43.4240069,
+    "lon": -80.4130445
+  },
+  "tags": {
+    "man_made": "pumping_station",
+    "name": "Freeport Pumping Station",
+    "operator": "City of Kitchener"
+  }
+},
+{
+  "type": "way",
+  "id": 931664175,
+  "center": {
+    "lat": 43.5552665,
+    "lon": -80.2512444
+  },
+  "tags": {
+    "building": "yes",
+    "content": "fuel",
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 949052793,
+  "center": {
+    "lat": 43.3807802,
+    "lon": -80.5340867
+  },
+  "tags": {
+    "landuse": "industrial",
+    "man_made": "pumping_station"
+  }
+},
+{
+  "type": "way",
+  "id": 954456462,
+  "center": {
+    "lat": 43.5089997,
+    "lon": -80.2133946
+  },
+  "tags": {
+    "addr:city": "Guelph",
+    "addr:housenumber": "51",
+    "addr:street": "Terraview Crescent",
+    "building": "service",
+    "building:levels": "1",
+    "man_made": "pumping_station",
+    "name": "Terraview Sewage Pumping Station",
+    "operator": "City of Guelph",
+    "substance": "sewage"
+  }
+},
+{
+  "type": "way",
+  "id": 1030283569,
+  "center": {
+    "lat": 43.5404834,
+    "lon": -80.2986537
+  },
+  "tags": {
+    "building": "yes",
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 1030283570,
+  "center": {
+    "lat": 43.5404465,
+    "lon": -80.2987054
+  },
+  "tags": {
+    "building": "yes",
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 1030283571,
+  "center": {
+    "lat": 43.5404465,
+    "lon": -80.2986059
+  },
+  "tags": {
+    "building": "yes",
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 1030283572,
+  "center": {
+    "lat": 43.5403554,
+    "lon": -80.2985781
+  },
+  "tags": {
+    "building": "yes",
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 1030283573,
+  "center": {
+    "lat": 43.5402917,
+    "lon": -80.2984747
+  },
+  "tags": {
+    "building": "yes",
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 1030283574,
+  "center": {
+    "lat": 43.5402437,
+    "lon": -80.2985398
+  },
+  "tags": {
+    "building": "yes",
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 1030283575,
+  "center": {
+    "lat": 43.5402812,
+    "lon": -80.2985904
+  },
+  "tags": {
+    "building": "yes",
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 1030283576,
+  "center": {
+    "lat": 43.5403171,
+    "lon": -80.2986449
+  },
+  "tags": {
+    "building": "yes",
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 1030283577,
+  "center": {
+    "lat": 43.5406151,
+    "lon": -80.2981207
+  },
+  "tags": {
+    "building": "yes",
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 1030283578,
+  "center": {
+    "lat": 43.5405855,
+    "lon": -80.2980798
+  },
+  "tags": {
+    "building": "yes",
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 1030283579,
+  "center": {
+    "lat": 43.5405365,
+    "lon": -80.2980138
+  },
+  "tags": {
+    "building": "yes",
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 1030283580,
+  "center": {
+    "lat": 43.5405878,
+    "lon": -80.2979549
+  },
+  "tags": {
+    "building": "yes",
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 1030283581,
+  "center": {
+    "lat": 43.5406828,
+    "lon": -80.2982126
+  },
+  "tags": {
+    "building": "yes",
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 1030283582,
+  "center": {
+    "lat": 43.5407357,
+    "lon": -80.2982806
+  },
+  "tags": {
+    "building": "yes",
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 1030283583,
+  "center": {
+    "lat": 43.5407893,
+    "lon": -80.2975043
+  },
+  "tags": {
+    "building": "yes",
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 1052527117,
+  "center": {
+    "lat": 43.5311065,
+    "lon": -80.2501818
+  },
+  "tags": {
+    "addr:city": "Guelph",
+    "addr:housenumber": "211",
+    "addr:street": "Edinburgh Road South",
+    "building": "service",
+    "building:levels": "1",
+    "man_made": "water_works",
+    "name": "Edinburgh Well",
+    "operator": "City of Guelph"
+  }
+},
+{
+  "type": "way",
+  "id": 1068707886,
+  "center": {
+    "lat": 43.4646391,
+    "lon": -80.5635664
+  },
+  "tags": {
+    "barrier": "fence",
+    "fence_type": "chain_link",
+    "landuse": "industrial",
+    "man_made": "water_works",
+    "name": "Well W10",
+    "operator": "Region of Waterloo"
+  }
+},
+{
+  "type": "way",
+  "id": 1078711580,
+  "center": {
+    "lat": 43.5177559,
+    "lon": -80.5159898
+  },
+  "tags": {
+    "addr:city": "Waterloo",
+    "addr:housenumber": "2401",
+    "addr:street": "University Avenue East",
+    "barrier": "fence",
+    "fence_type": "chain_link",
+    "man_made": "pumping_station",
+    "name": "Northlands Waste Water Pumping Station",
+    "operator": "City of Waterloo",
+    "substance": "sewage"
+  }
+},
+{
+  "type": "way",
+  "id": 1238669001,
+  "center": {
+    "lat": 43.4945821,
+    "lon": -80.5467052
+  },
+  "tags": {
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 1238669002,
+  "center": {
+    "lat": 43.4946228,
+    "lon": -80.5467334
+  },
+  "tags": {
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 1306042708,
+  "center": {
+    "lat": 43.4302404,
+    "lon": -80.4981417
+  },
+  "tags": {
+    "addr:city": "Kitchener",
+    "addr:housenumber": "20",
+    "addr:street": "Greenbrook Drive",
+    "man_made": "pumping_station",
+    "name": "Greenbrook Pumping Station"
+  }
+},
+{
+  "type": "way",
+  "id": 1337571058,
+  "center": {
+    "lat": 43.5340410,
+    "lon": -80.2272076
+  },
+  "tags": {
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 1337571059,
+  "center": {
+    "lat": 43.5339999,
+    "lon": -80.2271512
+  },
+  "tags": {
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 1347879954,
+  "center": {
+    "lat": 43.3879684,
+    "lon": -80.3520803
+  },
+  "tags": {
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 1347879955,
+  "center": {
+    "lat": 43.3878709,
+    "lon": -80.3521723
+  },
+  "tags": {
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 1347879989,
+  "center": {
+    "lat": 43.3881784,
+    "lon": -80.3520219
+  },
+  "tags": {
+    "location": "partially_underground",
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 1347879990,
+  "center": {
+    "lat": 43.3882747,
+    "lon": -80.3522178
+  },
+  "tags": {
+    "location": "partially_underground",
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 1347879991,
+  "center": {
+    "lat": 43.3883196,
+    "lon": -80.3518889
+  },
+  "tags": {
+    "location": "partially_underground",
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 1347879992,
+  "center": {
+    "lat": 43.3884156,
+    "lon": -80.3520834
+  },
+  "tags": {
+    "location": "partially_underground",
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 1347879996,
+  "center": {
+    "lat": 43.3879933,
+    "lon": -80.3506115
+  },
+  "tags": {
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 1347879997,
+  "center": {
+    "lat": 43.3880974,
+    "lon": -80.3508165
+  },
+  "tags": {
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 1420490360,
+  "center": {
+    "lat": 43.5232064,
+    "lon": -80.2034635
+  },
+  "tags": {
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 1474901583,
+  "center": {
+    "lat": 43.6043171,
+    "lon": -80.4995480
+  },
+  "tags": {
+    "man_made": "storage_tank"
+  }
+},
+{
+  "type": "way",
+  "id": 1506244177,
+  "center": {
+    "lat": 43.3934257,
+    "lon": -80.4155005
+  },
+  "tags": {
+    "building": "service",
+    "man_made": "pumping_station",
+    "operator": "City of Cambridge"
+  }
+}
+
+  ]
+}
