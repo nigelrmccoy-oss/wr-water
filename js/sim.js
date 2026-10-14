@@ -81,6 +81,9 @@ export function buildZoneConfigs() {
     if (z.id === 'NHB') { c.avgDemandM3d = z.avgDemandM3d - NHB_IUS_TRANSFER_AVG_LS * 86.4; c.demandMethod = `NH3/NH4 + K50 2025 production minus ≈${NHB_IUS_TRANSFER_AVG_LS} L/s average K50 transfer to the IUS (ESTIMATE; transfer cap 87 L/s real – Wilmot Agreement).`; }
     out.push(c);
   }
+  // ESTIMATE: typical customer ground elevation below the zone HGL ("service depth", m). Not published; 50–64 m spread by a
+  // deterministic hash so zones differ (real Ontario zones are designed for ≈ 275–690 kPa static). Wat 4 pinned at 50 m (main-break tuning).
+  for (const z of out) if (z.ius && !z.node) { z.serviceDepthM = z.serviceDepthM ?? (z.id === 'WAT4' ? 50 : Math.round(50 + 14 * hash01(z.id + 'elev'))); z.custElevM = z.hgl - z.serviceDepthM; }
   const byId = Object.fromEntries(out.map(z => [z.id, z]));
   for (const s of DATA.sites) byId[SITE_ZONE[s.id] || s.zone].sites.push(s.id);
   return out;
@@ -121,7 +124,7 @@ export class Sim {
     for (const z of this.zones.values()) { z.today = newTotals(); z.trend = new Trend(z.trend.keys); z.minPress = 999; }
     for (const s of this.sites.values()) { s.today = newTotals(); s.trend = new Trend(s.trend.keys); for (const p of s.allPumps()) p.starts = 0; }
     for (const l of this.links.values()) l.today = newTotals();
-    this.totalsExtra = newTotals();
+    this.totalsExtra = newTotals(); this.totalsSince = this.time.getTime();
     this.peak.todayKw = new Array(24).fill(null); this.peak.hourAcc = 0; this.peak.hourKwS = 0; this.peak.curHour = this.time.getHours();
   }
 
@@ -162,7 +165,7 @@ export class Sim {
     if (kind === 'surface') {
       s.wells = ['LL-1', 'LL-2'].map(id => mkPump(id, 'lowlift', 420, A.tdhM.mannLowLift));
       s.boosters = ['B-1', 'B-2', 'B-3'].map(id => mkPump(id, 'booster', 315, A.tdhM.mannBooster));
-      s.plant = { mode: 'AUTO', flowSp: 497, flow: 480, paclSp: 22, paclReq: 12, polySp: 0.1, ozoneSp: 1.5, settled: 1.0, filtered: 0.08, ftw: false, ftwTimer: 0, okTimer: 0, highTurbTimer: 0, cap: 625, autoBw: true, bwWater: 0 };
+      s.plant = { mode: 'AUTO', flowSp: 497, flow: 480, paclSp: 15, paclReq: 12, polySp: 0.1, ozoneSp: 1.5, settled: 1.0, filtered: 0.08, ftw: false, ftwTimer: 0, okTimer: 0, highTurbTimer: 0, cap: 625, autoBw: true, bwWater: 0 };
       s.filters = Array.from({ length: MF.n }, (_, i) => ({ id: `F${i + 1}`, media: MF.media[i], state: 'SERVICE', step: -1, stepT: 0, solids: (0.15 + 0.2 * i) * MF.breakVolM3 * 1.5, hl: 0.5, turb: 0.05, q: 0, runH: 20 + 22 * i, ripen: 0, skipFtw: false, washes: 0 }));
       s.cwLevel = 60;
     } else {
@@ -250,7 +253,10 @@ export class Sim {
   stepZone(z, dt) {
     const c = z.cfg;
     const net = (z.inLs - z.outLs - z.demandLs) / 1000 * dt;
-    z.level = clamp(z.level + net / z.volM3 * 100, 0, 100);
+    let vNew = z.level / 100 * z.volM3 + net; z.spillLs = 0; z.unservedLs = 0;
+    if (vNew > z.volM3) { z.spillLs = (vNew - z.volM3) / dt * 1000; z.today.spill = (z.today.spill || 0) + (vNew - z.volM3); vNew = z.volM3; } // overflow to drain (mass-balance sink)
+    if (vNew < 0) { z.unservedLs = -vNew / dt * 1000; z.today.unserved = (z.today.unserved || 0) - vNew; vNew = 0; }         // demand that could not be met
+    z.level = vNew / z.volM3 * 100;
     if (c.node) { z.press = NaN; this.alarms.set(z.level < 20, `${z.id}:lvlLo`, null, `${c.name}: level LOW ${z.level.toFixed(0)}%`, 2); return; }
     if (!c.closed) {
       if (z.level >= 100 && z.inLs > z.demandLs + z.outLs) this.alarms.raise(`${z.id}:ovf`, null, `${c.name}: storage OVERFLOW`, 2);
@@ -263,13 +269,13 @@ export class Sim {
       let h = c.hgl - (100 - z.level) / 100 * range - hl + 4;
       if (z.level < 15) h -= (15 - z.level) * 3;
       h -= z.leakLs / 20; // local hydraulic grade collapse around a large break (ESTIMATE)
-      z.press = Math.max(0, G * (h - (c.hgl - 50)));
+      z.press = Math.max(0, G * (h - c.custElevM)); // customer elevation = HGL − serviceDepthM (ESTIMATE)
     } else {
       const loss = 40 * (z.demandLs / avgLs - 1);
       z.press = Math.max(0, c.pMin + (c.pMax - c.pMin) * (z.level / 100) - Math.max(loss, -20) - (z.level < 10 ? (10 - z.level) * 25 : 0));
     }
     z.minPress = Math.min(z.minPress, z.press);
-    z.today.m3 += z.demandLs / 1000 * dt;
+    z.today.m3 += (z.demandLs - z.unservedLs) / 1000 * dt; // delivered to customers (incl. leakage)
     if (!c.closed) {
       this.alarms.set(z.level < 25, `${z.id}:lvlLo`, null, `${c.name}: storage LOW ${z.level.toFixed(0)}%`, 2);
       this.alarms.set(z.level < 10, `${z.id}:lvlLoLo`, null, `${c.name}: storage LOW-LOW ${z.level.toFixed(0)}%`, 1);
@@ -284,7 +290,7 @@ export class Sim {
     this.ydayExtra = this.totalsExtra; this.totalsExtra = newTotals();
     if (this.time.getMonth() !== this.month) { this.month = this.time.getMonth(); for (const x of [...this.sites.values(), ...this.links.values()]) x.monthKwh = 0; }
     for (const z of this.zones.values()) z.minPress = 999;
-    this.peak.todayKw = new Array(24).fill(null);
+    this.peak.todayKw = new Array(24).fill(null); this.totalsSince = new Date(this.time.getFullYear(), this.time.getMonth(), this.time.getDate()).getTime();
     this.alarms.log('Midnight: daily totals rolled over');
   }
 
@@ -508,11 +514,15 @@ export class Sim {
       this.alarms.set(cwLowCut, `${s.id}:cwLo`, s.id, `${s.cfg.name}: clearwell LOW ${s.cwLevel.toFixed(0)}% – PLC holding high lift`, 2);
       const wantH = s.interlock || cwLowCut ? 0 : this.staging(z.level, { start: s.sp.leadStart, stop: s.sp.leadStop, stagger: s.sp.stagger }, s.hlDuty, s.hl.filter(p => p.mode === 'AUTO' && p.state === 'RUN').length);
       this.runPumps(s, s.hl, wantH, dt, s.hlDuty);
+      if (!z.cfg.closed && !z.cfg.node && z.level >= 99.5) for (const p of s.hl) if (p.state === 'RUN') p.state = 'STOP'; // high float
       const lowSuction = s.cwLevel < 5;
       let qOut = 0; for (const p of s.hl) { const q = p.state === 'RUN' && !lowSuction ? p.qCap : 0; qOut += q; kw += this.pumpPower(p, q); }
       this.alarms.set(lowSuction && s.hl.some(p => p.state === 'RUN'), `${s.id}:cwLoLo`, s.id, `${s.cfg.name}: clearwell LOW-LOW – high lift low suction cut-out`, 1);
       this.alarms.set(s.cwLevel > 97, `${s.id}:cwHi`, s.id, `${s.cfg.name}: clearwell HIGH ${s.cwLevel.toFixed(0)}%`, 3);
-      s.cwLevel = clamp(s.cwLevel + (qIn - qOut) / 1000 * dt / s.cwVol * 100, 0, 100);
+      const cwAvail = qIn + s.cwLevel / 100 * s.cwVol / dt * 1000; if (qOut > cwAvail) qOut = cwAvail;
+      let cwNew = s.cwLevel / 100 * s.cwVol + (qIn - qOut) / 1000 * dt; s.cwSpill = 0;
+      if (cwNew > s.cwVol) { s.cwSpill = (cwNew - s.cwVol) / dt * 1000; cwNew = s.cwVol; } // clearwell overflow (mass-balance sink)
+      s.cwLevel = cwNew / s.cwVol * 100;
       s.flowIn = qIn; s.flowOut = qOut;
       this.chlorinate(s, qIn > 0 ? qIn : qOut, dt);
       if (s.aop) kw += this.stepAop(s, qIn, dt);
@@ -524,6 +534,7 @@ export class Sim {
       const spx = s.kind === 'asr' ? { start: 45, stop: 75, stagger: 0 } : { start: s.sp.leadStart, stop: s.sp.leadStop, stagger: s.sp.stagger };
       const want = s.interlock ? 0 : this.staging(lvl, spx, s.cfg.dutyMax, s.wells.filter(p => p.mode === 'AUTO' && p.state === 'RUN').length);
       this.runPumps(s, s.wells, want, dt, s.cfg.dutyMax);
+      if (s.kind !== 'asr' && !z.cfg.closed && z.level >= 99.5) for (const p of s.wells) if (p.state === 'RUN') p.state = 'STOP'; // hardwired reservoir high float
       let q = 0; for (const p of s.wells) { const qq = p.state === 'RUN' ? p.qCap * (inj.wellDerate ?? 1) : 0; q += qq; kw += this.pumpPower(p, qq); }
       if (s.uv && s.interlock) q = 0;
       s.flowIn = q; s.flowOut = q;
@@ -603,22 +614,25 @@ export class Sim {
     P.paclReq = 10 + 0.3 * raw;
     const def = Math.max(0, (P.paclReq - P.paclSp) / P.paclReq);
     const nF = inSvc.length + ftwF.length;
-    P.settled = lag(P.settled, raw * (0.05 + 0.6 * def), dt, 900);
+    P.settled = lag(P.settled, raw * (0.05 + 0.6 * def + 0.25 * Math.min(Math.max(0, P.paclSp / P.paclReq - 1.6), 2)), dt, 900);
     // per-filter hydraulics + quality (ESTIMATE)
     const qf = nF > 0 ? P.flow / nF : 0;
     const loadF = (qf / MF.capLsEach) ** 2;
-    const coagTerm = 2.5 * def ** 1.5 * Math.sqrt(raw / 50) + (this.injected.MWTP?.filterBreak || 0);
+    const over = Math.max(0, P.paclSp / P.paclReq - 1.6); // overdose → charge reversal / restabilisation (ESTIMATE)
+    P.doseState = def > 0.05 ? 'UNDER' : over > 0 ? 'OVER' : 'OK';
+    const coagTerm = 2.5 * def ** 1.5 * Math.sqrt(raw / 50) + 0.35 * Math.min(over, 2) ** 1.3 * Math.sqrt(raw / 20) + (this.injected.MWTP?.filterBreak || 0);
     const Sbt = MF.breakVolM3 * 1.5, Sterm = Sbt * 1.25;
     let num = 0, den = 0;
     for (const f of s.filters) {
       if (f.state === 'SERVICE' || (f.state === 'WASH' && MF.steps[f.step][0] === 'FILTER-TO-WASTE')) {
-        f.q = qf; f.solids += qf / 1000 * dt * (0.5 + P.settled); f.runH += dt / 3600;
+        f.q = qf; f.solids += qf / 1000 * dt * (0.5 + 3 * P.settled); // floc load on the filter rises with settled turbidity (ESTIMATE) f.runH += dt / 3600;
       } else f.q = 0;
       f.hl = 0.35 + (MF.termHeadlossM - 0.35) * Math.min(1.3, f.solids / Sterm) * (0.6 + 0.4 * Math.sqrt(loadF + 0.01));
       const Sb = Sbt * (f.btScale || 1); // btScale: per-filter breakthrough capacity (scenario use; deep GAC beds hold more)
       const bt = f.solids > Sb ? 0.6 * (Math.exp((f.solids - Sb) / (0.12 * Sbt)) - 1) : 0;
       f.ripen = lag(f.ripen, 0, dt, 900);
-      f.turb = lag(f.turb, Math.min(3, 0.04 + 0.03 * loadF + bt + f.ripen + coagTerm), dt, 300);
+      const carry = 0.06 * P.settled * loadF; // floc carry-over through the filter rises with settled NTU and filter loading (ESTIMATE)
+      f.turb = lag(f.turb, Math.min(3, 0.04 + 0.03 * loadF + carry + bt + f.ripen + coagTerm), dt, 300);
       if (f.state === 'SERVICE') { num += f.q * f.turb; den += f.q; }
       this.alarms.set(f.state === 'SERVICE' && f.hl >= MF.termHeadlossM, `MWTP:${f.id}:hl`, 'MWTP', `Mannheim WTP ${f.id}: TERMINAL HEADLOSS ${f.hl.toFixed(2)} m – backwash required`, 2);
       this.alarms.set(f.state === 'SERVICE' && f.turb > 0.2, `MWTP:${f.id}:turb`, 'MWTP', `Mannheim WTP ${f.id}: effluent turbidity ${f.turb.toFixed(2)} NTU (breakthrough)`, 2);
@@ -630,6 +644,7 @@ export class Sim {
     if (P.ftw) { P.okTimer = P.filtered < L.filteredTurbAlarm ? P.okTimer + dt : 0; if (P.okTimer > 300) { P.ftw = false; P.okTimer = 0; this.alarms.clear('MWTP:ftw'); this.alarms.log('Mannheim WTP: filters returned to service', 'MWTP'); } }
     this.alarms.set(P.filtered > L.filteredTurbAlarm, 'MWTP:turb', 'MWTP', `Mannheim WTP: combined filtered turbidity HIGH ${P.filtered.toFixed(2)} NTU (>0.3)`, 1);
     this.alarms.set(raw > 50, 'MWTP:raw', 'MWTP', `Grand River raw turbidity HIGH ${raw.toFixed(0)} NTU`, 3);
+    this.alarms.set(P.doseState === 'OVER' && raw > 5, 'MWTP:coagOver', 'MWTP', `Mannheim WTP: coagulant OVERDOSED (${P.paclSp.toFixed(0)} vs jar test ≈${P.paclReq.toFixed(0)} mg/L) – restabilisation risk`, 2);
     this.alarms.set(P.paclSp < P.paclReq * 0.8 && raw > 20, 'MWTP:coag', 'MWTP', `Mannheim WTP: coagulant under-dosed (jar test suggests ≈${P.paclReq.toFixed(0)} mg/L)`, 2);
     this.alarms.set(P.flowSp > P.cap + 5 && P.cap > 0, 'MWTP:cap', 'MWTP', `Mannheim WTP: capacity limited to ${P.cap.toFixed(0)} L/s (${inSvc.length} filters in service${s.genFrac < 1 ? ', on generator' : ''})`, 3);
     const ftwQ = ftwF.reduce((a, f) => a + f.q, 0);
@@ -637,9 +652,13 @@ export class Sim {
     s.uv.dose = s.uv.fault || s.powerOn === false ? 5 : s.uv.sp;
     this.chlorinate(s, qToCw, dt, 0.008 * raw);
     const bwDraw = s.filters.some(f => f.state === 'WASH' && MF.steps[f.step][0] === 'BACKWASH') ? MF.bwRateLs : 0;
-    const qTr = s.powerOn === false ? 0 : clamp(qToCw + asr + 20 * (s.cwLevel - 60), 0, 1000);
-    s.cwLevel = clamp(s.cwLevel + (qToCw + asr - qTr - bwDraw) / 1000 * dt / s.cwVol * 100, 0, 100);
-    s.flowIn = P.flow; s.flowOut = qTr; s.qToCw = qToCw; s.wasteLs = ftwQ + bwDraw;
+    const cwAvail = qToCw + asr - bwDraw + s.cwLevel / 100 * s.cwVol / dt * 1000;
+    const qTr = s.powerOn === false ? 0 : clamp(Math.min(qToCw + asr + 20 * (s.cwLevel - 60), cwAvail), 0, 1000);
+    let cwNew = s.cwLevel / 100 * s.cwVol + (qToCw + asr - qTr - bwDraw) / 1000 * dt; s.cwSpill = 0;
+    if (cwNew > s.cwVol) { s.cwSpill = (cwNew - s.cwVol) / dt * 1000; cwNew = s.cwVol; }
+    if (cwNew < 0) cwNew = 0; // (only if backwash draw exceeds stored water – negligible)
+    s.cwLevel = cwNew / s.cwVol * 100;
+    s.flowIn = P.flow; s.flowOut = qTr; s.qToCw = qToCw; s.wasteLs = (P.flow - qToCw) + bwDraw; // FTW / interlock-to-waste + backwash water
     z.inLs += qTr;
     kw += G * (qTr / 1000) * 15 / A.pumpWireToWaterEff.value; // clearwell transfer to Mannheim reservoir (est 15 m)
     kw += A.processKwhPerM3.mannheim * P.flow * 3.6 + G * bwDraw / 1000 * 12 / A.pumpWireToWaterEff.value;
@@ -668,6 +687,7 @@ export class Sim {
     if (up.level < 8) avail *= Math.max(0, up.level / 8);
     if (l.capFrac != null) avail *= l.capFrac; // partial isolation / parallel route (scenario use)
     if (l.isolated) avail = 0;
+    if (!dn.cfg.node && !dn.cfg.closed && dn.level >= 98.5) avail = 0; // altitude valve / high-level PS cut-out (est)
     let q;
     if (l.mode === 'CLOSED') { q = 0; l.I = 0; }
     else if (l.mode === 'MAN') q = Math.min(l.manQ, avail);
@@ -730,6 +750,7 @@ export class Sim {
     for (const x of [...this.sites.values(), ...this.links.values()]) { t.m3 += x.cfg.kind === 'PS' || x.cfg.from ? 0 : x.today.m3; t.kwh += x.today.kwh; t.elec += x.today.elec + x.today.ga; t.diesel += x.today.diesel; t.chem += x.today.chem; t.ga += x.today.ga; kw += x.kw || 0; }
     for (const z of this.zones.values()) { if (z.cfg.node) continue; demandLs += z.demandLs; }
     for (const s of this.sites.values()) supplyLs += s.kind === 'asr' ? 0 : s.flowOut;
-    return { ...t, kw, supplyLs, demandLs, classAKw: this.classAKw };
+    t.m3 = 0; for (const z of this.zones.values()) t.m3 += z.today.m3; // delivered to customers = Σ zones
+    return { ...t, kw, supplyLs, demandLs, classAKw: this.classAKw, since: this.totalsSince };
   }
 }

@@ -23,6 +23,7 @@
   <div id="speed">
     <button data-speed="0" title="Pause">❚❚</button><button data-speed="1">1×</button><button data-speed="10">10×</button><button data-speed="60" class="on">60×</button><button data-speed="300">300×</button><button data-speed="900">900×</button>
   </div>
+  <button id="btnSave" title="Save session to this browser (localStorage)">💾 Save</button><button id="btnResume" title="Resume the last saved session">⟲ Resume</button>
   <select id="scenarioSel"><option value="">Free play (no scenario)</option></select>
 </header>
 <div id="kpis"></div>
@@ -36,6 +37,7 @@
 </main>
 <aside id="faceplate" class="hidden"></aside>
 <aside id="scenarioPanel" class="hidden"></aside>
+<button id="scShow" class="hidden" title="Show scenario panel">Scenario ▸</button>
 <footer id="alarmBanner"></footer>
 <script type="module" src="js/main.js"></script>
 </body>

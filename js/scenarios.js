@@ -25,8 +25,9 @@ export const SCENARIOS = [
       Object.assign(this, { t0: now(sim), tripped: false, ackT: null, minLevel: 100, reset: false, madeUp: false });
       const z = sim.zones.get('KIT4'); z.level = 56; z.demandMult = 1.12;
       const s = sim.sites.get('STR'); s.hl[1].mode = 'OFF'; s.hl[1].trip = 'LOTO – maintenance (scenario condition)'; s.hl[1].lockoutUntil = now(sim) + 48 * H; s.hl[1].state = 'TRIP';
-      watchAck(this, sim, ['STR:HL-1:trip']);
+      this.hooks(sim);
     },
+    hooks(sim) { watchAck(this, sim, ['STR:HL-1:trip']); },
     tick(sim) {
       if (!this.tripped && at(sim, this.t0, 4 * MIN)) {
         this.tripped = true; sim.tripPump('STR', 'HL-1', 'motor overload (49/50 relay)');
@@ -47,10 +48,10 @@ export const SCENARIOS = [
   {
     id: 'turb', title: 'Grand River turbidity spike at Mannheim WTP', durationH: 9,
     brief: 'A summer thunderstorm upstream: Grand River flow at Doon (02GA048) climbs from ~11 m³/s to >150 m³/s over a few hours and raw turbidity follows. ' +
-      'The coagulant (PACl) dose is still at the dry-weather setpoint. Keep filtered turbidity ≤ 0.3 NTU (Procedure for Disinfection criterion) by raising the PACl dose ' +
-      '(watch the "jar-test" suggested dose) and, if needed, cutting plant flow and leaning on wells. Avoid the filter-to-waste interlock (filtered > 1.0 NTU for 2 min).',
+      'The coagulant (PACl) dose is still at the dry-weather setpoint. Ontario criterion (Procedure for Disinfection): filtered turbidity ≤ 0.3 NTU in at least 95 % of measurements, never > 1 NTU – scored here on 15-min readings. ' +
+      'Raise the PACl dose toward the jar-test value (an overdose beyond ≈1.6× restabilises the floc), cut plant flow if filter loading pushes floc through, and let the filters wash as they load up faster at high settled turbidity. Avoid the filter-to-waste interlock (filtered > 1.0 NTU for 2 min).',
     start: [2026, 6, 15, 13, 0],
-    setup(sim) { Object.assign(this, { t0: now(sim), maxFilt: 0, ftw: false, paclRaised: false, timeOver: 0 }); sim.river.flow = 11; sim.river.turbRaw = 6; },
+    setup(sim) { Object.assign(this, { t0: now(sim), maxFilt: 0, ftw: false, paclRaised: false, timeOver: 0, samples: 0, samplesOk: 0, nextSample: now(sim) + 15 * MIN }); sim.river.flow = 11; sim.river.turbRaw = 6; },
     tick(sim, dt) {
       const el = (now(sim) - this.t0) / H;
       sim.river.stormBoost = el < 0.3 ? 0 : el < 4 ? 160 * Math.min(1, (el - 0.3) / 2.2) : Math.max(0, 160 * (1 - (el - 4) / 10));
@@ -58,12 +59,15 @@ export const SCENARIOS = [
       this.maxFilt = Math.max(this.maxFilt, P.filtered); if (P.ftw) this.ftw = true;
       if (P.paclSp >= 35) this.paclRaised = true;
       if (P.filtered > 0.3) this.timeOver += dt;
+      if (now(sim) >= this.nextSample) { this.nextSample += 15 * MIN; this.samples++; if (P.filtered <= 0.3) this.samplesOk++; }
     },
+    pctOk() { return this.samples ? 100 * this.samplesOk / this.samples : 100; },
     objectives: [
       { text: 'Raise PACl dose to ≥ 35 mg/L as raw turbidity climbs', eval: s => s.paclRaised ? 'pass' : 'pending' },
       { text: 'No filter-to-waste interlock', eval: (s, sim) => s.ftw ? 'fail' : (now(sim) - s.t0 > 8 * H ? 'pass' : 'pending') },
-      { text: 'Filtered turbidity > 0.3 NTU for less than 30 min total', eval: (s, sim) => s.timeOver > 1800 ? 'fail' : (now(sim) - s.t0 > 8 * H ? 'pass' : 'pending') },
+      { text: '≥ 95 % of 15-min filtered-turbidity readings ≤ 0.3 NTU over 8 h, none > 1.0 NTU', eval: (s, sim) => s.maxFilt > 1.0 ? 'fail' : (now(sim) - s.t0 > 8 * H ? (s.pctOk() >= 95 ? 'pass' : 'fail') : 'pending') },
     ],
+    decisionNote(sim) { return `15-min readings ≤ 0.3 NTU: ${this.samplesOk}/${this.samples} (${this.pctOk().toFixed(0)} %) · peak ${this.maxFilt.toFixed(2)} NTU`; },
     hints: ['Board → Mannheim panel shows river flow, raw/filtered NTU and the suggested dose.', 'Faceplate → Mannheim WTP → PACl dose setpoint.', 'Higher plant flow = higher filter loading = higher filtered turbidity; the PLC also washes filters automatically.'],
   },
   {
@@ -76,8 +80,9 @@ export const SCENARIOS = [
       Object.assign(this, { t0: now(sim), failed: false, fixedT: null, ilk: false, ackT: null });
       const s = sim.sites.get('ERB'); this.erb = s; s.cl2.tau = 1200; /* analyzer downstream of reservoir inlet: slower response (ESTIMATE) */
       const z = sim.zones.get('WAT5'); z.level = 40; z.demandMult = 1.1; // low enough that the Erb St wells are pumping
-      watchAck(this, sim, ['ERB:meter', 'ERB:cl2']);
+      this.hooks(sim);
     },
+    hooks(sim) { this.erb = sim.sites.get('ERB'); watchAck(this, sim, ['ERB:meter', 'ERB:cl2']); },
     tick(sim) {
       const s = this.erb;
       if (!this.failed && at(sim, this.t0, 3 * MIN)) { this.failed = true; s.cl2.fault.A = true; this.failT = now(sim); }
@@ -107,8 +112,9 @@ export const SCENARIOS = [
       Object.assign(this, { t0: now(sim), outT: null, restoreT: null, genOkT: null, minLv: 100, inrushTrips: 0, allRestartedT: null, utilT: null, ackT: null });
       for (const [id, l] of [['KIT4', 55], ['KIT5', 50], ['KIT6', 52]]) { const z = sim.zones.get(id); z.level = l; z.demandMult = 1.12; }
       sim.feeders.MANN = { id: 'MANN', name: 'Mannheim 27.6 kV feeder (ESTIMATE)', sites: OUTAGE_SITES.slice(), up: true, inrushLimit: 3, restarts: [] };
-      watchAck(this, sim, ['MWTP:pwr', 'MWTP:gen']);
+      this.hooks(sim);
     },
+    hooks(sim) { watchAck(this, sim, ['MWTP:pwr', 'MWTP:gen']); },
     tick(sim) {
       const f = sim.feeders.MANN, m = sim.sites.get('MWTP');
       if (!this.outT && at(sim, this.t0, 2 * MIN)) { m.pw.gen.fault = 'low battery'; this.outT = now(sim); sim.tripFeeder('MANN', 150, 'storm – utility lockout'); }
@@ -181,7 +187,7 @@ export const SCENARIOS = [
       return a;
     },
     decisionNote(sim) { return this.breakT ? `Lowest Wat 4 pressure since the break: ${this.minP < 999 ? this.minP.toFixed(0) : '–'} kPa${this.decision ? ` · decision: ${this.decision}` : ''}` : ''; },
-    hints: ['Transfers tab: Erb St BV is in MAN – put it back in AUTO or raise its flow; Erb St PRV and MV2 can bring Wat 5 water into Wat 4.', 'Erb St / Laurel wells: set pumps to HAND to add supply.', 'Decision: >1 pipe length → never Category 1. Pressure < 20 psi → assume intrusion → reportable (MOH decides on the BWA).', `Source: Region Watermain Disinfection Procedure (2020) / O. Reg. 170/03 – see Help → Sources (${SRC.WMDP || ''}).`],
+    hints: ['NOTE: the scored Category 2 / reportability answer is a training simplification that still needs review by a qualified Ontario operator (see Help).', 'Transfers tab: Erb St BV is in MAN – put it back in AUTO or raise its flow; Erb St PRV and MV2 can bring Wat 5 water into Wat 4.', 'Erb St / Laurel wells: set pumps to HAND to add supply.', 'Decision: >1 pipe length → never Category 1. Pressure < 20 psi → assume intrusion → reportable (MOH decides on the BWA).', `Source: Region Watermain Disinfection Procedure (2020) / O. Reg. 170/03 – see Help → Sources (${SRC.WMDP || ''}).`],
   },
   {
     id: 'backwash', title: 'Mannheim filter backwash – breakthrough vs headloss', durationH: 5,
@@ -196,6 +202,9 @@ export const SCENARIOS = [
       const Sbt = MF.breakVolM3 * 1.5, Sterm = Sbt * 1.25;
       const set = (i, solids, runH) => Object.assign(m.filters[i], { solids, runH, state: 'SERVICE', step: -1 });
       set(0, Sbt * 1.48, 88); m.filters[0].btScale = 1.6; /* F1 headloss-limited, not yet breaking through */ set(1, Sbt * 1.03, 70); set(2, Sbt * 0.45, 30); set(3, Sbt * 0.2, 12);
+      this.hooks(sim);
+    },
+    hooks(sim) {
       sim.on('cmd', c => { if (c.bw && !this.first) this.first = c.bw; });
       sim.on('bwDone', f => { if (f.id === 'F2' && !this.f2T) this.f2T = now(sim); if (f.id === 'F1' && !this.f1T) this.f1T = now(sim); });
     },
@@ -225,8 +234,9 @@ export const SCENARIOS = [
       Object.assign(this, { t0: now(sim), ackT: null, alarmT: null, maxOut: 0, ilk: false, over: 0, m3: 0, el: 0 });
       const g = sim.sites.get('GRB'); g.aop.uvKw = 100; g.aop.h2o2 = DX.h2o2Default; g.cwLevel = 50; this.g = g; g.wells.find(p => p.id === 'K5A').mode = 'HAND'; // K5A is run in HAND as lead well (scenario condition)
       const z = sim.zones.get('KIT4'); z.level = 56;
-      watchAck(this, sim, ['GRB:diox']);
+      this.hooks(sim);
     },
+    hooks(sim) { this.g = sim.sites.get('GRB'); watchAck(this, sim, ['GRB:diox']); },
     tick(sim, dt) {
       const g = this.g, el = (now(sim) - this.t0) / H;
       g.aop.mult.K5A = 1 + 19 * Math.min(1, Math.max(0, (el - 0.1) / 2));
@@ -247,31 +257,38 @@ export const SCENARIOS = [
     hints: ['Faceplate → Greenbrook → AOP block: UV kW (max 280) and H₂O₂ mg/L.', 'Log removal = (kWh/m³)/EEO – halving the flow through the reactor doubles the dose.', 'Taking K5A to OFF removes the plume from the blend; the other four wells keep the plant running.', 'More H₂O₂ = more quenching cost downstream; real plants balance UV energy vs peroxide.'],
   },
   {
-    id: 'icipeak', title: 'ICI peak day – Class A peak avoidance (real 14 Jul 2026)', durationH: 13,
+    id: 'icipeak', title: 'ICI peak day – Class A peak avoidance (real 14 Jul 2026)', durationH: 13.2,
     brief: 'Tue 14 Jul 2026, 09:00 – a real 2026 Ontario top-5 demand day (IESO data). The Region’s Mannheim complex is modelled as a Class A (ICI) customer (ESTIMATE – the Region’s actual class is not public): ' +
       'its share of the year’s Global Adjustment is set by its demand during the 5 highest Ontario peak hours (5CP). The IESO peak-alert banner will show the expected window. ' +
-      'Pre-fill storage in the morning, then minimise Mannheim grid load across the alert window (14:00–18:00) – e.g. cut Zone 4/5/6 pumping and plant flow (riding on pre-filled Kit storage), ' +
-      'or run the standby generator behind the meter (diesel cost + emissions/ECA limits apply). Don’t let any Kitchener zone run short.',
+      'Pre-fill storage in the morning (without overflowing anything), then minimise Mannheim grid load across the alert window (14:00–18:00) – e.g. trim Zone 4/5/6 pumping and plant flow while riding on pre-filled Kit storage, ' +
+      'or run the standby generator behind the meter (diesel cost + emissions/ECA limits apply). Shutting everything off is not a win: Kit 4 must stay ≥ 40 % through the evening peak and be back to ≥ 50 % by 22:00.',
     start: [2026, 6, 14, 9, 0],
     setup(sim) {
-      Object.assign(this, { t0: now(sim), preT: null, preLv: null, accKwS: 0, accS: 0, minLv: 100, minP: 999, diesel0: 0 });
+      Object.assign(this, { t0: now(sim), preT: null, preLv: null, accKwS: 0, accS: 0, minLv: 100, minP: 999, diesel0: 0, minK4: 100, lv22: null, spill: 0 });
     },
     tick(sim, dt) {
       const h = sim.time.getHours() + sim.time.getMinutes() / 60;
       if (h >= 14 && this.preLv == null) this.preLv = sim.zones.get('KIT4').level;
       if (h >= 14 && h < 18) { this.accKwS += sim.classAKw * dt; this.accS += dt; }
-      if (h < 21) for (const id of ['KIT4', 'KIT5', 'KIT6', 'WAT4']) { const z = sim.zones.get(id); this.minLv = Math.min(this.minLv, z.level); this.minP = Math.min(this.minP, z.press); }
+      if (h < 22) for (const id of ['KIT4', 'KIT5', 'KIT6', 'WAT4']) { const z = sim.zones.get(id); this.minLv = Math.min(this.minLv, z.level); this.minP = Math.min(this.minP, z.press); }
+      if (h < 22) this.minK4 = Math.min(this.minK4, sim.zones.get('KIT4').level);
+      if (h >= 22 && this.lv22 == null) this.lv22 = Object.fromEntries(['KIT4', 'KIT5', 'KIT6'].map(id => [id, sim.zones.get(id).level]));
+      for (const z of sim.zones.values()) this.spill += (z.spillLs || 0) * dt / 1000;
     },
     avgKw() { return this.accS > 0 ? this.accKwS / this.accS : null; },
     objectives: [
       { text: 'Pre-fill: Kit 4 storage ≥ 76 % at 14:00', eval: s => s.preLv == null ? 'pending' : s.preLv >= 76 ? 'pass' : 'fail' },
       { text: 'Average Mannheim (Class A) grid load 14:00–18:00 ≤ 1,000 kW', eval: (s, sim) => sim.time.getHours() >= 18 || sim.time.getDate() !== 14 ? (s.avgKw() != null && s.avgKw() <= 1000 ? 'pass' : 'fail') : 'pending' },
-      { text: 'Kit 4/5/6 and Wat 4 storage ≥ 25 % and pressure ≥ 275 kPa until 21:00', eval: (s, sim) => s.minLv < 25 || s.minP < 275 ? 'fail' : (sim.time.getHours() >= 21 || sim.time.getDate() !== 14 ? 'pass' : 'pending') },
+      { text: 'Through the evening peak: Kit 4 never below 40 %, Kit 5/6 and Wat 4 ≥ 25 %, pressure ≥ 275 kPa (until 22:00)', eval: (s, sim) => s.minK4 < 40 || s.minLv < 25 || s.minP < 275 ? 'fail' : (s.lv22 ? 'pass' : 'pending') },
+      { text: 'Recovered by 22:00: Kit 4 ≥ 50 %, Kit 5 and Kit/Wat 6 ≥ 45 %', eval: s => s.lv22 ? (s.lv22.KIT4 >= 50 && s.lv22.KIT5 >= 45 && s.lv22.KIT6 >= 45 ? 'pass' : 'fail') : 'pending' },
+      { text: 'No reservoir/tower overflow while pre-filling', eval: (s, sim) => s.spill > 1 ? 'fail' : (s.lv22 ? 'pass' : 'pending') },
     ],
     decisionNote(sim) {
       const a = this.avgKw(); if (a == null) return 'Alert-window average Class A load: not started (14:00–18:00)';
       const perHourMW = E.DOLLARS_PER_MW_ALL5 / 5; // $ per MW in ONE of the 5 peak hours
-      return `Alert-window average Class A load ${a.toFixed(0)} kW · each MW avoided in one peak hour ≈ $${Math.round(perHourMW).toLocaleString('en-CA')}/yr of GA (ESTIMATE from 2026 IESO data)`;
+      const pj = E.projectNextYear(sim.peak.confirmed); const you = pj.rows.find(r => r.simulated);
+      return `Alert-window average Class A load ${a.toFixed(0)} kW · each MW avoided in one peak hour ≈ $${Math.round(perHourMW).toLocaleString('en-CA')}/yr of GA` +
+        (you ? ` · your load in the real peak (HE${you.he}): ${Math.round(you.kw)} kW → projected next-year PDF ${(pj.pdf * 1e5).toFixed(3)}×10⁻⁵, GA ${'$' + Math.round(pj.ga).toLocaleString('en-CA')}/yr (${pj.saving >= 0 ? 'saves' : 'costs'} $${Math.abs(Math.round(pj.saving)).toLocaleString('en-CA')}/yr vs 2.5 MW) (ESTIMATE)` : ' (ESTIMATE from 2026 IESO data)');
     },
     actions() { return []; },
     hints: ['Costs tab → ICI section shows the real 2026 peaks, the alert and the $/MW value.', 'Transfers tab: raise Z4PS/Z5PS/Z6PS setpoints in the morning to pre-fill; put them in MAN low (or CLOSED) during the window.', 'Mannheim faceplate: plant flow MAN reduces process + low-lift load; generator "Start" runs it behind the meter.'],

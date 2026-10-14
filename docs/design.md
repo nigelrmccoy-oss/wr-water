@@ -38,3 +38,10 @@ WR-WATER v0.1 deliberately ships **no build step** (plain ES modules + vendored 
 - **AOP**: orders = (kW/(m³/h))/EEO, EEO = 0.15·2.5·(1 + 3/H₂O₂); out = raw·10^−orders (τ = 600 s).
 - **Billing**: Class A = OZP + 4 ¢ + PDF × GA(month) accrued per second; Class B = OZP + GA_B + 4 ¢; RPP = TOU or tiered + 4 ¢; diesel on generator. The peak tracker stores each hour's Class A kW.
 - **Scenarios**: `setup / tick / objectives[]` plus optional `actions(sim)` (buttons in the scenario panel) and `decisionNote(sim)`. A PLC interlock now stops HAND pumps too.
+
+## v0.3 design changes
+- Conservative storage: zone and clearwell volumes are never clamped silently. Overflow → `spillLs` (sink) and an empty zone → `unservedLs` (demand not delivered). High-lift draw is limited to clearwell contents. Altitude-valve / high-float cut-outs at 98.5 % (transfers) and 99.5 % (wells, HL).
+- Pressure = ρg·(h − custElev), with custElev = HGL − serviceDepthM (est, 50–64 m).
+- Coagulation: def = under-dose fraction; over = max(0, dose/jar − 1.6). settled = raw·(0.05 + 0.6·def + 0.25·over). Filter turbidity adds 0.35·over^1.3·√(raw/20) and carry-over 0.06·settled·loadF. Solids loading ∝ (0.5 + 3·settled).
+- Save format v3 (`js/save.js`): JSON of dynamic state, with zone/site/link object refs replaced by ids. Scenario `hooks(sim)` re-register event listeners on resume.
+- Peak projection: PDF_next = Σ_top5 (Mannheim MW in hour) ÷ Σ_top5 Ontario MW. Unsimulated hours are assumed at 2.5 MW. GA_next ≈ PDF_next × 12-month GA.

@@ -37,17 +37,22 @@ export class UI {
     const sel = $('#scenarioSel');
     for (const sc of SCENARIOS) sel.insertAdjacentHTML('beforeend', `<option value="${sc.id}">Scenario: ${esc(sc.title)}</option>`);
     sel.onchange = () => {
-      if (!sel.value) { this.sim.scenario = null; $('#scenarioPanel').classList.add('hidden'); return; }
+      if (!sel.value) { this.sim.scenario = null; this.showPanel(false); $('#scShow').classList.add('hidden'); return; }
       this.onRestart?.(SCENARIOS.find(s => s.id === sel.value));
     };
   }
   beginScenario(sc) {
     startScenario(this.sim, sc);
-    const p = $('#scenarioPanel'); p.classList.remove('hidden');
+    this.renderScenarioPanel(sc);
+    this.sim.speed = 60; this.sim.paused = false;
+  }
+  showPanel(on) { $('#scenarioPanel').classList.toggle('hidden', !on); document.body.classList.toggle('sc-on', on); $('#scShow').classList.toggle('hidden', on || !this.sim.scenario); window.dispatchEvent(new Event('resize')); }
+  renderScenarioPanel(sc) {
+    const p = $('#scenarioPanel'); this.showPanel(true);
     p.innerHTML = `<button style="float:right" id="scClose">hide</button><h3>${esc(sc.title)}</h3><p>${esc(sc.brief)}</p><div id="scAct"></div><div id="scObj"></div>
       <details><summary class="dim">Hints</summary><ul>${sc.hints.map(h => `<li>${esc(h)}</li>`).join('')}</ul></details>`;
-    $('#scClose').onclick = () => p.classList.add('hidden');
-    this.sim.speed = 60; this.sim.paused = false;
+    $('#scClose').onclick = () => this.showPanel(false);
+    $('#scShow').onclick = () => this.showPanel(true);
   }
   renderScenarioActions() {
     const sc = this.sim.scenario; const el = $('#scAct'); if (!el) return;
@@ -72,7 +77,7 @@ export class UI {
     this.lastBoard = now; this.refreshSoon = false;
     const T = sim.totals();
     $('#kpis').innerHTML = `<div><span>Supply</span>${fmt(T.supplyLs)} L/s</div><div><span>Demand</span>${fmt(T.demandLs)} L/s</div>
-      <div><span>Today</span>${fmt(T.m3)} m³</div><div><span>Power</span>${fmt(T.kw)} kW</div><div><span>Class A now</span>${fmt(T.classAKw)} kW</div><div><span>Energy today</span>${fmt(T.kwh)} kWh · ${money(T.elec + T.diesel)}</div>
+      <div><span>${T.since && new Date(T.since).getHours() + new Date(T.since).getMinutes() > 0 ? 'Delivered since ' + hhmm(new Date(T.since)) : 'Delivered today'}</span>${fmt(T.m3)} m³</div><div><span>Power</span>${fmt(T.kw)} kW</div><div><span>Class A now</span>${fmt(T.classAKw)} kW</div><div><span>Energy today</span>${fmt(T.kwh)} kWh · ${money(T.elec + T.diesel)}</div>
       <div><span>Chemicals today</span>${money(T.chem)}</div><div><span>Grand R. @ Doon</span>${sim.river.flow.toFixed(1)} m³/s</div>`;
     $('#almCount').textContent = sim.alarms.unackedCount();
     this.banner();
@@ -233,10 +238,13 @@ export class UI {
       <tr><td><b>Class A</b> (${cA}): Mannheim complex – WTP + Zone 4/5/6 PS (${fmt(sim.sites.get('MWTP').connKw)} kW connected)</td><td>Ontario Zonal Price (hourly) + ${E.DELIVERY_ADDER * 100}¢ delivery ${EST}<br>now: $${oz.v.toFixed(2)}/MWh ${oz.real ? REAL + ' IESO day-ahead OZP' : EST + ' (Jul-2026 hourly avg)'}</td>
         <td><b>GA$ = PDF × monthly GA total</b>. PDF = facility MWh in the base period's 5 peak hours ÷ Ontario MWh in those hours.<br>Assumed PDF Jul 2026–Jun 2027 = ${E.CLASS_A_ASSUMED_PEAK_MW} MW × 5 h ÷ ${fmt(E.TOP5_2025_SUM, 1)} MWh = ${(E.PDF_CURRENT * 1e6).toFixed(1)} ppm ${EST}<br>${ga.month} GA total: ${money(ga.totalDollars)} (${esc(ga.status)}) → ≈ ${money(E.classAGaPerSec(t) * 86400)}/day</td>
         <td>Eligibility: avg monthly peak &gt;5 MW automatic, &gt;1–5 MW opt-in (<a href="${E.ESRC.IESO_ELIG}" target="_blank">IESO</a>); PDF method + 2025-26 top-5 hours (<a href="${E.ESRC.IESO_PDF}" target="_blank">IESO</a>). Region's actual class/PDF not public ${EST}</td></tr>
-      <tr><td><b>Class B</b> (${cB}): connected load ≥ ${E.CLASS_B_MIN_KW} kW ${EST}</td><td>OZP + Class B GA rate + ${E.DELIVERY_ADDER * 100}¢ delivery ${EST}<br>now: ${((oz.v + ga.classBRatePerMWh) / 10).toFixed(2)}¢ + ${E.DELIVERY_ADDER * 100}¢</td><td>Class B GA ${ga.month}: <b>$${ga.classBRatePerMWh.toFixed(2)}/MWh</b> (${esc(ga.status)})</td><td><a href="${E.ESRC.IESO_GAB}" target="_blank">IESO GA for Class B</a> · <a href="${E.ESRC.IESO_GA_XML}" target="_blank">monthly GA reports</a></td></tr>
-      <tr><td><b>RPP</b> (${cR}): small wells / village plants (&lt; ${E.CLASS_B_MIN_KW} kW)</td><td>Plan: <select id="rppPlan"><option ${sim.rppPlan === 'TOU' ? 'selected' : ''}>TOU</option><option ${sim.rppPlan === 'TIERED' ? 'selected' : ''}>TIERED</option></select><br>TOU off ${E.RPP.tou.offPeak * 100}¢ · mid ${E.RPP.tou.midPeak * 100}¢ · on ${E.RPP.tou.onPeak * 100}¢; tiered ${E.RPP.tier1 * 100}¢ ≤ ${E.RPP.tierThresholdKwhMonthNonRes} kWh/month, then ${E.RPP.tier2 * 100}¢ (+${E.DELIVERY_ADDER * 100}¢ delivery ${EST})</td><td>included in RPP price</td><td><a href="${E.ESRC.OEB_RPP}" target="_blank">OEB RPP Price Report (prices eff. Nov 1 2025)</a></td></tr>
+      <tr><td><b>Class B</b> (${cB}): every account that is not Class A and not on the RPP (here: non-RPP ≈ connected load ≥ ${E.CLASS_B_MIN_KW} kW ${EST})</td><td>OZP + Class B GA rate + ${E.DELIVERY_ADDER * 100}¢ delivery ${EST}<br>now: ${((oz.v + ga.classBRatePerMWh) / 10).toFixed(2)}¢ + ${E.DELIVERY_ADDER * 100}¢</td><td>Class B GA ${ga.month}: <b>$${ga.classBRatePerMWh.toFixed(2)}/MWh</b> (${esc(ga.status)})</td><td><a href="${E.ESRC.IESO_GAB}" target="_blank">IESO GA for Class B</a> · <a href="${E.ESRC.IESO_GA_XML}" target="_blank">monthly GA reports</a></td></tr>
+      <tr><td><b>RPP</b> (${cR}): small wells / village plants eligible for the RPP (approximated as &lt; ${E.CLASS_B_MIN_KW} kW ${EST})</td><td>Plan: <select id="rppPlan"><option ${sim.rppPlan === 'TOU' ? 'selected' : ''}>TOU</option><option ${sim.rppPlan === 'TIERED' ? 'selected' : ''}>TIERED</option></select><br>TOU off ${E.RPP.tou.offPeak * 100}¢ · mid ${E.RPP.tou.midPeak * 100}¢ · on ${E.RPP.tou.onPeak * 100}¢; tiered ${E.RPP.tier1 * 100}¢ ≤ ${E.RPP.tierThresholdKwhMonthNonRes} kWh/month, then ${E.RPP.tier2 * 100}¢ (+${E.DELIVERY_ADDER * 100}¢ delivery ${EST})</td><td>included in RPP price</td><td><a href="${E.ESRC.OEB_RPP}" target="_blank">OEB RPP Price Report (prices eff. Nov 1 2025)</a></td></tr>
       <tr><td>Standby generation (peak-shave / outage)</td><td>${money(E.DIESEL_PER_KWH)}/kWh diesel ${EST}</td><td>Generator output reduces grid kW → lowers PDF if run in peak hours</td><td>${EST}</td></tr></table>
       <h3>ICI peak management (Industrial Conservation Initiative)</h3>
+      ${(() => { const pj = E.projectNextYear(sim.peak.confirmed); return `<div class="pdfbox"><b>Your peak-avoidance result → next year's Global Adjustment</b> ${EST}<table class="grid"><tr><th>2026 top-5 hour (real)</th><th>Ontario MW</th><th>Mannheim kW</th></tr>${pj.rows.map(r => `<tr><td>${r.date} HE${r.he}</td><td class="num">${fmt(r.mw)}</td><td class="num">${fmt(r.kw)} ${r.simulated ? '<b>(you)</b>' : '<span class="dim">(assumed 2.5 MW – not simulated)</span>'}</td></tr>`).join('')}</table>
+      Projected PDF = Σ Mannheim MW in the 5 hours ÷ Σ Ontario MW = <b>${(pj.pdf * 1e5).toFixed(3)}×10⁻⁵</b> (baseline at 2.5 MW: ${(pj.pdfBase * 1e5).toFixed(3)}×10⁻⁵).<br>
+      Next-year Class A GA ≈ PDF × 12-month GA ($${fmt(E.GA_12M_TOTAL / 1e9, 2)} B) = <b>${money(pj.ga)}/yr</b> vs ${money(pj.gaBase)}/yr baseline → <b style="color:${pj.saving >= 0 ? 'var(--run)' : 'var(--crit)'}">${pj.saving >= 0 ? 'saving' : 'extra cost'} ${money(Math.abs(pj.saving))}/yr</b>.</div>`; })()}
       <div class="kv" style="max-width:820px"><span>Today Ontario demand ${od.real ? REAL + ' IESO hourly demand 2026' : EST + ' (no data – average curve)'}</span><span>peak ${fmt(pa.mw)} MW at HE${pa.he}; 5th-highest so far this base period ${fmt(pa.fifth)} MW → ${pa.alert ? '<b style="color:var(--crit)">PEAK ALERT</b>' : 'no alert'}</span></div>
       <canvas class="trend" id="trOnt" style="max-width:820px;height:130px"></canvas>
       <div class="dim">Ontario demand MW (blue) with 5th-highest-so-far line (red); Class A load kW by hour (yellow, right scale).</div>
@@ -409,6 +417,10 @@ export class UI {
       <h2>Network (v0.2)</h2><p>${ZONE_CFGS.filter(z => z.ius && !z.node).length} real IUS pressure zones + the Mannheim reservoir node, ${this.sim.links.size} transfers / boosters / PRVs / valves, and ${ZONE_CFGS.filter(z => !z.ius).length} township systems. Per-zone and per-transfer sources and real/estimate status: <code>docs/network.md</code>.</p>
       <h2>Scenarios</h2><table><tr><th>Scenario</th><th>Objectives</th></tr>${SCENARIOS.map(sc => `<tr><td><b>${esc(sc.title)}</b></td><td>${sc.objectives.map(o => esc(o.text)).join('<br>')}</td></tr>`).join('')}</table>
       <p class="dim">Each scenario is tested to FAIL with no trainee action (tests/scenario_noaction.mjs) and to PASS with the intended actions (tests/scenario_action.mjs).</p>
+      <h2>Training simplifications to know</h2><ul>
+      <li><b>Filtered turbidity</b>: the real Ontario criterion for chemically assisted filtration is ≤ 0.3 NTU in at least 95 % of the measurements each month, and never &gt; 1 NTU (Procedure for Disinfection of Drinking Water in Ontario). The turbidity scenario scores 15-minute readings against that 95 % rule; the board alarm is a simple 0.3 NTU threshold.</li>
+      <li><b>Main-break Category 2 reportability</b>: the "correct" answer the main-break scenario scores (Category 2 not reportable vs reportable to MOH/SAC) is a <b>training simplification that needs review by a qualified Ontario operator / the Watermain Disinfection Procedure owner</b>. In particular, how the ≈4 % of customers who lost water and the 140 kPa (20 psi) intrusion rule (an industry convention, not in the Procedure) should drive the decision has not been expert-reviewed.</li>
+      <li><b>Peak avoidance</b>: daily GA shown in the cost totals uses the current (2025-based) PDF; the effect of today's load in a real 2026 top-5 hour appears as next year's projected PDF and GA on the cost tab.</li></ul>
       <h2>Data provenance</h2><table>
       <tr><th>Data</th><th>Status</th><th>Source</th></tr>
       <tr><td>Wells per site, treatment trains, clearwell/reservoir volumes, high-lift pump counts, standby power</td><td>${REAL}</td><td><a href="${S.AWQR25}" target="_blank">2025 Annual Water Quality Report</a></td></tr>

@@ -8,7 +8,11 @@ const PLAYS = {
     if (el >= 5 && el < 6) { ackAll(s); s.setMode('PKW', 'K31', 'HAND'); s.setMode('PKW', 'K33', 'HAND'); for (const id of ['K80', 'K81', 'K82']) s.setMode('WOO', id, 'HAND'); }
     if (el >= 36 && el < 37) s.resetPump('STR', 'HL-1');
   },
-  turb(s, sc, el) { if (el >= 20 && el < 21) { s.setSp('MWTP', 'paclSp', 60); } if (el >= 60 && el < 61) s.setSp('MWTP', 'paclSp', 75); },
+  turb(s, sc, el) { // follow the jar test (≈1.15×), and trim plant flow while settled turbidity is high
+    const P = s.sites.get('MWTP').plant;
+    if (Math.floor(el) % 10 === 0 && el - Math.floor(el) < 0.09) { const want = Math.round(P.paclReq * 1.15); if (Math.abs(want - P.paclSp) >= 2) s.setSp('MWTP', 'paclSp', want); }
+    if (el >= 60 && el < 61) s.setSp('MWTP', 'flowSp', 420);
+  },
   cl2(s, sc, el) { if (el >= 4 && el < 5) { ackAll(s); s.setSp('ERB', 'cl2Duty', 'B'); } if (el >= 6 && el < 7) s.resetInterlock('ERB'); },
   outage(s, sc, el) {
     const m = s.sites.get('MWTP');

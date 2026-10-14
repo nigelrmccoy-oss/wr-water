@@ -1,4 +1,4 @@
-# WR-WATER v0.2 — Region of Waterloo water supply SCADA trainer
+# WR-WATER v0.3 — Region of Waterloo water supply SCADA trainer
 
 Browser training simulator of the **Region of Waterloo municipal water supply** (Integrated Urban System + township systems) for new water technicians.
 Sister project to [`wwtp-na`](https://github.com/nigelrmccoy-oss/wwtp-na). **Unofficial**: not affiliated with or validated by the Region of Waterloo. Training use only; never use for real operating decisions.
@@ -14,6 +14,22 @@ python3 -m http.server 8765
 ```
 
 Three.js r170 is vendored in `vendor/` (copied from wwtp-na's node_modules, MIT, see `vendor/three-LICENSE`), so the app works offline.
+
+## What's new in v0.3 (QA fixes, Oct 2026)
+
+| Area | Change |
+|---|---|
+| **Smoke test (P1)** | The outage-scenario restart clicks in `tests/smoke.mjs` were spaced by wall-clock time (1.6 s ≈ 48 sim-s at 30×). On slower frames that let 3–4 restarts land inside the 2-min inrush window, which re-tripped the feeder, so the result depended on frame rate. Restarts are now spaced ≥ 65 **sim**-seconds apart, and the test asserts 0 inrush re-trips. |
+| **ICI exercise (P1)** | New objectives: Kit 4 never below 40 % and Kit 5/6 and Wat 4 ≥ 25 % through the evening peak; recovered by 22:00 (Kit 4 ≥ 50 %, Kit 5/6 ≥ 45 %); no overflow while pre-filling. A full shutdown now fails (`tests/scenario_exploits.mjs`). Hardwired high-level cut-outs (altitude valve / high float at 98.5–99.5 %) stop transfers and wells, so pre-filling can't overflow Kit 5. |
+| **Mass balance (P1)** | Zones and clearwells used to *clamp* level at 0/100 %, which silently created or destroyed water (overflow, emptied reservoirs, high-lift pumps drawing an empty clearwell). Overflow and unserved demand are now accounted, and pumps can't draw more than a clearwell holds. `tests/mass_balance.mjs` asserts in = delivered + overflow + waste + Δstorage within 0.5 % for free play (24 h) and every scenario; it measures 0.000 %. |
+| **Header total** | "Delivered today / since HH:MM" = Σ zone delivered m³. It resets at sim midnight; after a scenario start it says since when. |
+| **Layout** | The scenario panel docks as a left sidebar and the content shifts right, so it no longer covers Costs or Help. A "Scenario ▸" tab brings it back when hidden. |
+| **Pressures** | Each IUS zone has an estimated customer service depth (50–64 m below HGL; Wat 4 50 m), so zone pressures range ≈420–580 kPa instead of all ≈450 kPa (ESTIMATE). |
+| **Turbidity** | Coagulant optimum window: under-dose fails, and an overdose > 1.6× the jar test restabilises (new OVERDOSED alarm). Floc carry-over rises with settled NTU × filter loading. Filters load ≈4× faster at high settled turbidity (more washes, earlier breakthrough). At 94 NTU raw, a correct dose alone at full flow now scores only ≈89 % of readings ≤ 0.3 NTU; the trainee must also cut plant flow. Default PACl changed 22 → 15 mg/L (22 was an overdose for 6 NTU raw). The turbidity scenario is scored by the real rule: ≥ 95 % of 15-min readings ≤ 0.3 NTU and none > 1 NTU. |
+| **Save / resume** | 💾 Save / ⟲ Resume buttons (localStorage, autosave every minute and on page close). This covers the full dynamic state, alarms, journal and scenario progress; trends restart empty. `tests/save_resume.mjs` proves a restored run evolves identically. |
+| **Electricity teaching** | The Costs tab shows the trainee's Mannheim load in each real 2026 top-5 hour, the projected next-year PDF and the next-year Class A GA vs the 2.5 MW baseline, with the saving or cost in $/yr. The ICI scenario note shows it live. Class B is now defined as "not Class A and not RPP" (RPP eligibility approximated as < 50 kW, est). |
+| **Help** | New "Training simplifications" section: the 95 %-of-measurements turbidity rule; the main-break Category 2 / reportability answer flagged as **needing expert review**; how peak avoidance shows up in cost. |
+| **Zip** | Now includes `tests/shots/` (the screenshots from the last smoke run). |
 
 ## What's new in v0.2 (Oct 2026)
 
@@ -32,13 +48,13 @@ Three.js r170 is vendored in `vendor/` (copied from wwtp-na's node_modules, MIT,
 | id | Title | What the trainee must do | How it fails with no action |
 |---|---|---|---|
 | trip | High-lift pump trip at morning peak (Strange St) | ACK within 5 min, start Parkway/Woolner standby wells, reset HL-1 after the lock-out, Kit 4 ≥ 40 % | Kit 4 falls to ≈37 % |
-| turb | Grand River turbidity spike | Raise PACl ≥ 35 mg/L, no filter-to-waste, > 0.3 NTU < 30 min | FTW interlock; filtered 2.3 NTU |
+| turb | Grand River turbidity spike | Follow the jar test (don't overdose), cut plant flow, no filter-to-waste, ≥ 95 % of 15-min readings ≤ 0.3 NTU, none > 1 | FTW interlock; filtered 3 NTU |
 | cl2 | Low Cl₂ – Erb St | ACK, duty pump B, residual ≥ 1.0 in 45 min | LOW-LOW interlock |
 | outage | Mannheim feeder outage, generator fails to start | Reset the generator fault and restart Mannheim on the generator within 20 min, keep Kit 4/5/6 ≥ 30 %, after restoration restart all 16 latched sites within 60 min without an inrush re-trip, retransfer within 30 min | Kit 4/5/6 drain to 0 %; 16 sites stay latched |
 | mainbreak | Transmission main break into Wat 4 | Dispatch crew, isolate within 60 min, make up supply (Erb St BV/PRV, wells), Wat 4 ≥ 30 % and ≥ 140 kPa, correct notification decision | Wat 4 drains to 0 %, pressure 0 |
 | backwash | Mannheim filter backwash (PLC auto-backwash off) | Wash F2 (breakthrough) first, before it reaches 0.5 NTU; wash F1 (terminal headloss) within 3 h; never skip FTW | F2 reaches 1.2 NTU; F1 never washed |
 | dioxane | Greenbrook 1,4-dioxane plume at K5A (hypothetical) | ACK, raise UV/H₂O₂ and/or take K5A out, stay ≤ MAC and ≤ 25 µg/L, keep Greenbrook ≥ 35 L/s average | Effluent 52 µg/L, interlock, plant down |
-| icipeak | ICI peak day 14 Jul 2026 | Pre-fill Kit 4 ≥ 76 % by 14:00, average Class A load ≤ 1,000 kW 14:00–18:00, zones OK until 21:00 | Class A averages ≈1.8 MW |
+| icipeak | ICI peak day 14 Jul 2026 | Pre-fill Kit 4 ≥ 76 % by 14:00 without overflow, average Class A load ≤ 1,000 kW 14:00–18:00, Kit 4 ≥ 40 % through the evening, recovered by 22:00 | Class A averages ≈1.8 MW; a full shutdown fails the evening/recovery objectives |
 
 ## What was in v0.1 (still there)
 
@@ -55,11 +71,14 @@ Three.js r170 is vendored in `vendor/` (copied from wwtp-na's node_modules, MIT,
 ## Tests
 
 ```bash
-./tests/run_node_tests.sh        # runs the three Node tests below in parallel (≈20 s); logs in tests/out/
+./tests/run_node_tests.sh        # runs all Node tests in parallel (≈60 s): no-action, action, soak, mass balance, ICI exploit, save/resume; logs in tests/out/
+node tests/mass_balance.mjs      # water in = delivered + overflow + waste + Δstorage within 0.5 % (free play + every scenario)
+node tests/scenario_exploits.mjs # ICI full-shutdown must fail; aggressive pre-fill must not overflow
+node tests/save_resume.mjs       # save → restore round trip evolves identically
 node tests/soak.mjs 3            # 3 sim-days headless: no NaN, open zones stay > 20 %, pressure ≥ 275 kPa, filters wash, AOP, Class A/peak records
 node tests/scenario_noaction.mjs # every scenario must FAIL at least one objective when the trainee does nothing
 node tests/scenario_action.mjs   # a scripted good operator must pass every objective of every scenario
-python3 -m http.server 8765 &  node tests/smoke.mjs   # Playwright/Chromium: all tabs, faceplates (power, filters, AOP), transfers, costs/ICI, 3D map, plays 6 scenarios through the UI, asserts zero console errors; screenshots in tests/shots/
+python3 -m http.server 8765 &  node tests/smoke.mjs   # (HEADED=1 SLOWMO=300 to watch it on the desktop) Playwright/Chromium: all tabs, faceplates (power, filters, AOP), transfers, costs/ICI, 3D map, plays 6 scenarios through the UI, asserts zero console errors; screenshots in tests/shots/
 ```
 `tests/smoke.mjs` looks for Playwright in `./node_modules`, `$PLAYWRIGHT_PATH`, `~/wwtp-qa/harness/node_modules` or `~/qa-2026-10-08/pw/node_modules`.
 

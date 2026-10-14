@@ -21,7 +21,7 @@ export const RPP = { // OEB RPP prices effective Nov 1 2025 (OEB RPP Price Repor
   tier1: 0.120, tier2: 0.142, tierThresholdKwhMonthNonRes: 750,
 };
 export const DELIVERY_ADDER = 0.04; // $/kWh ESTIMATE – distribution, transmission, regulatory, debt retirement not modelled per LDC
-export const CLASS_B_MIN_KW = 50;   // ESTIMATE: sites with connected load ≥ 50 kW treated as GS>50 kW (non-RPP) → Class B market price + GA
+export const CLASS_B_MIN_KW = 50;   // Class B = every account that is neither Class A nor on the RPP. RPP eligibility for non-residential accounts here is approximated as connected load < 50 kW (GS<50) – the 50 kW split is the ESTIMATE
 export const DIESEL_PER_KWH = 0.47; // ESTIMATE: ~0.27 L/kWh × $1.75/L diesel
 
 /** 2025-26 base period (May 1 2025 – Apr 30 2026) top-5 Ontario peak hours, from the IESO PDF page (MWh). */
@@ -89,3 +89,14 @@ export function peakAlert(d) {
 /** Confirmed 2026-27 top-5 hours so far (IESO ICI peak tracker, Final). */
 export const TOP5_2026 = IESO.iciTracker2026.slice(0, 5);
 export const DOLLARS_PER_MW_ALL5 = 5 / TOP5_2026.reduce((a, b) => a + b.mw, 0) * GA_12M_TOTAL; // annual GA $ per MW drawn in all 5 peak hours
+
+/** Teaching view of peak avoidance: the Mannheim load the trainee actually ran in the real 2026 top-5 hours sets the
+ *  PDF for Jul 2027 – Jun 2028. Hours not yet simulated use the assumed 2.5 MW. Next-year GA ≈ PDF × 12-month GA total
+ *  (Oct 2025 – Sep 2026 actuals used as the proxy for the future GA pool – ESTIMATE). */
+export function projectNextYear(records = []) {
+  const sumTop = TOP5_2026.reduce((a, b) => a + b.mw, 0);
+  const rows = TOP5_2026.map(p => { const r = records.find(x => x.day === p.date && x.he === p.he); return { ...p, kw: r ? r.kw : CLASS_A_ASSUMED_PEAK_MW * 1000, simulated: !!r }; });
+  const pdf = rows.reduce((a, r) => a + r.kw / 1000, 0) / sumTop;
+  const pdfBase = CLASS_A_ASSUMED_PEAK_MW * 5 / sumTop;
+  return { rows, pdf, pdfBase, ga: pdf * GA_12M_TOTAL, gaBase: pdfBase * GA_12M_TOTAL, saving: (pdfBase - pdf) * GA_12M_TOTAL };
+}
