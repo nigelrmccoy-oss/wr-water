@@ -10,7 +10,7 @@ const PLAYS = {
   },
   turb(s, sc, el) { // follow the jar test (≈1.15×), and trim plant flow while settled turbidity is high
     const P = s.sites.get('MWTP').plant;
-    if (Math.floor(el) % 10 === 0 && el - Math.floor(el) < 0.09) { const want = Math.round(P.paclReq * 1.15); if (Math.abs(want - P.paclSp) >= 2) s.setSp('MWTP', 'paclSp', want); }
+    if (Math.floor(el) % 10 === 0 && el - Math.floor(el) < 0.09) { const want = Math.round(P.paclReq); if (Math.abs(want - P.paclSp) >= 2) s.setSp('MWTP', 'paclSp', want); }
     if (el >= 60 && el < 61) s.setSp('MWTP', 'flowSp', 420);
   },
   cl2(s, sc, el) { if (el >= 4 && el < 5) { ackAll(s); s.setSp('ERB', 'cl2Duty', 'B'); } if (el >= 6 && el < 7) s.resetInterlock('ERB'); },

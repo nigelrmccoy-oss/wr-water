@@ -181,8 +181,8 @@ await W(() => window.WR.sim.time.getHours() >= 15, null, 60000);
 results.icipeak = await ev(() => ({ alert: !!window.WR.sim.peakNow?.alert, ici: document.querySelector('#ici').textContent, note: document.querySelector('#scAct')?.innerText || '' }));
 await page.locator('#tabs [data-view=costs]').click(); await page.waitForTimeout(800); await shot('13-icipeak-costs');
 
-const geo = await ev(() => { const p = document.querySelector('#scenarioPanel').getBoundingClientRect(), m = document.querySelector('main').getBoundingClientRect(); return { panelRight: Math.round(p.right), mainLeft: Math.round(m.left), visible: !document.querySelector('#scenarioPanel').classList.contains('hidden') }; });
-console.log('scenario panel vs content (1500×900):', JSON.stringify(geo)); if (geo.visible && geo.panelRight > geo.mainLeft) errors.push('scenario panel overlaps tab content');
+const geo = await ev(() => { const p = document.querySelector('#scenarioPanel').getBoundingClientRect(), m = document.querySelector('main').getBoundingClientRect(); const k = document.querySelector('#kpis').getBoundingClientRect(); return { kpisBottom: Math.round(k.bottom), panelTop: Math.round(p.top), mainTop: Math.round(m.top), panelRight: Math.round(p.right), mainLeft: Math.round(m.left), visible: !document.querySelector('#scenarioPanel').classList.contains('hidden') }; });
+console.log('scenario panel vs content (1500×900):', JSON.stringify(geo)); if (geo.visible && geo.panelRight > geo.mainLeft) errors.push('scenario panel overlaps tab content'); if (geo.panelTop < geo.kpisBottom - 1 || geo.mainTop < geo.kpisBottom - 1) errors.push('KPI bar hidden under sidebar/content');
 await page.locator('#tabs [data-view=help]').click(); await page.waitForTimeout(500); await shot('14-icipeak-help-docked');
 // header "Delivered today" = Σ zone delivered m³
 await ev(() => { window.WR.sim.paused = true; window.WR.ui.refreshSoon = true; }); await page.waitForTimeout(800);

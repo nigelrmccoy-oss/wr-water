@@ -67,6 +67,7 @@ export class UI {
 
   // ---------------- per-frame ----------------
   update(now) {
+    { const kb = $('#kpis').getBoundingClientRect().bottom; if (Math.abs(kb - (this._topH || 0)) > 0.5) { this._topH = kb; document.documentElement.style.setProperty('--topH', Math.ceil(kb) + 'px'); } } // dock main + sidebar below the (wrapping) KPI bar
     const sim = this.sim; const t = sim.time;
     $('#simDate').textContent = t.toLocaleDateString('en-CA', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' });
     $('#simTime').textContent = hhmm(t) + ':' + String(t.getSeconds()).padStart(2, '0');
@@ -136,7 +137,7 @@ export class UI {
       ${c.closed ? '' : `<div class="kv"><span>Storage</span><span>${z.level.toFixed(1)}% of ${fmt(z.volM3)} m³</span></div>`}
       <div class="kv"><span>Demand / in</span><span>${fmt(z.demandLs, 0)} / ${fmt(z.inLs, 0)} L/s</span></div>
       ${z.outLs > 0.5 ? `<div class="kv"><span>Transfer out</span><span>${fmt(z.outLs)} L/s</span></div>` : ''}
-      <div class="kv"><span>Pressure ${EST}</span><span style="color:${z.press < 275 ? 'var(--crit)' : 'inherit'}">${fmt(z.press)} kPa · ${fmt(z.press * 0.145)} psi</span></div>
+      <div class="kv"><span title="Model pressure using an ESTIMATED customer elevation per zone – not a real reading">Pressure ${EST}</span><span style="color:${z.press < 275 ? 'var(--crit)' : 'inherit'}">${fmt(z.press)} kPa · ${fmt(z.press * 0.145)} psi</span></div>
       ${c.hgl ? `<div class="kv"><span>HGL ${c.hglSt === 'real' ? '' : EST}</span><span>${c.hgl} m</span></div>` : ''}
       ${z.leakLs > 0 ? `<div class="kv"><span style="color:var(--crit)">MAIN BREAK</span><span>${fmt(z.leakLs)} L/s</span></div>` : ''}</div>`;
   }
@@ -283,7 +284,7 @@ export class UI {
       <div class="kv"><span>Now</span><span>${fmt(z.demandLs, 1)} L/s${z.leakLs ? ` incl. break ${fmt(z.leakLs)} L/s` : ''}</span></div><div class="kv"><span>Supply in / transfers out</span><span>${fmt(z.inLs, 1)} / ${fmt(z.outLs, 1)} L/s</span></div>
       <div class="kv"><span>Today</span><span>${fmt(z.today.m3)} m³</span></div><p class="dim">${esc(c.demandMethod || '')}</p></div>
       <div class="fp-sec"><h3>Transfers in</h3>${ins.map(lk).join('') || '<span class="dim">none</span>'}<h3>Transfers out</h3>${outs.map(lk).join('') || '<span class="dim">none</span>'}</div>
-      <div class="fp-sec"><h3>Trend 24 h – level % (blue), demand L/s (orange), pressure kPa/6 (green)</h3><canvas class="trend" id="trZ"></canvas></div>
+      <div class="fp-sec"><h3>Trend 24 h – level % (blue), demand L/s (orange), pressure kPa/6 (green, est.)</h3><canvas class="trend" id="trZ"></canvas></div>
       <div class="fp-sec"><h3>Sources in this zone</h3>${c.sites.map(id => `<button data-s="${id}">${esc(sim.sites.get(id).cfg.name)}</button>`).join(' ') || '<span class="dim">none – supplied by transfers</span>'}</div>`;
     fp.querySelector('.close').onclick = () => this.closeFp();
     for (const b of fp.querySelectorAll('[data-s]')) b.onclick = () => this.openSite(b.dataset.s);
@@ -406,7 +407,7 @@ export class UI {
     const S = DATA.sources;
     const nReal = DATA.sites.filter(s => s.locQuality === 'real').length;
     $('#view-help').innerHTML = `<div class="help">
-      <h2>What this is</h2><p>WR-WATER v0.2 is an <b>unofficial training simulator</b> of the Region of Waterloo water supply (Integrated Urban System + township systems). It is not connected to, endorsed by, or validated against the Region's SCADA. Numbers marked ${EST} are training assumptions; everything else is traceable to the public sources below.</p>
+      <h2>What this is</h2><p>WR-WATER v0.3.1 is an <b>unofficial training simulator</b> of the Region of Waterloo water supply (Integrated Urban System + township systems). It is not connected to, endorsed by, or validated against the Region's SCADA. Numbers marked ${EST} are training assumptions; everything else is traceable to the public sources below.</p>
       <h2>How to drive it</h2><ul>
       <li><b>Master board</b>: Mannheim panel, real pressure-zone tiles grouped by municipality (dashed = closed zone with no floating storage; its "level" is a supply-balance proxy), and every supply site. Click any tile/row → faceplate.</li>
       <li><b>Transfers</b>: every pump station / PRV / control valve between zones – AUTO (holds receiving-zone level SP), MAN (fixed L/s), CLOSED.</li>
@@ -414,10 +415,10 @@ export class UI {
       <li><b>PLC logic</b>: level lead/lag staging, 5-min min-run/off, clearwell low holds high lift, Cl₂ LOW-LOW 60 s → latched shutdown, UV low → shutdown, Mannheim filtered &gt;1 NTU 2 min → filter-to-waste, 1,4-dioxane &gt; MAC 2 min → Greenbrook shutdown, power loss → pumps stop and (without generator) a power-fail latch blocks AUTO restart until the operator restarts the site.</li>
       <li><b>Electricity</b>: Class A (Mannheim complex) pays market price + PDF × GA, Class B pays market + Class B GA, small sites pay OEB RPP (TOU or tiered). IESO-style ICI peak alerts appear on high-demand days (real 2026 Ontario demand). See Daily totals &amp; cost.</li>
       <li><b>Clock</b>: free play starts Tue 14 Jul 2026 05:00 (a real 2026 ICI top-5 day); speeds 1× – 900×.</li></ul>
-      <h2>Network (v0.2)</h2><p>${ZONE_CFGS.filter(z => z.ius && !z.node).length} real IUS pressure zones + the Mannheim reservoir node, ${this.sim.links.size} transfers / boosters / PRVs / valves, and ${ZONE_CFGS.filter(z => !z.ius).length} township systems. Per-zone and per-transfer sources and real/estimate status: <code>docs/network.md</code>.</p>
+      <h2>Network (v0.3.1)</h2><p>${ZONE_CFGS.filter(z => z.ius && !z.node).length} real IUS pressure zones + the Mannheim reservoir node, ${this.sim.links.size} transfers / boosters / PRVs / valves, and ${ZONE_CFGS.filter(z => !z.ius).length} township systems. Per-zone and per-transfer sources and real/estimate status: <code>docs/network.md</code>.</p>
       <h2>Scenarios</h2><table><tr><th>Scenario</th><th>Objectives</th></tr>${SCENARIOS.map(sc => `<tr><td><b>${esc(sc.title)}</b></td><td>${sc.objectives.map(o => esc(o.text)).join('<br>')}</td></tr>`).join('')}</table>
       <p class="dim">Each scenario is tested to FAIL with no trainee action (tests/scenario_noaction.mjs) and to PASS with the intended actions (tests/scenario_action.mjs).</p>
-      <h2>Training simplifications to know</h2><ul>
+      <h2>Training simplifications to know</h2><ul><li><b>Diesel generator for peak shaving</b>: running the standby generator to shave a peak burns diesel and emits NOx/PM/CO₂; in Ontario a standby generator's Environmental Compliance Approval (ECA) or EASR registration usually limits non-emergency hours (often to testing/maintenance), so peak-shaving may need a permit amendment – confirm with the Region's ECA before using it (training assumption, verify).</li><li><b>Zone pressures are estimates</b>: real per-zone ground elevations are not modelled; each zone uses an estimated customer service depth (50–64 m below the zone HGL), so every pressure shown is marked <i>est.</i> and is not a real reading.</li>
       <li><b>Filtered turbidity</b>: the real Ontario criterion for chemically assisted filtration is ≤ 0.3 NTU in at least 95 % of the measurements each month, and never &gt; 1 NTU (Procedure for Disinfection of Drinking Water in Ontario). The turbidity scenario scores 15-minute readings against that 95 % rule; the board alarm is a simple 0.3 NTU threshold.</li>
       <li><b>Main-break Category 2 reportability</b>: the "correct" answer the main-break scenario scores (Category 2 not reportable vs reportable to MOH/SAC) is a <b>training simplification that needs review by a qualified Ontario operator / the Watermain Disinfection Procedure owner</b>. In particular, how the ≈4 % of customers who lost water and the 140 kPa (20 psi) intrusion rule (an industry convention, not in the Procedure) should drive the decision has not been expert-reviewed.</li>
       <li><b>Peak avoidance</b>: daily GA shown in the cost totals uses the current (2025-based) PDF; the effect of today's load in a real 2026 top-5 hour appears as next year's projected PDF and GA on the cost tab.</li></ul>

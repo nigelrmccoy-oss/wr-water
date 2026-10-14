@@ -1,4 +1,4 @@
-# WR-WATER v0.3 — Region of Waterloo water supply SCADA trainer
+# WR-WATER v0.3.1 — Region of Waterloo water supply SCADA trainer
 
 Browser training simulator of the **Region of Waterloo municipal water supply** (Integrated Urban System + township systems) for new water technicians.
 Sister project to [`wwtp-na`](https://github.com/nigelrmccoy-oss/wwtp-na). **Unofficial**: not affiliated with or validated by the Region of Waterloo. Training use only; never use for real operating decisions.
@@ -14,6 +14,13 @@ python3 -m http.server 8765
 ```
 
 Three.js r170 is vendored in `vendor/` (copied from wwtp-na's node_modules, MIT, see `vendor/three-LICENSE`), so the app works offline.
+
+## What's new in v0.3.1
+- The KPI status bar is never hidden: the content area and docked scenario sidebar start below the measured KPI-bar height (it wraps at narrow widths).
+- Version strings bumped everywhere (title, brand, Help).
+- Jar test = true optimum dose (1.15 × charge demand). Default PACl 14 mg/L vs jar ≈13.6 at 6 NTU → 0.06 NTU before the storm. In the turbidity scenario, following the jar test alone scores ≈86 % (fail); jar test + flow cut to 420 L/s scores 100 %. The hints say so.
+- Zone pressures: real per-zone ground elevations were not obtained, so pressures keep the estimated service depth and are labelled *est.* everywhere they appear (tile, faceplate, trend, Help).
+- Diesel-generator emissions / ECA-permit caveat added to the ICI scenario hints, the live scenario note (when the generator runs) and Help.
 
 ## What's new in v0.3 (QA fixes, Oct 2026)
 

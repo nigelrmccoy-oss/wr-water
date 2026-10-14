@@ -1,5 +1,5 @@
 /**
- * wr-water v0.2 process + PLC-ish model.
+ * wr-water v0.3.1 process + PLC-ish model.
  *  - real IUS pressure zones (data/network.js) + inter-zone transfers (pump stations, PRVs, control valves)
  *  - per-site pumps with HOA, level lead/lag staging, anti-short-cycle, chlorination, interlocks
  *  - Mannheim WTP (Grand River): coag/ozone/4 filters with headloss, breakthrough and backwash sequence
@@ -165,7 +165,7 @@ export class Sim {
     if (kind === 'surface') {
       s.wells = ['LL-1', 'LL-2'].map(id => mkPump(id, 'lowlift', 420, A.tdhM.mannLowLift));
       s.boosters = ['B-1', 'B-2', 'B-3'].map(id => mkPump(id, 'booster', 315, A.tdhM.mannBooster));
-      s.plant = { mode: 'AUTO', flowSp: 497, flow: 480, paclSp: 15, paclReq: 12, polySp: 0.1, ozoneSp: 1.5, settled: 1.0, filtered: 0.08, ftw: false, ftwTimer: 0, okTimer: 0, highTurbTimer: 0, cap: 625, autoBw: true, bwWater: 0 };
+      s.plant = { mode: 'AUTO', flowSp: 497, flow: 480, paclSp: 14, paclReq: 13.6, polySp: 0.1, ozoneSp: 1.5, settled: 1.0, filtered: 0.08, ftw: false, ftwTimer: 0, okTimer: 0, highTurbTimer: 0, cap: 625, autoBw: true, bwWater: 0 };
       s.filters = Array.from({ length: MF.n }, (_, i) => ({ id: `F${i + 1}`, media: MF.media[i], state: 'SERVICE', step: -1, stepT: 0, solids: (0.15 + 0.2 * i) * MF.breakVolM3 * 1.5, hl: 0.5, turb: 0.05, q: 0, runH: 20 + 22 * i, ripen: 0, skipFtw: false, washes: 0 }));
       s.cwLevel = 60;
     } else {
@@ -611,7 +611,9 @@ export class Sim {
     for (const p of s.wells) kw += this.pumpPower(p, p.state === 'RUN' ? P.flow / llRun.length : 0);
     for (const p of s.boosters) kw += this.pumpPower(p, p.state === 'RUN' ? P.flow / bRun.length : 0);
     const raw = this.river.turbRaw;
-    P.paclReq = 10 + 0.3 * raw;
+    // v0.3.1: the displayed jar-test value IS the optimum dose (1.15 × the bare charge-neutralisation demand), so dosing
+    // exactly at the jar test is correct; under-dose below it, overdose above ≈1.6× it (ESTIMATE)
+    P.paclReq = 1.15 * (10 + 0.3 * raw);
     const def = Math.max(0, (P.paclReq - P.paclSp) / P.paclReq);
     const nF = inSvc.length + ftwF.length;
     P.settled = lag(P.settled, raw * (0.05 + 0.6 * def + 0.25 * Math.min(Math.max(0, P.paclSp / P.paclReq - 1.6), 2)), dt, 900);

@@ -45,7 +45,7 @@ Full per-site tables: [inventory.md](inventory.md) (generated) and `data/invento
 
 # v0.2 research additions (Oct 2026)
 
-The per-zone and per-transfer details, with status and source for each value, are in [network.md](network.md) (generated from `data/network.js`). The raw research workspace (source PDFs, pdftotext extracts, IESO downloads) is in `research-raw/` on nigian. It is git-ignored and not zipped.
+The per-zone and per-transfer details, with status and source for each value, are in [network.md](network.md) (generated from `data/network.js`). The raw research workspace (source PDFs, pdftotext extracts, IESO downloads) is in `research-raw/` on the development machine. It is git-ignored and not zipped.
 
 ## Pressure zones and transfers (IUS)
 | Fact | Value | Source |

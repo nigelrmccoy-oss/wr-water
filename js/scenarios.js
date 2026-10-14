@@ -1,4 +1,4 @@
-/** Training scenarios: setup → timed injections → objectives evaluated live (v0.2).
+/** Training scenarios: setup → timed injections → objectives evaluated live (v0.3.1).
  *  Each scenario: { id, title, brief, start:[y,m0,d,h,mi], durationH, setup(sim), tick(sim,dt), objectives:[{text, eval(state,sim)→'pass'|'fail'|'pending'}],
  *  hints[], optional actions(sim)→[{id,label,run,disabled,title}], actionTitle, decisionNote(sim) }.
  *  Every scenario is proven to NOT pass with no trainee action (tests/scenario_noaction.mjs) and to be passable (tests/scenario_action.mjs). */
@@ -49,7 +49,7 @@ export const SCENARIOS = [
     id: 'turb', title: 'Grand River turbidity spike at Mannheim WTP', durationH: 9,
     brief: 'A summer thunderstorm upstream: Grand River flow at Doon (02GA048) climbs from ~11 m³/s to >150 m³/s over a few hours and raw turbidity follows. ' +
       'The coagulant (PACl) dose is still at the dry-weather setpoint. Ontario criterion (Procedure for Disinfection): filtered turbidity ≤ 0.3 NTU in at least 95 % of measurements, never > 1 NTU – scored here on 15-min readings. ' +
-      'Raise the PACl dose toward the jar-test value (an overdose beyond ≈1.6× restabilises the floc), cut plant flow if filter loading pushes floc through, and let the filters wash as they load up faster at high settled turbidity. Avoid the filter-to-waste interlock (filtered > 1.0 NTU for 2 min).',
+      'Set the PACl dose to the jar-test value – it is the optimum dose (an overdose beyond ≈1.6× restabilises the floc), cut plant flow if filter loading pushes floc through, and let the filters wash as they load up faster at high settled turbidity. Avoid the filter-to-waste interlock (filtered > 1.0 NTU for 2 min).',
     start: [2026, 6, 15, 13, 0],
     setup(sim) { Object.assign(this, { t0: now(sim), maxFilt: 0, ftw: false, paclRaised: false, timeOver: 0, samples: 0, samplesOk: 0, nextSample: now(sim) + 15 * MIN }); sim.river.flow = 11; sim.river.turbRaw = 6; },
     tick(sim, dt) {
@@ -68,7 +68,7 @@ export const SCENARIOS = [
       { text: '≥ 95 % of 15-min filtered-turbidity readings ≤ 0.3 NTU over 8 h, none > 1.0 NTU', eval: (s, sim) => s.maxFilt > 1.0 ? 'fail' : (now(sim) - s.t0 > 8 * H ? (s.pctOk() >= 95 ? 'pass' : 'fail') : 'pending') },
     ],
     decisionNote(sim) { return `15-min readings ≤ 0.3 NTU: ${this.samplesOk}/${this.samples} (${this.pctOk().toFixed(0)} %) · peak ${this.maxFilt.toFixed(2)} NTU`; },
-    hints: ['Board → Mannheim panel shows river flow, raw/filtered NTU and the suggested dose.', 'Faceplate → Mannheim WTP → PACl dose setpoint.', 'Higher plant flow = higher filter loading = higher filtered turbidity; the PLC also washes filters automatically.'],
+    hints: ['Board → Mannheim panel shows river flow, raw/filtered NTU and the jar-test dose – the jar-test value is the optimum: dose at it (not above ≈1.6× it).', 'At very high raw turbidity (≳ 60 NTU) the right dose alone is not enough: cut plant flow (e.g. to ≈420 L/s) to lower filter loading.', 'Faceplate → Mannheim WTP → PACl dose setpoint.', 'Higher plant flow = higher filter loading = higher filtered turbidity; the PLC also washes filters automatically.'],
   },
   {
     id: 'cl2', title: 'Low chlorine residual – Erb Street wells', durationH: 2,
@@ -288,10 +288,11 @@ export const SCENARIOS = [
       const perHourMW = E.DOLLARS_PER_MW_ALL5 / 5; // $ per MW in ONE of the 5 peak hours
       const pj = E.projectNextYear(sim.peak.confirmed); const you = pj.rows.find(r => r.simulated);
       return `Alert-window average Class A load ${a.toFixed(0)} kW · each MW avoided in one peak hour ≈ $${Math.round(perHourMW).toLocaleString('en-CA')}/yr of GA` +
-        (you ? ` · your load in the real peak (HE${you.he}): ${Math.round(you.kw)} kW → projected next-year PDF ${(pj.pdf * 1e5).toFixed(3)}×10⁻⁵, GA ${'$' + Math.round(pj.ga).toLocaleString('en-CA')}/yr (${pj.saving >= 0 ? 'saves' : 'costs'} $${Math.abs(Math.round(pj.saving)).toLocaleString('en-CA')}/yr vs 2.5 MW) (ESTIMATE)` : ' (ESTIMATE from 2026 IESO data)');
+        (you ? ` · your load in the real peak (HE${you.he}): ${Math.round(you.kw)} kW → projected next-year PDF ${(pj.pdf * 1e5).toFixed(3)}×10⁻⁵, GA ${'$' + Math.round(pj.ga).toLocaleString('en-CA')}/yr (${pj.saving >= 0 ? 'saves' : 'costs'} $${Math.abs(Math.round(pj.saving)).toLocaleString('en-CA')}/yr vs 2.5 MW) (ESTIMATE)` : ' (ESTIMATE from 2026 IESO data)') +
+        (sim.sites.get('MWTP').pw?.gen?.state === 'RUN' ? ' · ⚠ generator running: diesel emissions/ECA hour limits apply (see hints/Help)' : '');
     },
     actions() { return []; },
-    hints: ['Costs tab → ICI section shows the real 2026 peaks, the alert and the $/MW value.', 'Transfers tab: raise Z4PS/Z5PS/Z6PS setpoints in the morning to pre-fill; put them in MAN low (or CLOSED) during the window.', 'Mannheim faceplate: plant flow MAN reduces process + low-lift load; generator "Start" runs it behind the meter.'],
+    hints: ['⚠ Diesel caveat: running the standby generator to shave a peak burns diesel and emits NOx/PM/CO₂; in Ontario a standby generator’s Environmental Compliance Approval (ECA) or EASR registration usually limits non-emergency hours (often to testing/maintenance), so peak-shaving may need a permit amendment – confirm with the Region’s ECA before using it (training assumption, verify).', 'Costs tab → ICI section shows the real 2026 peaks, the alert and the $/MW value.', 'Transfers tab: raise Z4PS/Z5PS/Z6PS setpoints in the morning to pre-fill; put them in MAN low (or CLOSED) during the window.', 'Mannheim faceplate: plant flow MAN reduces process + low-lift load; generator "Start" runs it behind the meter.'],
   },
 ];
 
