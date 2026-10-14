@@ -7,7 +7,8 @@ const require = createRequire(import.meta.url);
 let pw; for (const p of ['playwright', process.env.PLAYWRIGHT_PATH, process.env.HOME + '/wwtp-qa/harness/node_modules/playwright', process.env.HOME + '/qa-2026-10-08/pw/node_modules/playwright']) { try { pw = require(p); break; } catch {} }
 if (!pw) { console.error('playwright not found'); process.exit(2); }
 const base = process.argv[2] || 'http://127.0.0.1:8765/';
-const browser = await pw.chromium.launch({ args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
+const HEADED = !!process.env.HEADED; // HEADED=1 SLOWMO=300 → watch it on the desktop
+const browser = await pw.chromium.launch(HEADED ? { headless: false, slowMo: +(process.env.SLOWMO || 300) } : { args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
 const page = await browser.newPage({ viewport: { width: 1500, height: 900 } });
 const errors = [], warns = [], dialogs = [];
 page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); if (m.type() === 'warning') warns.push(m.text()); });
@@ -38,6 +39,8 @@ console.log('Greenbrook AOP inputs:', aopInputs, '· Mannheim filter tiles:', fi
 await shot('03-faceplate-mannheim'); await close();
 // zone faceplate
 await page.locator('#view-board .zone[data-zone="KIT4"]').click(); await page.waitForTimeout(400); await shot('03b-zone-kit4'); await close();
+const helpOk = await ev(() => document.querySelector('#view-help').innerText.includes('Scenarios') && document.querySelectorAll('#view-help tr').length > 20);
+console.log('help has v0.2 network + scenarios:', helpOk); if (!helpOk) errors.push('help not updated');
 for (const v of ['net', 'alarms', 'costs', 'help']) { await page.locator(`#tabs [data-view=${v}]`).click(); await page.waitForTimeout(700); await shot(`04-${v}`); }
 await page.locator('#tabs [data-view=costs]').click(); await page.waitForTimeout(500);
 const costs = await ev(() => ({ ont: !!document.querySelector('#trOnt'), rpp: !!document.querySelector('#rppPlan'), txt: document.querySelector('#view-costs').innerText.includes('Class A') }));
@@ -56,6 +59,7 @@ console.log('3D map ready:', mapReady, 'mains segments:', await ev(() => window.
 await page.locator('#tabs [data-view=board]').click();
 
 // ── cl2: switch to pump B via the faceplate
+console.log('[step] cl2', new Date().toISOString().slice(11,19));
 await page.selectOption('#scenarioSel', 'cl2'); await page.waitForTimeout(300);
 await ev(() => { window.WR.sim.speed = 300; });
 await W(() => window.WR.sim.sites.get('ERB').cl2.fault.A, null, 30000);
@@ -69,6 +73,7 @@ results.cl2 = await ev(() => { const s = window.WR.sim; return s.scenario.object
 await shot('06-scenario-cl2'); await close();
 
 // ── trip: ack, start Parkway wells via faceplate, reset HL-1 after lock-out
+console.log('[step] trip', new Date().toISOString().slice(11,19));
 await page.selectOption('#scenarioSel', 'trip'); await page.waitForTimeout(300);
 await W(() => window.WR.sim.findPump('STR', 'HL-1').trip, null, 30000);
 await page.locator('#bnAll').click();
@@ -83,6 +88,7 @@ results.trip = await ev(() => { const s = window.WR.sim; return s.scenario.objec
 await shot('07-scenario-trip');
 
 // ── outage: generator via faceplate power buttons, restarts via scenario action buttons
+console.log('[step] outage', new Date().toISOString().slice(11,19));
 await page.selectOption('#scenarioSel', 'outage'); await page.waitForTimeout(300);
 await ev(() => { window.WR.sim.speed = 60; });
 await W(() => window.WR.sim.sites.get('MWTP').pw.gen.state === 'FAIL', null, 30000);
@@ -106,6 +112,7 @@ await W(() => { const s = window.WR.sim, sc = s.scenario; return s.time.getTime(
 results.outage = await ev(() => { const s = window.WR.sim; return s.scenario.objectives.map(o => o.eval(s.scenario, s)); });
 
 // ── mainbreak: crew/isolation/decision buttons
+console.log('[step] mainbreak', new Date().toISOString().slice(11,19));
 await page.selectOption('#scenarioSel', 'mainbreak'); await page.waitForTimeout(300);
 await ev(() => { window.WR.sim.speed = 120; });
 await W(() => window.WR.sim.scenario.breakT, null, 30000);
@@ -125,6 +132,7 @@ await W(() => { const s = window.WR.sim, sc = s.scenario; return s.time.getTime(
 results.mainbreak = await ev(() => { const s = window.WR.sim; return s.scenario.objectives.map(o => o.eval(s.scenario, s)); });
 
 // ── backwash: filter tile buttons
+console.log('[step] backwash', new Date().toISOString().slice(11,19));
 await page.selectOption('#scenarioSel', 'backwash'); await page.waitForTimeout(300);
 await page.locator('.mann').click(); await page.waitForTimeout(500);
 await page.locator('#faceplate [data-bw=F2]').click(); await page.waitForTimeout(300);
@@ -139,6 +147,7 @@ results.backwash = await ev(() => { const s = window.WR.sim; return s.scenario.o
 await close();
 
 // ── dioxane: AOP setpoints through the faceplate, take K5A to OFF
+console.log('[step] dioxane', new Date().toISOString().slice(11,19));
 await page.selectOption('#scenarioSel', 'dioxane'); await page.waitForTimeout(300);
 await page.locator('#view-board tr.site[data-site="GRB"]').click(); await page.waitForTimeout(400);
 await page.fill('#faceplate [data-sp=uvKw]', '280'); await page.dispatchEvent('#faceplate [data-sp=uvKw]', 'change');
@@ -154,6 +163,7 @@ results.dioxane = await ev(() => { const s = window.WR.sim; return { obj: s.scen
 await close();
 
 // ── icipeak: load only (peak banner + decision note), no play-through
+console.log('[step] icipeak', new Date().toISOString().slice(11,19));
 await page.selectOption('#scenarioSel', 'icipeak'); await page.waitForTimeout(300);
 await ev(() => { window.WR.sim.speed = 900; });
 await W(() => window.WR.sim.time.getHours() >= 15, null, 60000);
@@ -167,4 +177,4 @@ console.log('dialogs (operator feedback alerts):', dialogs.length ? dialogs : 'n
 console.log('console errors:', errors.length ? errors : 'none');
 console.log('console warnings:', warns.length);
 await browser.close();
-process.exitCode = errors.length || rows < 50 || !mapReady || !allPass || !aopInputs || filterTiles !== 4 || !results.icipeak.alert ? 1 : 0;
+process.exitCode = errors.length || rows < 50 || !mapReady || !allPass || !aopInputs || filterTiles !== 4 || !results.icipeak.alert || !results.icipeak.note.includes('Class A') ? 1 : 0;

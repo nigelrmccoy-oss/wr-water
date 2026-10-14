@@ -1,7 +1,7 @@
 import { DATA } from '../data/facilities.js';
 import { SRC, MANN_FILTERS as MF, DIOXANE as DX } from '../data/network.js';
 import { fmt, money, hhmm, esc } from './util.js';
-import { touPeriod, elecRate } from './sim.js';
+import { touPeriod, elecRate, ZONE_CFGS } from './sim.js';
 import * as E from './energy.js';
 import { SCENARIOS, startScenario, scenarioStatus } from './scenarios.js';
 
@@ -52,7 +52,8 @@ export class UI {
   renderScenarioActions() {
     const sc = this.sim.scenario; const el = $('#scAct'); if (!el) return;
     const acts = (sc.actions?.(this.sim) || []);
-    const h = acts.length ? `<div class="dim">${esc(sc.actionTitle || 'Field actions / decisions')}</div><div class="scact">${acts.map(a => `<button data-act="${a.id}" ${a.disabled ? 'disabled' : ''} title="${esc(a.title || '')}">${esc(a.label)}</button>`).join('')}</div>${sc.decisionNote ? `<div class="dim">${esc(sc.decisionNote(this.sim) || '')}</div>` : ''}` : '';
+    const note = sc.decisionNote ? `<div class="dim">${esc(sc.decisionNote(this.sim) || '')}</div>` : '';
+    const h = (acts.length ? `<div class="dim">${esc(sc.actionTitle || 'Field actions / decisions')}</div><div class="scact">${acts.map(a => `<button data-act="${a.id}" ${a.disabled ? 'disabled' : ''} title="${esc(a.title || '')}">${esc(a.label)}</button>`).join('')}</div>` : '') + note;
     if (el.dataset.h !== h) {
       el.innerHTML = h; el.dataset.h = h;
       for (const b of el.querySelectorAll('[data-act]')) b.onclick = () => { const a = (sc.actions(this.sim) || []).find(x => x.id === b.dataset.act); if (a) { const r = a.run(this.sim); if (r && r !== 'ok') alert(r); } this.refreshSoon = true; };
@@ -405,6 +406,9 @@ export class UI {
       <li><b>PLC logic</b>: level lead/lag staging, 5-min min-run/off, clearwell low holds high lift, Cl₂ LOW-LOW 60 s → latched shutdown, UV low → shutdown, Mannheim filtered &gt;1 NTU 2 min → filter-to-waste, 1,4-dioxane &gt; MAC 2 min → Greenbrook shutdown, power loss → pumps stop and (without generator) a power-fail latch blocks AUTO restart until the operator restarts the site.</li>
       <li><b>Electricity</b>: Class A (Mannheim complex) pays market price + PDF × GA, Class B pays market + Class B GA, small sites pay OEB RPP (TOU or tiered). IESO-style ICI peak alerts appear on high-demand days (real 2026 Ontario demand). See Daily totals &amp; cost.</li>
       <li><b>Clock</b>: free play starts Tue 14 Jul 2026 05:00 (a real 2026 ICI top-5 day); speeds 1× – 900×.</li></ul>
+      <h2>Network (v0.2)</h2><p>${ZONE_CFGS.filter(z => z.ius && !z.node).length} real IUS pressure zones + the Mannheim reservoir node, ${this.sim.links.size} transfers / boosters / PRVs / valves, and ${ZONE_CFGS.filter(z => !z.ius).length} township systems. Per-zone and per-transfer sources and real/estimate status: <code>docs/network.md</code>.</p>
+      <h2>Scenarios</h2><table><tr><th>Scenario</th><th>Objectives</th></tr>${SCENARIOS.map(sc => `<tr><td><b>${esc(sc.title)}</b></td><td>${sc.objectives.map(o => esc(o.text)).join('<br>')}</td></tr>`).join('')}</table>
+      <p class="dim">Each scenario is tested to FAIL with no trainee action (tests/scenario_noaction.mjs) and to PASS with the intended actions (tests/scenario_action.mjs).</p>
       <h2>Data provenance</h2><table>
       <tr><th>Data</th><th>Status</th><th>Source</th></tr>
       <tr><td>Wells per site, treatment trains, clearwell/reservoir volumes, high-lift pump counts, standby power</td><td>${REAL}</td><td><a href="${S.AWQR25}" target="_blank">2025 Annual Water Quality Report</a></td></tr>
