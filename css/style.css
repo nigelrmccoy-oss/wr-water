@@ -11,6 +11,8 @@ input[type=number] { width:70px; cursor:text; }
 .tou { font-size:11px; padding:1px 6px; border-radius:3px; } .tou.offPeak { background:#1f5130; } .tou.midPeak { background:#6b5a14; } .tou.onPeak { background:#7a2323; }
 #speed button { padding:3px 6px; }
 #kpis { display:flex; gap:18px; padding:5px 10px; background:var(--panel); border-bottom:1px solid var(--line); font-family:ui-monospace, Consolas, monospace; flex-wrap:wrap; }
+.genwarn { color:#ffd25a; font-weight:700; } p.genwarn { margin:4px 0; }
+.zone .kv > span:first-child { white-space:nowrap; }
 #kpis div span { color:var(--dim); margin-right:4px; }
 main { position:absolute; top:var(--topH, 84px); bottom:30px; left:0; right:0; overflow:auto; }
 .view { display:none; padding:8px 10px; } .view.on { display:block; }
@@ -40,9 +42,9 @@ td.num { text-align:right; }
 @keyframes blink { 50% { opacity:0.25; } }
 .alm-badge { color:#fff; border-radius:3px; padding:0 4px; font-size:11px; } .alm-badge.p1 { background:var(--crit); } .alm-badge.p2 { background:#b26b00; } .alm-badge.p3 { background:#3b5568; }
 .ilk { color:#fff; background:#8a1d1d; padding:0 4px; border-radius:3px; font-size:11px; }
-.est { color:var(--est); font-size:10px; border:1px solid #6b4f8f; border-radius:3px; padding:0 3px; margin-left:3px; vertical-align:middle; }
+.est { white-space:nowrap; flex:none; color:var(--est); font-size:10px; border:1px solid #6b4f8f; border-radius:3px; padding:0 3px; margin-left:3px; vertical-align:middle; }
 .real { color:#6fd39b; font-size:10px; border:1px solid #2e6b48; border-radius:3px; padding:0 3px; margin-left:3px; }
-#faceplate { position:fixed; right:0; top:84px; bottom:30px; width:min(560px, 100%); background:#171c22; border-left:2px solid #3d6a91; overflow:auto; padding:8px 10px; z-index:20; box-shadow:-8px 0 20px #0008; }
+#faceplate { position:fixed; right:0; top:var(--topH, 84px); bottom:30px; width:min(560px, 100%); background:#171c22; border-left:2px solid #3d6a91; overflow:auto; padding:8px 10px; z-index:20; box-shadow:-8px 0 20px #0008; }
 #faceplate.hidden, #scenarioPanel.hidden { display:none; }
 #faceplate h2 { margin:0; font-size:15px; color:#7fd3ff; } #faceplate .close { float:right; }
 .fp-sec { background:var(--panel); border:1px solid var(--line); border-radius:4px; padding:6px 8px; margin:6px 0; }

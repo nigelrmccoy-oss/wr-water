@@ -1,4 +1,4 @@
-/** Training scenarios: setup → timed injections → objectives evaluated live (v0.3.1).
+/** Training scenarios: setup → timed injections → objectives evaluated live (v0.3.2).
  *  Each scenario: { id, title, brief, start:[y,m0,d,h,mi], durationH, setup(sim), tick(sim,dt), objectives:[{text, eval(state,sim)→'pass'|'fail'|'pending'}],
  *  hints[], optional actions(sim)→[{id,label,run,disabled,title}], actionTitle, decisionNote(sim) }.
  *  Every scenario is proven to NOT pass with no trainee action (tests/scenario_noaction.mjs) and to be passable (tests/scenario_action.mjs). */
@@ -284,12 +284,13 @@ export const SCENARIOS = [
       { text: 'No reservoir/tower overflow while pre-filling', eval: (s, sim) => s.spill > 1 ? 'fail' : (s.lv22 ? 'pass' : 'pending') },
     ],
     decisionNote(sim) {
-      const a = this.avgKw(); if (a == null) return 'Alert-window average Class A load: not started (14:00–18:00)';
+      const genW = [...sim.sites.values()].some(s => s.pw?.gen?.state === 'RUN') ? ' · ⚠ GENERATOR RUNNING: diesel emissions / ECA hour limits apply' : '';
+      const a = this.avgKw(); if (a == null) return 'Alert-window average Class A load: not started (14:00–18:00)' + genW;
       const perHourMW = E.DOLLARS_PER_MW_ALL5 / 5; // $ per MW in ONE of the 5 peak hours
       const pj = E.projectNextYear(sim.peak.confirmed); const you = pj.rows.find(r => r.simulated);
       return `Alert-window average Class A load ${a.toFixed(0)} kW · each MW avoided in one peak hour ≈ $${Math.round(perHourMW).toLocaleString('en-CA')}/yr of GA` +
         (you ? ` · your load in the real peak (HE${you.he}): ${Math.round(you.kw)} kW → projected next-year PDF ${(pj.pdf * 1e5).toFixed(3)}×10⁻⁵, GA ${'$' + Math.round(pj.ga).toLocaleString('en-CA')}/yr (${pj.saving >= 0 ? 'saves' : 'costs'} $${Math.abs(Math.round(pj.saving)).toLocaleString('en-CA')}/yr vs 2.5 MW) (ESTIMATE)` : ' (ESTIMATE from 2026 IESO data)') +
-        (sim.sites.get('MWTP').pw?.gen?.state === 'RUN' ? ' · ⚠ generator running: diesel emissions/ECA hour limits apply (see hints/Help)' : '');
+        genW;
     },
     actions() { return []; },
     hints: ['⚠ Diesel caveat: running the standby generator to shave a peak burns diesel and emits NOx/PM/CO₂; in Ontario a standby generator’s Environmental Compliance Approval (ECA) or EASR registration usually limits non-emergency hours (often to testing/maintenance), so peak-shaving may need a permit amendment – confirm with the Region’s ECA before using it (training assumption, verify).', 'Costs tab → ICI section shows the real 2026 peaks, the alert and the $/MW value.', 'Transfers tab: raise Z4PS/Z5PS/Z6PS setpoints in the morning to pre-fill; put them in MAN low (or CLOSED) during the window.', 'Mannheim faceplate: plant flow MAN reduces process + low-lift load; generator "Start" runs it behind the meter.'],

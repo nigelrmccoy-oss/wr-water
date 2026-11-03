@@ -1,4 +1,4 @@
-// Headless browser smoke test (v0.2): loads the app over HTTP, exercises every view, faceplates (power, filters, AOP),
+// Headless browser smoke test (v0.3.2): loads the app over HTTP, exercises every view, faceplates (power, filters, AOP),
 // transfers, costs/ICI, the 3D map and drives several scenarios THROUGH THE UI. Fails on any console error.
 // Usage: node tests/smoke.mjs [baseUrl]   (needs playwright; see README)
 import { createRequire } from 'module';
@@ -44,7 +44,7 @@ await shot('03-faceplate-mannheim'); await close();
 // zone faceplate
 await page.locator('#view-board .zone[data-zone="KIT4"]').click(); await page.waitForTimeout(400); await shot('03b-zone-kit4'); await close();
 const helpOk = await ev(() => document.querySelector('#view-help').innerText.includes('Scenarios') && document.querySelectorAll('#view-help tr').length > 20);
-console.log('help has v0.2 network + scenarios:', helpOk); if (!helpOk) errors.push('help not updated');
+console.log('help has network + scenarios:', helpOk); if (!helpOk) errors.push('help not updated');
 for (const v of ['net', 'alarms', 'costs', 'help']) { await page.locator(`#tabs [data-view=${v}]`).click(); await page.waitForTimeout(700); await shot(`04-${v}`); }
 await page.locator('#tabs [data-view=costs]').click(); await page.waitForTimeout(500);
 const costs = await ev(() => ({ ont: !!document.querySelector('#trOnt'), rpp: !!document.querySelector('#rppPlan'), txt: document.querySelector('#view-costs').innerText.includes('Class A') }));
@@ -176,11 +176,25 @@ await close();
 // ── icipeak: load only (peak banner + decision note), no play-through
 console.log('[step] icipeak', new Date().toISOString().slice(11,19));
 await page.selectOption('#scenarioSel', 'icipeak'); await page.waitForTimeout(300);
+// v0.3.2: generator warning must show OUTSIDE the 14:00 ICI window (header KPI bar, scenario note, Costs tab) and zone pressures must not be NaN
+await ev(() => { window.WR.sim.speed = 60; window.WR.sim.startGen('MWTP'); });
+await W(() => window.WR.sim.sites.get('MWTP').pw.gen.state === 'RUN', null, 60000);
+await page.waitForTimeout(1200);
+const genw = await ev(() => ({ hour: window.WR.sim.time.getHours(), kpi: !!document.querySelector('#kpis .genwarn'), note: document.querySelector('#scAct')?.innerText.includes('GENERATOR RUNNING') }));
+console.log('generator warning before window:', JSON.stringify(genw)); if (genw.hour >= 14 || !genw.kpi || !genw.note) errors.push('generator warning missing outside ICI window');
+await page.locator('#tabs [data-view=costs]').click(); await page.waitForTimeout(600);
+const costsGen = await ev(() => /Diesel\/ECA caveat/.test(document.querySelector('#view-costs').innerText) && !!document.querySelector('#view-costs p.genwarn'));
+if (!costsGen) errors.push('Costs tab missing ECA caveat / generator warning');
+await ev(() => window.WR.sim.stopGen('MWTP')); await page.locator('#tabs [data-view=board]').click();
+const nanP = await ev(() => [...window.WR.sim.zones.values()].filter(z => !Number.isFinite(z.press)).map(z => z.id)); if (nanP.length) errors.push('NaN zone pressure: ' + nanP);
 await ev(() => { window.WR.sim.speed = 900; });
 await W(() => window.WR.sim.time.getHours() >= 15, null, 60000);
 results.icipeak = await ev(() => ({ alert: !!window.WR.sim.peakNow?.alert, ici: document.querySelector('#ici').textContent, note: document.querySelector('#scAct')?.innerText || '' }));
 await page.locator('#tabs [data-view=costs]').click(); await page.waitForTimeout(800); await shot('13-icipeak-costs');
 
+await page.locator('#tabs [data-view=board]').click(); await page.waitForTimeout(300); await page.locator('.mann').click(); await page.waitForTimeout(500);
+const drawer = await ev(() => { const f = document.querySelector('#faceplate'), k = document.querySelector('#kpis'); return f && !f.classList.contains('hidden') ? { fpTop: Math.round(f.getBoundingClientRect().top), kpisBottom: Math.round(k.getBoundingClientRect().bottom) } : null; });
+console.log('drawer vs KPI bar:', JSON.stringify(drawer)); if (!drawer || drawer.fpTop < drawer.kpisBottom - 1) errors.push('faceplate drawer missing or covers KPI bar'); await close();
 const geo = await ev(() => { const p = document.querySelector('#scenarioPanel').getBoundingClientRect(), m = document.querySelector('main').getBoundingClientRect(); const k = document.querySelector('#kpis').getBoundingClientRect(); return { kpisBottom: Math.round(k.bottom), panelTop: Math.round(p.top), mainTop: Math.round(m.top), panelRight: Math.round(p.right), mainLeft: Math.round(m.left), visible: !document.querySelector('#scenarioPanel').classList.contains('hidden') }; });
 console.log('scenario panel vs content (1500×900):', JSON.stringify(geo)); if (geo.visible && geo.panelRight > geo.mainLeft) errors.push('scenario panel overlaps tab content'); if (geo.panelTop < geo.kpisBottom - 1 || geo.mainTop < geo.kpisBottom - 1) errors.push('KPI bar hidden under sidebar/content');
 await page.locator('#tabs [data-view=help]').click(); await page.waitForTimeout(500); await shot('14-icipeak-help-docked');

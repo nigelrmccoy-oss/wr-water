@@ -1,5 +1,5 @@
 /**
- * wr-water v0.3.1 process + PLC-ish model.
+ * wr-water v0.3.2 process + PLC-ish model.
  *  - real IUS pressure zones (data/network.js) + inter-zone transfers (pump stations, PRVs, control valves)
  *  - per-site pumps with HOA, level lead/lag staging, anti-short-cycle, chlorination, interlocks
  *  - Mannheim WTP (Grand River): coag/ozone/4 filters with headloss, breakthrough and backwash sequence
@@ -68,7 +68,7 @@ export const diurnal = h => diurnalRaw(h) / DIURNAL_NORM;
 function newTotals() { return { m3: 0, kwh: 0, elec: 0, chem: 0, ga: 0, diesel: 0, chemDetail: {} }; }
 const OLD_IUS = new Set(['K4M', 'K5', 'W4', 'CAM']);
 
-/** zone configs for v0.2: real IUS pressure zones + v0.1 township systems */
+/** zone configs (v0.2+): real IUS pressure zones + v0.1 township systems */
 export function buildZoneConfigs() {
   const iusSites = DATA.sites.filter(s => SITE_ZONE[s.id]);
   const iusProd = iusSites.reduce((a, s) => a + s.avg2025M3d, 0) + NHB_IUS_TRANSFER_AVG_LS * 86.4;
@@ -101,7 +101,7 @@ export class Sim {
     this.scenario = null; this.injected = {}; this.feeders = {};
     this.rppPlan = 'TOU';
     this.trendAcc = 0;
-    this.river = { flow: 12, turbRaw: 6, stormBoost: 0 };
+    this.river = { flow: 12, turbRaw: 2 + 0.35 * Math.pow(12, 1.15), stormBoost: 0 }; // turbRaw starts at the steady state for the starting flow (same formula as updateRiver)
     this.day = this.time.getDate(); this.month = this.time.getMonth();
     this.peak = { hourAcc: 0, hourKwS: 0, curHour: this.time.getHours(), todayKw: new Array(24).fill(null), confirmed: [], alertHours: [] };
     this.totalsExtra = newTotals();
@@ -165,7 +165,7 @@ export class Sim {
     if (kind === 'surface') {
       s.wells = ['LL-1', 'LL-2'].map(id => mkPump(id, 'lowlift', 420, A.tdhM.mannLowLift));
       s.boosters = ['B-1', 'B-2', 'B-3'].map(id => mkPump(id, 'booster', 315, A.tdhM.mannBooster));
-      s.plant = { mode: 'AUTO', flowSp: 497, flow: 480, paclSp: 14, paclReq: 13.6, polySp: 0.1, ozoneSp: 1.5, settled: 1.0, filtered: 0.08, ftw: false, ftwTimer: 0, okTimer: 0, highTurbTimer: 0, cap: 625, autoBw: true, bwWater: 0 };
+      s.plant = { mode: 'AUTO', flowSp: 497, flow: 480, paclSp: 14, paclReq: 1.15 * (10 + 0.3 * this.river.turbRaw), polySp: 0.1, ozoneSp: 1.5, settled: 1.0, filtered: 0.08, ftw: false, ftwTimer: 0, okTimer: 0, highTurbTimer: 0, cap: 625, autoBw: true, bwWater: 0 };
       s.filters = Array.from({ length: MF.n }, (_, i) => ({ id: `F${i + 1}`, media: MF.media[i], state: 'SERVICE', step: -1, stepT: 0, solids: (0.15 + 0.2 * i) * MF.breakVolM3 * 1.5, hl: 0.5, turb: 0.05, q: 0, runH: 20 + 22 * i, ripen: 0, skipFtw: false, washes: 0 }));
       s.cwLevel = 60;
     } else {
@@ -257,7 +257,7 @@ export class Sim {
     if (vNew > z.volM3) { z.spillLs = (vNew - z.volM3) / dt * 1000; z.today.spill = (z.today.spill || 0) + (vNew - z.volM3); vNew = z.volM3; } // overflow to drain (mass-balance sink)
     if (vNew < 0) { z.unservedLs = -vNew / dt * 1000; z.today.unserved = (z.today.unserved || 0) - vNew; vNew = 0; }         // demand that could not be met
     z.level = vNew / z.volM3 * 100;
-    if (c.node) { z.press = NaN; this.alarms.set(z.level < 20, `${z.id}:lvlLo`, null, `${c.name}: level LOW ${z.level.toFixed(0)}%`, 2); return; }
+    if (c.node) { z.press = 0; z.minPress = 999; /* node has no customers: pressure n/a (0, never NaN); UI hides it */ this.alarms.set(z.level < 20, `${z.id}:lvlLo`, null, `${c.name}: level LOW ${z.level.toFixed(0)}%`, 2); return; }
     if (!c.closed) {
       if (z.level >= 100 && z.inLs > z.demandLs + z.outLs) this.alarms.raise(`${z.id}:ovf`, null, `${c.name}: storage OVERFLOW`, 2);
       else if (z.level < 99) this.alarms.clear(`${z.id}:ovf`);
