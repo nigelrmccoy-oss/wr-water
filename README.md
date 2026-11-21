@@ -1,4 +1,4 @@
-# WR-WATER v0.4 — Region of Waterloo water supply SCADA trainer
+# WR-WATER v0.4.1 — Region of Waterloo water supply SCADA trainer
 
 Browser training simulator of the **Region of Waterloo municipal water supply** (Integrated Urban System + township systems) for new water technicians.
 Sister project to [`wwtp-na`](https://github.com/nigelrmccoy-oss/wwtp-na). **Unofficial**: not affiliated with or validated by the Region of Waterloo. Training use only; never use for real operating decisions.
@@ -14,6 +14,12 @@ python3 -m http.server 8765
 ```
 
 Three.js r170 is vendored in `vendor/` (copied from wwtp-na's node_modules, MIT, see `vendor/three-LICENSE`), so the app works offline.
+
+## What's new in v0.4.1
+- **Well construction on the site faceplate**: aquifer, screen or open-hole interval (m BGS) and GUDI flag from the 2025 Grand River Source Protection Assessment Report, with a source note. Site coordinates were not changed. WWIS spatial candidates were not added to the shipped data.
+- **Class A / ICI wording**: as of 2018/19 these Region facilities were opted into Class A: Waterloo, Galt and Kitchener WWTPs plus Hidden Valley Water PS (Corporate Energy Plan 2019–2028). Mannheim WTP was not listed; current status is unpublished. The sim still books Class A GA to the Mannheim complex as a training proxy. The 2.5 MW peak contribution used for PDF is labelled a training estimate, not a published Regional share.
+- **Cambridge 1W booster** is labelled "under construction (2017 EA, HGL 337 m), assumed in service for training."
+- Research note: `docs/research-wells-v04.md`. Zone pressures stay labelled est.
 
 ## What's new in v0.4
 - **3D scenery from OpenStreetMap**: the 3D overview loads streets, simple extruded buildings, water polygons and OSM water-tower/water-works features around each supply site (© OpenStreetMap contributors, ODbL). Queries go first to a self-hosted Ontario Overpass at `http://127.0.0.1:12346/api/interpreter`, then to overpass-api.de, then kumi.systems. If none answer, the trainer still runs on the bundled river and watermain GeoJSON. Watermains stay visually on top; scenery is muted and sits underneath.
@@ -115,12 +121,12 @@ Full per-zone and per-transfer tables: **[docs/network.md](docs/network.md)**. E
 - Electricity: OEB RPP TOU 9.8/15.7/20.3 ¢ and tiered 12.0/14.2 ¢ (750 kWh/month non-residential threshold), effective Nov 1 2025 (https://oeb.ca/sites/default/files/rpp-price-report-20251017.pdf). IESO monthly GA (total $ and Class B rate) Oct 2025 – Sep 2026 (https://reports-public.ieso.ca/public/GlobalAdjustment/), 2025-26 base-period top-5 peaks used for the PDF (https://www.ieso.ca/sector-participants/settlements/global-adjustment-and-peak-demand-factor), 2026 hourly Ontario demand (https://reports-public.ieso.ca/public/Demand/PUB_Demand_2026.csv), 2026 ICI peak tracker (https://reports-public.ieso.ca/public/ICIPeakTracker/PUB_ICIPeakTracker_2026.xml), day-ahead Ontario zonal price for 10–31 Jul 2026 (https://reports-public.ieso.ca/public/DAHourlyOntarioZonalPrice/). Class A eligibility rules: https://www.ieso.ca/sector-participants/settlements/global-adjustment-class-a-eligibility
 
 **Estimated (v0.2):**
-- HGLs for Kit 4, Kit 5, Kit 2EA, Kit 2W, Kit 4A, Bridgeport, Cam 1A, Cam 2E and Cam 3 (method noted per zone; Kit 4 is set to the Wat 4 value because the zones connect through MV3 without pumping). Storage volumes other than the three listed above. Every transfer capacity except K50 (87 L/s), plus pump counts, heads and AUTO setpoints. The Shades Mill → Cam 3 and Bridgeport feed directions. **The Cam 1W booster PS is assumed to be in service**: the 2017 EA recommended it; whether it was built is not verified.
+- HGLs for Kit 4, Kit 5, Kit 2EA, Kit 2W, Kit 4A, Bridgeport, Cam 1A, Cam 2E and Cam 3 (method noted per zone; Kit 4 is set to the Wat 4 value because the zones connect through MV3 without pumping). Storage volumes other than the three listed above. Every transfer capacity except K50 (87 L/s), plus pump counts, heads and AUTO setpoints. The Shades Mill → Cam 3 and Bridgeport feed directions. **The Cam 1W booster PS is under construction (2017 EA, HGL 337 m), assumed in service for training** (Region project page, fetched 21 Nov 2026 America/Toronto, listed construction; in-service date not confirmed).
 - Pressure model for IUS zones: HGL − storage drawdown (8 m tanked zones, 20 m closed zones) − demand headloss − main-break loss; the 140 kPa (20 psi) intrusion trigger is an industry convention used as a training rule, not a Regional or provincial number.
 - Power: feeder groupings, generator sizes (Mannheim ≈ 55 % of connected kW, others 100 %), ATS timings, inrush limit, diesel $0.47/kWh.
 - Mannheim filters: 190 L/s each, terminal headloss 2.4 m, breakthrough volume, wash step durations, 300 L/s backwash rate.
 - Greenbrook AOP: per-well raw concentrations, EEO 0.15 kWh/m³/order × 2.5 scavenging, UV 280 kW max, H₂O₂ response; the 25 µg/L operating alarm; the K5A plume in the scenario is hypothetical.
-- Electricity: **Mannheim complex as Class A and the 2.5 MW assumed peak contribution (PDF) are assumptions** (the Region's real class and PDF are not public); the ≥ 50 kW → Class B rule; the 4 ¢/kWh delivery adder; the peak-alert rule (alert when today's real Ontario peak ≥ 97 % of the 5th-highest 2026 peak so far; window HE peak−2 to peak+1). July 1–9 2026 OZP falls back to the July average hourly profile.
+- Electricity: **Mannheim complex as Class A is a training proxy** (as of 2018/19 Waterloo, Galt and Kitchener WWTPs plus Hidden Valley Water PS were opted into Class A; Mannheim WTP was not listed; current status is unpublished). **The 2.5 MW peak contribution used for PDF is a training estimate, not a published Regional share**; the ≥ 50 kW → Class B rule; the 4 ¢/kWh delivery adder; the peak-alert rule (alert when today's real Ontario peak ≥ 97 % of the 5th-highest 2026 peak so far; window HE peak−2 to peak+1). July 1–9 2026 OZP falls back to the July average hourly profile.
 
 ## Data: real vs estimated (v0.1 base data)
 

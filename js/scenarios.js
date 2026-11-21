@@ -1,4 +1,4 @@
-/** Training scenarios: setup → timed injections → objectives evaluated live (v0.4).
+/** Training scenarios: setup → timed injections → objectives evaluated live (v0.4.1).
  *  Each scenario: { id, title, brief, start:[y,m0,d,h,mi], durationH, setup(sim), tick(sim,dt), objectives:[{text, eval(state,sim)→'pass'|'fail'|'pending'}],
  *  hints[], optional actions(sim)→[{id,label,run,disabled,title}], actionTitle, decisionNote(sim) }.
  *  Every scenario is proven to NOT pass with no trainee action (tests/scenario_noaction.mjs) and to be passable (tests/scenario_action.mjs). */
@@ -258,7 +258,7 @@ export const SCENARIOS = [
   },
   {
     id: 'icipeak', title: 'ICI peak day – Class A peak avoidance (real 14 Jul 2026)', durationH: 13.2,
-    brief: 'Tue 14 Jul 2026, 09:00 – a real 2026 Ontario top-5 demand day (IESO data). The Region’s Mannheim complex is modelled as a Class A (ICI) customer (ESTIMATE – the Region’s actual class is not public): ' +
+    brief: 'Tue 14 Jul 2026, 09:00 – a real 2026 Ontario top-5 demand day (IESO data). The Region’s Mannheim complex is modelled as a Class A (ICI) customer for training (ESTIMATE – as of 2018/19 Waterloo, Galt and Kitchener WWTPs plus Hidden Valley Water PS were opted into Class A; Mannheim WTP was not listed, and current status is unpublished): ' +
       'its share of the year’s Global Adjustment is set by its demand during the 5 highest Ontario peak hours (5CP). The IESO peak-alert banner will show the expected window. ' +
       'Pre-fill storage in the morning (without overflowing anything), then minimise Mannheim grid load across the alert window (14:00–18:00) – e.g. trim Zone 4/5/6 pumping and plant flow while riding on pre-filled Kit storage, ' +
       'or run the standby generator behind the meter (diesel cost + emissions/ECA limits apply). Shutting everything off is not a win: Kit 4 must stay ≥ 40 % through the evening peak and be back to ≥ 50 % by 22:00.',

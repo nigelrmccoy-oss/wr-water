@@ -1,5 +1,5 @@
 /**
- * WR-WATER (v0.2 data, current v0.4) – real pressure-zone network for the Integrated Urban System (IUS).
+ * WR-WATER (v0.2 data, current v0.4.1) – real pressure-zone network for the Integrated Urban System (IUS).
  * Hand-authored from public planning documents (see SRC). Every number carries a status:
  *   'real'  = taken from the cited document,   'est' = training estimate (method in note).
  * Township systems (Ayr, Wellesley, …) are separate real systems and keep their v0.1 definitions (data/facilities.js).
@@ -8,6 +8,8 @@ export const SRC = {
   WSMP15: 'https://media-003-ca.cdn.govstack.com/regionofwaterloo-018-ca/media/sm0hgfzn/ws2015marchwatersupplymasterplan.pdf',
   WSDOMP15: 'https://media-003-ca.cdn.govstack.com/regionofwaterloo-018-ca/media/kfnha1xm/ws2015wsanddistributionoperationsmasterplanfinalreport.pdf',
   CAM1W: 'https://www.regionofwaterloo.ca/media/ty2hklw1/ws2017maycambridgezone1wenvironmentalassessmentfinalreport-aoda.pdf',
+  CAM1WPROJ: 'https://www.regionofwaterloo.ca/programs-and-services/water-and-wastewater/projects/cambridge-pressure-zone-1-west/',
+  CEP: 'https://www.regionofwaterloo.ca/media/bp3n0pmm/corporate-energy-plan-access.pdf',
   WATWDMP: 'https://www.waterloo.ca/media/ejodramb/water-distribution-master-plan-pdf-version.pdf',
   WATPZ: 'https://services.arcgis.com/ZpeBVw5o1kjit7LT/arcgis/rest/services/Water_PressureZones/FeatureServer/0',
   MSA: 'https://www.regionofwaterloo.ca/programs-and-services/water-and-wastewater/mannheim-service-area-water-capacity-information-hub/timeline-of-solutions/',
@@ -53,7 +55,7 @@ export const IUS_ZONES = [
   { id: 'CAM1', name: 'Cam 1 (Middleton)', muni: 'Cambridge', weight: 138, weightSrc: W, hgl: 330, hglSt: 'real', hglNote: '"operating HGL typically closer to 330 mASL" (WSDOMP §3.2.1); target 332 m before Cam 1W (Cam 1W EA)',
     storageM3: 4500, storageName: 'Rahmans reservoir (TWL ≈329 m) – volume not published', storageSt: 'est' },
   { id: 'CAM1A', name: 'Cam 1A (St Andrews)', muni: 'Cambridge', weight: 35, weightSrc: W, hgl: 335, hglSt: 'est', hglNote: 'St Andrews ET high level 334.8 m (WSDOMP Table 7-1)', storageM3: 1500, storageName: 'St Andrews ET (volume not published)', storageSt: 'est' },
-  { id: 'CAM1W', name: 'Cam 1W (Coronation BPS)', muni: 'Cambridge', weight: 87, weightSrc: W, hgl: 337, hglSt: 'real', hglNote: 'target HGL 337 m at the booster station (Cam 1W EA 2017)', closed: true, storageM3: 400, storageName: 'closed zone (booster-fed)', storageSt: 'est' },
+  { id: 'CAM1W', name: 'Cam 1W (Coronation BPS)', muni: 'Cambridge', weight: 87, weightSrc: W, hgl: 337, hglSt: 'real', hglNote: 'Under construction (2017 EA, HGL 337 m), assumed in service for training.', closed: true, storageM3: 400, storageName: 'closed zone (booster-fed)', storageSt: 'est' },
   { id: 'CAM2E', name: 'Cam 2E (Turnbull/Hespeler)', muni: 'Cambridge', weight: 181, weightSrc: W, hgl: 359, hglSt: 'est', hglNote: 'Pinebush ET high level 359.3 m (WSDOMP Table 7-1) used as proxy',
     storageM3: 27300, storageName: 'Turnbull reservoir 22,800 (real) + Pinebush ET 4,500 (est)', storageSt: 'est' },
   { id: 'CAM2W', name: 'Cam 2W (Inverness)', muni: 'Cambridge', weight: 48, weightSrc: W, hgl: 365, hglSt: 'real', hglNote: 'consolidated target 365 m (WSDOMP §3.2.6); Inverness ET 362–365.9 m (Table 7-1)', storageM3: 2500, storageName: 'Inverness ET (volume not published)', storageSt: 'est' },
@@ -108,7 +110,7 @@ export const LINKS = [
   { id: 'BRIAR', name: 'Briardean MTV (Cam 2E → Cam 2W)', kind: 'MTV', from: 'CAM2E', to: 'CAM2W', cap: 60, sp: 55, src: SRC.WSDOMP15 },
   { id: 'MID2E', name: 'Middleton high-lift → Cam 2E', kind: 'PS', from: 'CAM1', to: 'CAM2E', nP: 3, cap: 200, sp: 70, headM: 40, site: 'MID', src: SRC.WSMP15, note: 'Middleton "capable and at times relied upon for transferring water to all but one pressure zone" (WSMP §2.2.1.1). Route/pumps est.' },
   { id: 'STAPS', name: 'St Andrews PS (Cam 1 → Cam 1A)', kind: 'PS', from: 'CAM1', to: 'CAM1A', nP: 2, cap: 60, sp: 75, headM: 18, src: SRC.WSDOMP15 },
-  { id: 'C1WBPS', name: 'Cam 1W booster PS (Coronation Blvd)', kind: 'PS', from: 'CAM1', to: 'CAM1W', nP: 3, cap: 150, sp: 75, headM: 22, src: SRC.CAM1W, note: 'Recommended in the 2017 Cam 1W EA (target HGL 337 m, chloramination on site). Assumed in service for training – verify.' },
+  { id: 'C1WBPS', name: 'Cam 1W booster PS (Coronation Blvd)', kind: 'PS', from: 'CAM1', to: 'CAM1W', nP: 3, cap: 150, sp: 75, headM: 22, src: SRC.CAM1W, note: 'Under construction (2017 EA, HGL 337 m), assumed in service for training. Chloramination on site (2017 EA).' },
   { id: 'KRESS', name: 'Kress Hill PRV (Cam 2W → Cam 1)', kind: 'PRV', from: 'CAM2W', to: 'CAM1', cap: 60, sp: 40, src: SRC.CAM1W, note: 'Kress Hill PRV replaces Kress Hill PS (Cam 1W EA / WSDOMP §3.2.1).' },
   { id: 'SHM3', name: 'Shades Mill → Cam 3 (supply main)', kind: 'MTV', from: 'CAM1', to: 'CAM3', cap: 60, sp: 75, src: SRC.WSDOMP15, note: 'Route ESTIMATED (WSDOMP Table 3-6 discusses matching Shades Mill operation to Cam 3 HGL).' },
   { id: 'DUNDEE', name: 'Dundee Rd PRV (Kit 2W → Cam 1W, backup)', kind: 'PRV', from: 'KIT2W', to: 'CAM1W', cap: 30, sp: 25, normallyClosed: true, src: SRC.WSDOMP15, note: 'Emergency supply to Cam 1W (WSDOMP §3.2.1).' },

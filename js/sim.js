@@ -1,5 +1,5 @@
 /**
- * wr-water v0.4 process + PLC-ish model.
+ * wr-water v0.4.1 process + PLC-ish model.
  *  - real IUS pressure zones (data/network.js) + inter-zone transfers (pump stations, PRVs, control valves)
  *  - per-site pumps with HOA, level lead/lag staging, anti-short-cycle, chlorination, interlocks
  *  - Mannheim WTP (Grand River): coag/ozone/4 filters with headloss, breakthrough and backwash sequence
@@ -209,6 +209,7 @@ export class Sim {
       if (l.cfg.site) this.sites.get(l.cfg.site).connKw += l.connKw;
     }
     for (const s of this.sites.values()) {
+      // Training proxy: Hidden Valley Water PS was Class A in 2018/19; Mannheim WTP was not listed. Current status unpublished.
       s.cls = s.id === 'MWTP' ? 'A' : s.connKw >= E.CLASS_B_MIN_KW ? 'B' : 'RPP';
       if (s.pw.gen) s.pw.gen.kw = Math.round(s.connKw * (s.id === 'MWTP' ? 0.55 : 1.0)); // ESTIMATE generator size
     }

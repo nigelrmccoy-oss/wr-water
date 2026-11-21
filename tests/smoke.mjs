@@ -1,4 +1,4 @@
-// Headless browser smoke test (v0.4): loads the app over HTTP, exercises every view, faceplates (power, filters, AOP),
+// Headless browser smoke test (v0.4.1): loads the app over HTTP, exercises every view, faceplates (power, filters, AOP),
 // transfers, costs/ICI, the 3D map and drives several scenarios THROUGH THE UI. Fails on any console error.
 // Usage: node tests/smoke.mjs [baseUrl]   (needs playwright; see README)
 import { createRequire } from 'module';

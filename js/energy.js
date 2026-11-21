@@ -1,6 +1,6 @@
 /**
- * WR-WATER v0.4 electricity pricing (Ontario). All rates are public and cited; the delivery adder, Class assignment and
- * the assumed Class A peak-demand factor (PDF) are TRAINING ESTIMATES.
+ * WR-WATER v0.4.1 electricity pricing (Ontario). All rates are public and cited; the delivery adder, Class assignment and
+ * the 2.5 MW Class A peak contribution used for PDF are TRAINING ESTIMATES (2.5 MW is not a published Regional share).
  */
 import { IESO } from '../data/ieso.js';
 
@@ -14,6 +14,7 @@ export const ESRC = {
   IESO_OZP: 'https://reports-public.ieso.ca/public/DAHourlyOntarioZonalPrice/',
   IESO_DEM: 'https://reports-public.ieso.ca/public/Demand/PUB_Demand_2026.csv',
   IESO_ICI: 'https://reports-public.ieso.ca/public/ICIPeakTracker/PUB_ICIPeakTracker_2026.xml',
+  CEP: 'https://www.regionofwaterloo.ca/media/bp3n0pmm/corporate-energy-plan-access.pdf',
 };
 
 export const RPP = { // OEB RPP prices effective Nov 1 2025 (OEB RPP Price Report, Oct 17 2025)
@@ -30,7 +31,7 @@ export const TOP5_2025 = [
   { date: '2025-07-24', he: 17, mwh: 24897.773 }, { date: '2025-07-28', he: 16, mwh: 24856.712 },
 ];
 export const TOP5_2025_SUM = TOP5_2025.reduce((a, b) => a + b.mwh, 0); // 122,317.277
-/** ESTIMATE: Mannheim complex (WTP + Zone 4/5/6 PS) average load in each of the 2025 top-5 hours → PDF for Jul 2026–Jun 2027. */
+/** TRAINING ESTIMATE (not a published Regional share): Mannheim complex (WTP + Zone 4/5/6 PS) average load in each of the 2025 top-5 hours → PDF for Jul 2026–Jun 2027. */
 export const CLASS_A_ASSUMED_PEAK_MW = 2.5;
 export const PDF_CURRENT = CLASS_A_ASSUMED_PEAK_MW * 5 / TOP5_2025_SUM;
 
@@ -91,7 +92,7 @@ export const TOP5_2026 = IESO.iciTracker2026.slice(0, 5);
 export const DOLLARS_PER_MW_ALL5 = 5 / TOP5_2026.reduce((a, b) => a + b.mw, 0) * GA_12M_TOTAL; // annual GA $ per MW drawn in all 5 peak hours
 
 /** Teaching view of peak avoidance: the Mannheim load the trainee actually ran in the real 2026 top-5 hours sets the
- *  PDF for Jul 2027 – Jun 2028. Hours not yet simulated use the assumed 2.5 MW. Next-year GA ≈ PDF × 12-month GA total
+ *  PDF for Jul 2027 – Jun 2028. Hours not yet simulated use the 2.5 MW training estimate. Next-year GA ≈ PDF × 12-month GA total
  *  (Oct 2025 – Sep 2026 actuals used as the proxy for the future GA pool – ESTIMATE). */
 export function projectNextYear(records = []) {
   const sumTop = TOP5_2026.reduce((a, b) => a + b.mw, 0);

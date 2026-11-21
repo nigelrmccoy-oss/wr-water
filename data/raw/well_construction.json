@@ -1,0 +1,1039 @@
+{
+  "title": "Named well construction from the Grand River Source Protection Assessment Report (2025)",
+  "licence_note": "Used for training attributes only. Intervals are metres below ground surface. Wellfield ranges apply to every listed well at that field unless scope is per-well.",
+  "sources": {
+    "SPA82": "https://www.sourcewater.ca/media/afqjnxin/grspa_ar_ch082-waterloo-area-wellfields-waterloo_v8_s51.pdf",
+    "SPA83": "https://www.sourcewater.ca/media/hpioecfp/grspa_ar_ch083-and-84-kitchener-area-wellfields-and-hidden-valley-intake-waterloo_v10.pdf",
+    "SPA85": "https://www.sourcewater.ca/media/hg3l5xpw/grspa_ar_ch085-cambridge-area-wellfields-waterloo_v10.pdf",
+    "SPA86": "https://www.sourcewater.ca/media/uf5h32rs/grspa_ar_ch086-rural-wellfields-waterloo_v8_s51.pdf",
+    "SPA81": "https://www.sourcewater.ca/media/cyqmrh1w/grspa_ar_ch081-water-quality-risk-assessment_v10.pdf"
+  },
+  "wells": {
+    "W6B": {
+      "aquifer": "Middle Waterloo Moraine Sands (AFB2), underlain by Maryhill Till",
+      "scope": "wellfield range",
+      "srcId": "SPA82",
+      "srcUrl": "https://www.sourcewater.ca/media/afqjnxin/grspa_ar_ch082-waterloo-area-wellfields-waterloo_v8_s51.pdf",
+      "completion": "screen",
+      "topM": 32,
+      "bottomM": 56,
+      "note": "W6C replaced W6A and was connected in 2023."
+    },
+    "W7": {
+      "aquifer": "Middle Waterloo Moraine Sands (AFB2), underlain by Maryhill Till",
+      "scope": "wellfield range",
+      "srcId": "SPA82",
+      "srcUrl": "https://www.sourcewater.ca/media/afqjnxin/grspa_ar_ch082-waterloo-area-wellfields-waterloo_v8_s51.pdf",
+      "completion": "screen",
+      "topM": 32,
+      "bottomM": 56,
+      "note": "W6C replaced W6A and was connected in 2023."
+    },
+    "W8": {
+      "aquifer": "Middle Waterloo Moraine Sands (AFB2), underlain by Maryhill Till",
+      "scope": "wellfield range",
+      "srcId": "SPA82",
+      "srcUrl": "https://www.sourcewater.ca/media/afqjnxin/grspa_ar_ch082-waterloo-area-wellfields-waterloo_v8_s51.pdf",
+      "completion": "screen",
+      "topM": 32,
+      "bottomM": 56,
+      "note": "W6C replaced W6A and was connected in 2023."
+    },
+    "W6C": {
+      "aquifer": "Middle Waterloo Moraine Sands (AFB2), underlain by Maryhill Till",
+      "scope": "wellfield range",
+      "srcId": "SPA82",
+      "srcUrl": "https://www.sourcewater.ca/media/afqjnxin/grspa_ar_ch082-waterloo-area-wellfields-waterloo_v8_s51.pdf",
+      "completion": "screen",
+      "topM": 32,
+      "bottomM": 56,
+      "note": "W6C replaced W6A and was connected in 2023."
+    },
+    "W10": {
+      "aquifer": "Upper Waterloo Moraine Sands (AFB1)",
+      "scope": "per-well",
+      "srcId": "SPA82",
+      "srcUrl": "https://www.sourcewater.ca/media/afqjnxin/grspa_ar_ch082-waterloo-area-wellfields-waterloo_v8_s51.pdf",
+      "completion": "screen",
+      "topM": 9,
+      "bottomM": 18,
+      "gudi": "GUDI with effective filtration"
+    },
+    "W25": {
+      "aquifer": "Pre-Catfish Creek Aquifer (AFD1)",
+      "scope": "per-well",
+      "srcId": "SPA82",
+      "srcUrl": "https://www.sourcewater.ca/media/afqjnxin/grspa_ar_ch082-waterloo-area-wellfields-waterloo_v8_s51.pdf",
+      "completion": "screen",
+      "topM": 75,
+      "bottomM": 78,
+      "note": "Adjacent to the Laurel Tank."
+    },
+    "W1B": {
+      "aquifer": "Waterloo Moraine stratified sand and gravel (AFB2), intermittently overlain by Middle Maryhill Till (ATB2)",
+      "scope": "overburden wellfield range",
+      "srcId": "SPA82",
+      "srcUrl": "https://www.sourcewater.ca/media/afqjnxin/grspa_ar_ch082-waterloo-area-wellfields-waterloo_v8_s51.pdf",
+      "completion": "screen",
+      "topM": 27,
+      "bottomM": 34,
+      "note": "William Street wellfield paused in 2023 for upgrades; raw water is blended and treated at Strange Street. W2B/W2C replace W2/W2A."
+    },
+    "W2B": {
+      "aquifer": "Waterloo Moraine stratified sand and gravel (AFB2), intermittently overlain by Middle Maryhill Till (ATB2)",
+      "scope": "overburden wellfield range",
+      "srcId": "SPA82",
+      "srcUrl": "https://www.sourcewater.ca/media/afqjnxin/grspa_ar_ch082-waterloo-area-wellfields-waterloo_v8_s51.pdf",
+      "completion": "screen",
+      "topM": 27,
+      "bottomM": 34,
+      "note": "William Street wellfield paused in 2023 for upgrades; raw water is blended and treated at Strange Street. W2B/W2C replace W2/W2A."
+    },
+    "W2C": {
+      "aquifer": "Waterloo Moraine stratified sand and gravel (AFB2), intermittently overlain by Middle Maryhill Till (ATB2)",
+      "scope": "overburden wellfield range",
+      "srcId": "SPA82",
+      "srcUrl": "https://www.sourcewater.ca/media/afqjnxin/grspa_ar_ch082-waterloo-area-wellfields-waterloo_v8_s51.pdf",
+      "completion": "screen",
+      "topM": 27,
+      "bottomM": 34,
+      "note": "William Street wellfield paused in 2023 for upgrades; raw water is blended and treated at Strange Street. W2B/W2C replace W2/W2A."
+    },
+    "W3A": {
+      "aquifer": "Bedrock (replacement for W3, unused since 2002 because of mineralized water)",
+      "scope": "per-well",
+      "srcId": "SPA82",
+      "srcUrl": "https://www.sourcewater.ca/media/afqjnxin/grspa_ar_ch082-waterloo-area-wellfields-waterloo_v8_s51.pdf",
+      "completion": "bedrock completion",
+      "note": "Numeric open-hole interval was not given in the extracted chapter text."
+    },
+    "K21": {
+      "aquifer": "Middle Waterloo Moraine Sands (AFB2), screens near the bottom just above Lower Maryhill Till (ATB3)",
+      "scope": "Mannheim East wellfield range",
+      "srcId": "SPA83",
+      "srcUrl": "https://www.sourcewater.ca/media/hpioecfp/grspa_ar_ch083-and-84-kitchener-area-wellfields-and-hidden-valley-intake-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 30,
+      "bottomM": 52,
+      "note": "K25 is typically the largest contributor, then K29 and K21/K21A."
+    },
+    "K21A": {
+      "aquifer": "Middle Waterloo Moraine Sands (AFB2), screens near the bottom just above Lower Maryhill Till (ATB3)",
+      "scope": "Mannheim East wellfield range",
+      "srcId": "SPA83",
+      "srcUrl": "https://www.sourcewater.ca/media/hpioecfp/grspa_ar_ch083-and-84-kitchener-area-wellfields-and-hidden-valley-intake-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 30,
+      "bottomM": 52,
+      "note": "K25 is typically the largest contributor, then K29 and K21/K21A."
+    },
+    "K25": {
+      "aquifer": "Middle Waterloo Moraine Sands (AFB2), screens near the bottom just above Lower Maryhill Till (ATB3)",
+      "scope": "Mannheim East wellfield range",
+      "srcId": "SPA83",
+      "srcUrl": "https://www.sourcewater.ca/media/hpioecfp/grspa_ar_ch083-and-84-kitchener-area-wellfields-and-hidden-valley-intake-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 30,
+      "bottomM": 52,
+      "note": "K25 is typically the largest contributor, then K29 and K21/K21A."
+    },
+    "K29": {
+      "aquifer": "Middle Waterloo Moraine Sands (AFB2), screens near the bottom just above Lower Maryhill Till (ATB3)",
+      "scope": "Mannheim East wellfield range",
+      "srcId": "SPA83",
+      "srcUrl": "https://www.sourcewater.ca/media/hpioecfp/grspa_ar_ch083-and-84-kitchener-area-wellfields-and-hidden-valley-intake-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 30,
+      "bottomM": 52,
+      "note": "K25 is typically the largest contributor, then K29 and K21/K21A."
+    },
+    "K91": {
+      "aquifer": "Middle Waterloo Moraine Sands (AFB2)",
+      "scope": "Mannheim peaking wellfield range",
+      "srcId": "SPA83",
+      "srcUrl": "https://www.sourcewater.ca/media/hpioecfp/grspa_ar_ch083-and-84-kitchener-area-wellfields-and-hidden-valley-intake-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 54,
+      "bottomM": 75,
+      "note": "Historically used in summer; typically one of K91/K92 and one of K93/K94 at a time."
+    },
+    "K92": {
+      "aquifer": "Middle Waterloo Moraine Sands (AFB2)",
+      "scope": "Mannheim peaking wellfield range",
+      "srcId": "SPA83",
+      "srcUrl": "https://www.sourcewater.ca/media/hpioecfp/grspa_ar_ch083-and-84-kitchener-area-wellfields-and-hidden-valley-intake-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 54,
+      "bottomM": 75,
+      "note": "Historically used in summer; typically one of K91/K92 and one of K93/K94 at a time."
+    },
+    "K93": {
+      "aquifer": "Middle Waterloo Moraine Sands (AFB2)",
+      "scope": "Mannheim peaking wellfield range",
+      "srcId": "SPA83",
+      "srcUrl": "https://www.sourcewater.ca/media/hpioecfp/grspa_ar_ch083-and-84-kitchener-area-wellfields-and-hidden-valley-intake-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 54,
+      "bottomM": 75,
+      "note": "Historically used in summer; typically one of K91/K92 and one of K93/K94 at a time."
+    },
+    "K94": {
+      "aquifer": "Middle Waterloo Moraine Sands (AFB2)",
+      "scope": "Mannheim peaking wellfield range",
+      "srcId": "SPA83",
+      "srcUrl": "https://www.sourcewater.ca/media/hpioecfp/grspa_ar_ch083-and-84-kitchener-area-wellfields-and-hidden-valley-intake-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 54,
+      "bottomM": 75,
+      "note": "Historically used in summer; typically one of K91/K92 and one of K93/K94 at a time."
+    },
+    "K23": {
+      "aquifer": "Middle Waterloo Moraine Sands (AFB2); AFB1 and AFB2 are hydraulically connected near Mannheim West",
+      "scope": "Mannheim West wellfield range",
+      "srcId": "SPA83",
+      "srcUrl": "https://www.sourcewater.ca/media/hpioecfp/grspa_ar_ch083-and-84-kitchener-area-wellfields-and-hidden-valley-intake-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 20,
+      "bottomM": 38
+    },
+    "K24": {
+      "aquifer": "Middle Waterloo Moraine Sands (AFB2); AFB1 and AFB2 are hydraulically connected near Mannheim West",
+      "scope": "Mannheim West wellfield range",
+      "srcId": "SPA83",
+      "srcUrl": "https://www.sourcewater.ca/media/hpioecfp/grspa_ar_ch083-and-84-kitchener-area-wellfields-and-hidden-valley-intake-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 20,
+      "bottomM": 38
+    },
+    "K26": {
+      "aquifer": "Middle Waterloo Moraine Sands (AFB2); AFB1 and AFB2 are hydraulically connected near Mannheim West",
+      "scope": "Mannheim West wellfield range",
+      "srcId": "SPA83",
+      "srcUrl": "https://www.sourcewater.ca/media/hpioecfp/grspa_ar_ch083-and-84-kitchener-area-wellfields-and-hidden-valley-intake-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 20,
+      "bottomM": 38
+    },
+    "ASR1": {
+      "aquifer": "Middle Waterloo Moraine Sands (AFB2); inject and recover treated Grand River water",
+      "scope": "ASR wellfield range",
+      "srcId": "SPA83",
+      "srcUrl": "https://www.sourcewater.ca/media/hpioecfp/grspa_ar_ch083-and-84-kitchener-area-wellfields-and-hidden-valley-intake-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 52,
+      "bottomM": 80,
+      "note": "ASR5 was previously RCW1. ASR wells can inject and pump; more water is injected than recovered on average."
+    },
+    "ASR2": {
+      "aquifer": "Middle Waterloo Moraine Sands (AFB2); inject and recover treated Grand River water",
+      "scope": "ASR wellfield range",
+      "srcId": "SPA83",
+      "srcUrl": "https://www.sourcewater.ca/media/hpioecfp/grspa_ar_ch083-and-84-kitchener-area-wellfields-and-hidden-valley-intake-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 52,
+      "bottomM": 80,
+      "note": "ASR5 was previously RCW1. ASR wells can inject and pump; more water is injected than recovered on average."
+    },
+    "ASR3": {
+      "aquifer": "Middle Waterloo Moraine Sands (AFB2); inject and recover treated Grand River water",
+      "scope": "ASR wellfield range",
+      "srcId": "SPA83",
+      "srcUrl": "https://www.sourcewater.ca/media/hpioecfp/grspa_ar_ch083-and-84-kitchener-area-wellfields-and-hidden-valley-intake-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 52,
+      "bottomM": 80,
+      "note": "ASR5 was previously RCW1. ASR wells can inject and pump; more water is injected than recovered on average."
+    },
+    "ASR4": {
+      "aquifer": "Middle Waterloo Moraine Sands (AFB2); inject and recover treated Grand River water",
+      "scope": "ASR wellfield range",
+      "srcId": "SPA83",
+      "srcUrl": "https://www.sourcewater.ca/media/hpioecfp/grspa_ar_ch083-and-84-kitchener-area-wellfields-and-hidden-valley-intake-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 52,
+      "bottomM": 80,
+      "note": "ASR5 was previously RCW1. ASR wells can inject and pump; more water is injected than recovered on average."
+    },
+    "ASR5": {
+      "aquifer": "Middle Waterloo Moraine Sands (AFB2); inject and recover treated Grand River water",
+      "scope": "ASR wellfield range",
+      "srcId": "SPA83",
+      "srcUrl": "https://www.sourcewater.ca/media/hpioecfp/grspa_ar_ch083-and-84-kitchener-area-wellfields-and-hidden-valley-intake-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 52,
+      "bottomM": 80,
+      "note": "ASR5 was previously RCW1. ASR wells can inject and pump; more water is injected than recovered on average."
+    },
+    "RCW2": {
+      "aquifer": "Middle Waterloo Moraine Sands (AFB2); recovery / pumping only",
+      "scope": "recovery-well range",
+      "srcId": "SPA83",
+      "srcUrl": "https://www.sourcewater.ca/media/hpioecfp/grspa_ar_ch083-and-84-kitchener-area-wellfields-and-hidden-valley-intake-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 62,
+      "bottomM": 73
+    },
+    "RCW3": {
+      "aquifer": "Middle Waterloo Moraine Sands (AFB2); recovery / pumping only",
+      "scope": "recovery-well range",
+      "srcId": "SPA83",
+      "srcUrl": "https://www.sourcewater.ca/media/hpioecfp/grspa_ar_ch083-and-84-kitchener-area-wellfields-and-hidden-valley-intake-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 62,
+      "bottomM": 73
+    },
+    "RCW4": {
+      "aquifer": "Middle Waterloo Moraine Sands (AFB2); recovery / pumping only",
+      "scope": "recovery-well range",
+      "srcId": "SPA83",
+      "srcUrl": "https://www.sourcewater.ca/media/hpioecfp/grspa_ar_ch083-and-84-kitchener-area-wellfields-and-hidden-valley-intake-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 62,
+      "bottomM": 73
+    },
+    "K1A": {
+      "aquifer": "Pre-Catfish Creek Aquifer (AFD1), under Maryhill and Catfish Creek Tills",
+      "scope": "wellfield range",
+      "srcId": "SPA83",
+      "srcUrl": "https://www.sourcewater.ca/media/hpioecfp/grspa_ar_ch083-and-84-kitchener-area-wellfields-and-hidden-valley-intake-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 31,
+      "bottomM": 50,
+      "note": "K4C replaced K4B on the same property and has been added to the PTTW."
+    },
+    "K2A": {
+      "aquifer": "Pre-Catfish Creek Aquifer (AFD1), under Maryhill and Catfish Creek Tills",
+      "scope": "wellfield range",
+      "srcId": "SPA83",
+      "srcUrl": "https://www.sourcewater.ca/media/hpioecfp/grspa_ar_ch083-and-84-kitchener-area-wellfields-and-hidden-valley-intake-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 31,
+      "bottomM": 50,
+      "note": "K4C replaced K4B on the same property and has been added to the PTTW."
+    },
+    "K4C": {
+      "aquifer": "Pre-Catfish Creek Aquifer (AFD1), under Maryhill and Catfish Creek Tills",
+      "scope": "wellfield range",
+      "srcId": "SPA83",
+      "srcUrl": "https://www.sourcewater.ca/media/hpioecfp/grspa_ar_ch083-and-84-kitchener-area-wellfields-and-hidden-valley-intake-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 31,
+      "bottomM": 50,
+      "note": "K4C replaced K4B on the same property and has been added to the PTTW."
+    },
+    "K5A": {
+      "aquifer": "Pre-Catfish Creek Aquifer (AFD1), under Maryhill and Catfish Creek Tills",
+      "scope": "wellfield range",
+      "srcId": "SPA83",
+      "srcUrl": "https://www.sourcewater.ca/media/hpioecfp/grspa_ar_ch083-and-84-kitchener-area-wellfields-and-hidden-valley-intake-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 31,
+      "bottomM": 50,
+      "note": "K4C replaced K4B on the same property and has been added to the PTTW."
+    },
+    "K8": {
+      "aquifer": "Pre-Catfish Creek Aquifer (AFD1), under Maryhill and Catfish Creek Tills",
+      "scope": "wellfield range",
+      "srcId": "SPA83",
+      "srcUrl": "https://www.sourcewater.ca/media/hpioecfp/grspa_ar_ch083-and-84-kitchener-area-wellfields-and-hidden-valley-intake-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 31,
+      "bottomM": 50,
+      "note": "K4C replaced K4B on the same property and has been added to the PTTW."
+    },
+    "K10A": {
+      "aquifer": "Middle Waterloo Moraine Sands (AFB2), below a fine-grained aquitard, near the top of the Maryhill Till",
+      "scope": "wellfield range",
+      "srcId": "SPA83",
+      "srcUrl": "https://www.sourcewater.ca/media/hpioecfp/grspa_ar_ch083-and-84-kitchener-area-wellfields-and-hidden-valley-intake-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 17,
+      "bottomM": 38,
+      "note": "K13B replaced K13A and was connected in 2023."
+    },
+    "K11A": {
+      "aquifer": "Middle Waterloo Moraine Sands (AFB2), below a fine-grained aquitard, near the top of the Maryhill Till",
+      "scope": "wellfield range",
+      "srcId": "SPA83",
+      "srcUrl": "https://www.sourcewater.ca/media/hpioecfp/grspa_ar_ch083-and-84-kitchener-area-wellfields-and-hidden-valley-intake-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 17,
+      "bottomM": 38,
+      "note": "K13B replaced K13A and was connected in 2023."
+    },
+    "K13B": {
+      "aquifer": "Middle Waterloo Moraine Sands (AFB2), below a fine-grained aquitard, near the top of the Maryhill Till",
+      "scope": "wellfield range",
+      "srcId": "SPA83",
+      "srcUrl": "https://www.sourcewater.ca/media/hpioecfp/grspa_ar_ch083-and-84-kitchener-area-wellfields-and-hidden-valley-intake-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 17,
+      "bottomM": 38,
+      "note": "K13B replaced K13A and was connected in 2023."
+    },
+    "K18": {
+      "aquifer": "Middle Waterloo Moraine Sands (AFB2), below a fine-grained aquitard, near the top of the Maryhill Till",
+      "scope": "wellfield range",
+      "srcId": "SPA83",
+      "srcUrl": "https://www.sourcewater.ca/media/hpioecfp/grspa_ar_ch083-and-84-kitchener-area-wellfields-and-hidden-valley-intake-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 17,
+      "bottomM": 38,
+      "note": "K13B replaced K13A and was connected in 2023."
+    },
+    "K19": {
+      "aquifer": "Middle Waterloo Moraine Sands (AFB2), below a fine-grained aquitard, near the top of the Maryhill Till",
+      "scope": "wellfield range",
+      "srcId": "SPA83",
+      "srcUrl": "https://www.sourcewater.ca/media/hpioecfp/grspa_ar_ch083-and-84-kitchener-area-wellfields-and-hidden-valley-intake-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 17,
+      "bottomM": 38,
+      "note": "K13B replaced K13A and was connected in 2023."
+    },
+    "K31": {
+      "aquifer": "Pre-Catfish Creek Aquifer (AFD1), under Maryhill and Catfish Creek Tills",
+      "scope": "Parkway wellfield range",
+      "srcId": "SPA83",
+      "srcUrl": "https://www.sourcewater.ca/media/hpioecfp/grspa_ar_ch083-and-84-kitchener-area-wellfields-and-hidden-valley-intake-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 24,
+      "bottomM": 34,
+      "note": "The 2025 assessment chapter also names K32; the sim lists K31 and K33 only (K32 disconnected)."
+    },
+    "K33": {
+      "aquifer": "Pre-Catfish Creek Aquifer (AFD1), under Maryhill and Catfish Creek Tills",
+      "scope": "Parkway wellfield range",
+      "srcId": "SPA83",
+      "srcUrl": "https://www.sourcewater.ca/media/hpioecfp/grspa_ar_ch083-and-84-kitchener-area-wellfields-and-hidden-valley-intake-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 24,
+      "bottomM": 34,
+      "note": "The 2025 assessment chapter also names K32; the sim lists K31 and K33 only (K32 disconnected)."
+    },
+    "K34": {
+      "aquifer": "Pre-Catfish Creek Aquifer (AFD1), under Maryhill and Catfish Creek Tills",
+      "scope": "wellfield range",
+      "srcId": "SPA83",
+      "srcUrl": "https://www.sourcewater.ca/media/hpioecfp/grspa_ar_ch083-and-84-kitchener-area-wellfields-and-hidden-valley-intake-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 28,
+      "bottomM": 50,
+      "note": "K34 is pumped at a higher rate and more consistently than K36."
+    },
+    "K36": {
+      "aquifer": "Pre-Catfish Creek Aquifer (AFD1), under Maryhill and Catfish Creek Tills",
+      "scope": "wellfield range",
+      "srcId": "SPA83",
+      "srcUrl": "https://www.sourcewater.ca/media/hpioecfp/grspa_ar_ch083-and-84-kitchener-area-wellfields-and-hidden-valley-intake-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 28,
+      "bottomM": 50,
+      "note": "K34 is pumped at a higher rate and more consistently than K36."
+    },
+    "K80": {
+      "aquifer": "Pre-Catfish Creek Aquifer (AFD1), at or near ground surface",
+      "scope": "wellfield range",
+      "srcId": "SPA83",
+      "srcUrl": "https://www.sourcewater.ca/media/hpioecfp/grspa_ar_ch083-and-84-kitchener-area-wellfields-and-hidden-valley-intake-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 6,
+      "bottomM": 12
+    },
+    "K81": {
+      "aquifer": "Pre-Catfish Creek Aquifer (AFD1), at or near ground surface",
+      "scope": "wellfield range",
+      "srcId": "SPA83",
+      "srcUrl": "https://www.sourcewater.ca/media/hpioecfp/grspa_ar_ch083-and-84-kitchener-area-wellfields-and-hidden-valley-intake-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 6,
+      "bottomM": 12
+    },
+    "K82": {
+      "aquifer": "Pre-Catfish Creek Aquifer (AFD1), at or near ground surface",
+      "scope": "wellfield range",
+      "srcId": "SPA83",
+      "srcUrl": "https://www.sourcewater.ca/media/hpioecfp/grspa_ar_ch083-and-84-kitchener-area-wellfields-and-hidden-valley-intake-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 6,
+      "bottomM": 12
+    },
+    "K50": {
+      "aquifer": "Middle Waterloo Moraine Sands (AFB2)",
+      "scope": "wellfield range",
+      "srcId": "SPA83",
+      "srcUrl": "https://www.sourcewater.ca/media/hpioecfp/grspa_ar_ch083-and-84-kitchener-area-wellfields-and-hidden-valley-intake-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 30,
+      "bottomM": 40
+    },
+    "K51": {
+      "aquifer": "Middle Waterloo Moraine Sands (AFB2)",
+      "scope": "wellfield range",
+      "srcId": "SPA83",
+      "srcUrl": "https://www.sourcewater.ca/media/hpioecfp/grspa_ar_ch083-and-84-kitchener-area-wellfields-and-hidden-valley-intake-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 30,
+      "bottomM": 40
+    },
+    "H3": {
+      "aquifer": "Gasport Formation bedrock; overburden variable (AFB1/AFB2 near surface, then Maryhill and/or Catfish Creek Tills)",
+      "scope": "Hespeler wellfield range",
+      "srcId": "SPA85",
+      "srcUrl": "https://www.sourcewater.ca/media/hg3l5xpw/grspa_ar_ch085-cambridge-area-wellfields-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 31,
+      "bottomM": 121,
+      "note": "H4 was removed from service in 2017."
+    },
+    "H3A": {
+      "aquifer": "Gasport Formation bedrock; overburden variable (AFB1/AFB2 near surface, then Maryhill and/or Catfish Creek Tills)",
+      "scope": "Hespeler wellfield range",
+      "srcId": "SPA85",
+      "srcUrl": "https://www.sourcewater.ca/media/hg3l5xpw/grspa_ar_ch085-cambridge-area-wellfields-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 31,
+      "bottomM": 121,
+      "note": "H4 was removed from service in 2017."
+    },
+    "H4A": {
+      "aquifer": "Gasport Formation bedrock; overburden variable (AFB1/AFB2 near surface, then Maryhill and/or Catfish Creek Tills)",
+      "scope": "Hespeler wellfield range",
+      "srcId": "SPA85",
+      "srcUrl": "https://www.sourcewater.ca/media/hg3l5xpw/grspa_ar_ch085-cambridge-area-wellfields-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 31,
+      "bottomM": 121,
+      "note": "H4 was removed from service in 2017."
+    },
+    "H5": {
+      "aquifer": "Gasport Formation bedrock; overburden variable (AFB1/AFB2 near surface, then Maryhill and/or Catfish Creek Tills)",
+      "scope": "Hespeler wellfield range",
+      "srcId": "SPA85",
+      "srcUrl": "https://www.sourcewater.ca/media/hg3l5xpw/grspa_ar_ch085-cambridge-area-wellfields-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 31,
+      "bottomM": 121,
+      "note": "H4 was removed from service in 2017."
+    },
+    "H5A": {
+      "aquifer": "Gasport Formation bedrock; overburden variable (AFB1/AFB2 near surface, then Maryhill and/or Catfish Creek Tills)",
+      "scope": "Hespeler wellfield range",
+      "srcId": "SPA85",
+      "srcUrl": "https://www.sourcewater.ca/media/hg3l5xpw/grspa_ar_ch085-cambridge-area-wellfields-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 31,
+      "bottomM": 121,
+      "note": "H4 was removed from service in 2017."
+    },
+    "G5": {
+      "aquifer": "Open hole in Guelph, Eramosa, Goat Island and Gasport bedrock",
+      "scope": "Pinebush wellfield range",
+      "srcId": "SPA85",
+      "srcUrl": "https://www.sourcewater.ca/media/hg3l5xpw/grspa_ar_ch085-cambridge-area-wellfields-waterloo_v10.pdf",
+      "completion": "open hole",
+      "topM": 22,
+      "bottomM": 135
+    },
+    "G5A": {
+      "aquifer": "Open hole in Guelph, Eramosa, Goat Island and Gasport bedrock",
+      "scope": "Pinebush wellfield range",
+      "srcId": "SPA85",
+      "srcUrl": "https://www.sourcewater.ca/media/hg3l5xpw/grspa_ar_ch085-cambridge-area-wellfields-waterloo_v10.pdf",
+      "completion": "open hole",
+      "topM": 22,
+      "bottomM": 135
+    },
+    "P10A": {
+      "aquifer": "Open hole in Guelph, Eramosa, Goat Island and Gasport bedrock",
+      "scope": "Pinebush wellfield range",
+      "srcId": "SPA85",
+      "srcUrl": "https://www.sourcewater.ca/media/hg3l5xpw/grspa_ar_ch085-cambridge-area-wellfields-waterloo_v10.pdf",
+      "completion": "open hole",
+      "topM": 22,
+      "bottomM": 135
+    },
+    "P10B": {
+      "aquifer": "Open hole in Guelph, Eramosa, Goat Island and Gasport bedrock",
+      "scope": "Pinebush wellfield range",
+      "srcId": "SPA85",
+      "srcUrl": "https://www.sourcewater.ca/media/hg3l5xpw/grspa_ar_ch085-cambridge-area-wellfields-waterloo_v10.pdf",
+      "completion": "open hole",
+      "topM": 22,
+      "bottomM": 135
+    },
+    "P11": {
+      "aquifer": "Open hole in Guelph, Eramosa, Goat Island and Gasport bedrock",
+      "scope": "Pinebush wellfield range",
+      "srcId": "SPA85",
+      "srcUrl": "https://www.sourcewater.ca/media/hg3l5xpw/grspa_ar_ch085-cambridge-area-wellfields-waterloo_v10.pdf",
+      "completion": "open hole",
+      "topM": 22,
+      "bottomM": 135
+    },
+    "P17": {
+      "aquifer": "Open hole in Guelph, Eramosa, Goat Island and Gasport bedrock",
+      "scope": "Pinebush wellfield range",
+      "srcId": "SPA85",
+      "srcUrl": "https://www.sourcewater.ca/media/hg3l5xpw/grspa_ar_ch085-cambridge-area-wellfields-waterloo_v10.pdf",
+      "completion": "open hole",
+      "topM": 22,
+      "bottomM": 135
+    },
+    "P15A": {
+      "aquifer": "Open hole in Guelph, Eramosa, Goat Island and Gasport bedrock",
+      "scope": "Pinebush wellfield range",
+      "srcId": "SPA85",
+      "srcUrl": "https://www.sourcewater.ca/media/hg3l5xpw/grspa_ar_ch085-cambridge-area-wellfields-waterloo_v10.pdf",
+      "completion": "open hole",
+      "topM": 22,
+      "bottomM": 135
+    },
+    "P9": {
+      "aquifer": "Open hole in Guelph, Eramosa, Goat Island and Gasport bedrock",
+      "scope": "Pinebush wellfield range",
+      "srcId": "SPA85",
+      "srcUrl": "https://www.sourcewater.ca/media/hg3l5xpw/grspa_ar_ch085-cambridge-area-wellfields-waterloo_v10.pdf",
+      "completion": "open hole",
+      "topM": 22,
+      "bottomM": 135
+    },
+    "P19": {
+      "aquifer": "Open hole in Guelph, Eramosa, Goat Island and Gasport bedrock",
+      "scope": "Pinebush wellfield range",
+      "srcId": "SPA85",
+      "srcUrl": "https://www.sourcewater.ca/media/hg3l5xpw/grspa_ar_ch085-cambridge-area-wellfields-waterloo_v10.pdf",
+      "completion": "open hole",
+      "topM": 22,
+      "bottomM": 135
+    },
+    "G6": {
+      "aquifer": "Open hole in Guelph, Eramosa, Goat Island and Gasport bedrock (Clemens Mill Wellfield)",
+      "scope": "wellfield range",
+      "srcId": "SPA85",
+      "srcUrl": "https://www.sourcewater.ca/media/hg3l5xpw/grspa_ar_ch085-cambridge-area-wellfields-waterloo_v10.pdf",
+      "completion": "open hole",
+      "topM": 28,
+      "bottomM": 127,
+      "note": "Clemens Mill in the assessment report is this Turnbull well group. The chapter also names G19, which is not on this sim site."
+    },
+    "G16": {
+      "aquifer": "Open hole in Guelph, Eramosa, Goat Island and Gasport bedrock (Clemens Mill Wellfield)",
+      "scope": "wellfield range",
+      "srcId": "SPA85",
+      "srcUrl": "https://www.sourcewater.ca/media/hg3l5xpw/grspa_ar_ch085-cambridge-area-wellfields-waterloo_v10.pdf",
+      "completion": "open hole",
+      "topM": 28,
+      "bottomM": 127,
+      "note": "Clemens Mill in the assessment report is this Turnbull well group. The chapter also names G19, which is not on this sim site."
+    },
+    "G17": {
+      "aquifer": "Open hole in Guelph, Eramosa, Goat Island and Gasport bedrock (Clemens Mill Wellfield)",
+      "scope": "wellfield range",
+      "srcId": "SPA85",
+      "srcUrl": "https://www.sourcewater.ca/media/hg3l5xpw/grspa_ar_ch085-cambridge-area-wellfields-waterloo_v10.pdf",
+      "completion": "open hole",
+      "topM": 28,
+      "bottomM": 127,
+      "note": "Clemens Mill in the assessment report is this Turnbull well group. The chapter also names G19, which is not on this sim site."
+    },
+    "G18": {
+      "aquifer": "Open hole in Guelph, Eramosa, Goat Island and Gasport bedrock (Clemens Mill Wellfield)",
+      "scope": "wellfield range",
+      "srcId": "SPA85",
+      "srcUrl": "https://www.sourcewater.ca/media/hg3l5xpw/grspa_ar_ch085-cambridge-area-wellfields-waterloo_v10.pdf",
+      "completion": "open hole",
+      "topM": 28,
+      "bottomM": 127,
+      "note": "Clemens Mill in the assessment report is this Turnbull well group. The chapter also names G19, which is not on this sim site."
+    },
+    "G7": {
+      "aquifer": "Grand River Outwash Sediments Aquifer (AFA2)",
+      "scope": "wellfield range",
+      "srcId": "SPA85",
+      "srcUrl": "https://www.sourcewater.ca/media/hg3l5xpw/grspa_ar_ch085-cambridge-area-wellfields-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 14,
+      "bottomM": 43,
+      "note": "G40 was built on the same property for operational redundancy."
+    },
+    "G8": {
+      "aquifer": "Grand River Outwash Sediments Aquifer (AFA2)",
+      "scope": "wellfield range",
+      "srcId": "SPA85",
+      "srcUrl": "https://www.sourcewater.ca/media/hg3l5xpw/grspa_ar_ch085-cambridge-area-wellfields-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 14,
+      "bottomM": 43,
+      "note": "G40 was built on the same property for operational redundancy."
+    },
+    "G38": {
+      "aquifer": "Grand River Outwash Sediments Aquifer (AFA2)",
+      "scope": "wellfield range",
+      "srcId": "SPA85",
+      "srcUrl": "https://www.sourcewater.ca/media/hg3l5xpw/grspa_ar_ch085-cambridge-area-wellfields-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 14,
+      "bottomM": 43,
+      "note": "G40 was built on the same property for operational redundancy."
+    },
+    "G39": {
+      "aquifer": "Grand River Outwash Sediments Aquifer (AFA2)",
+      "scope": "wellfield range",
+      "srcId": "SPA85",
+      "srcUrl": "https://www.sourcewater.ca/media/hg3l5xpw/grspa_ar_ch085-cambridge-area-wellfields-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 14,
+      "bottomM": 43,
+      "note": "G40 was built on the same property for operational redundancy."
+    },
+    "G40": {
+      "aquifer": "Grand River Outwash Sediments Aquifer (AFA2)",
+      "scope": "wellfield range",
+      "srcId": "SPA85",
+      "srcUrl": "https://www.sourcewater.ca/media/hg3l5xpw/grspa_ar_ch085-cambridge-area-wellfields-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 14,
+      "bottomM": 43,
+      "note": "G40 was built on the same property for operational redundancy."
+    },
+    "G4": {
+      "aquifer": "Open hole in Guelph, Eramosa and Gasport bedrock (Blair Road Wellfield)",
+      "scope": "wellfield range",
+      "srcId": "SPA85",
+      "srcUrl": "https://www.sourcewater.ca/media/hg3l5xpw/grspa_ar_ch085-cambridge-area-wellfields-waterloo_v10.pdf",
+      "completion": "open hole",
+      "topM": 31,
+      "bottomM": 83
+    },
+    "G4A": {
+      "aquifer": "Open hole in Guelph, Eramosa and Gasport bedrock (Blair Road Wellfield)",
+      "scope": "wellfield range",
+      "srcId": "SPA85",
+      "srcUrl": "https://www.sourcewater.ca/media/hg3l5xpw/grspa_ar_ch085-cambridge-area-wellfields-waterloo_v10.pdf",
+      "completion": "open hole",
+      "topM": 31,
+      "bottomM": 83
+    },
+    "G9": {
+      "aquifer": "Open hole in Guelph and Eramosa bedrock (Elgin Street Wellfield)",
+      "scope": "per-well",
+      "srcId": "SPA85",
+      "srcUrl": "https://www.sourcewater.ca/media/hg3l5xpw/grspa_ar_ch085-cambridge-area-wellfields-waterloo_v10.pdf",
+      "completion": "open hole",
+      "topM": 25,
+      "bottomM": 78
+    },
+    "G1": {
+      "aquifer": "Open hole in Guelph, Eramosa and Gasport bedrock; only a couple of metres of outwash over bedrock, adjacent to the Grand River",
+      "scope": "Middleton wellfield range",
+      "srcId": "SPA85",
+      "srcUrl": "https://www.sourcewater.ca/media/hg3l5xpw/grspa_ar_ch085-cambridge-area-wellfields-waterloo_v10.pdf",
+      "completion": "open hole",
+      "topM": 29,
+      "bottomM": 60,
+      "gudi": "GUDI-EF",
+      "note": "GUDI-EF discussion: Grand River Assessment Report ch. 8.1.",
+      "gudiSrcUrl": "https://www.sourcewater.ca/media/cyqmrh1w/grspa_ar_ch081-water-quality-risk-assessment_v10.pdf"
+    },
+    "G1A": {
+      "aquifer": "Open hole in Guelph, Eramosa and Gasport bedrock; only a couple of metres of outwash over bedrock, adjacent to the Grand River",
+      "scope": "Middleton wellfield range",
+      "srcId": "SPA85",
+      "srcUrl": "https://www.sourcewater.ca/media/hg3l5xpw/grspa_ar_ch085-cambridge-area-wellfields-waterloo_v10.pdf",
+      "completion": "open hole",
+      "topM": 29,
+      "bottomM": 60,
+      "gudi": "GUDI-EF",
+      "note": "GUDI-EF discussion: Grand River Assessment Report ch. 8.1.",
+      "gudiSrcUrl": "https://www.sourcewater.ca/media/cyqmrh1w/grspa_ar_ch081-water-quality-risk-assessment_v10.pdf"
+    },
+    "G2": {
+      "aquifer": "Open hole in Guelph, Eramosa and Gasport bedrock; only a couple of metres of outwash over bedrock, adjacent to the Grand River",
+      "scope": "Middleton wellfield range",
+      "srcId": "SPA85",
+      "srcUrl": "https://www.sourcewater.ca/media/hg3l5xpw/grspa_ar_ch085-cambridge-area-wellfields-waterloo_v10.pdf",
+      "completion": "open hole",
+      "topM": 29,
+      "bottomM": 60,
+      "gudi": "GUDI-EF",
+      "note": "GUDI-EF discussion: Grand River Assessment Report ch. 8.1.",
+      "gudiSrcUrl": "https://www.sourcewater.ca/media/cyqmrh1w/grspa_ar_ch081-water-quality-risk-assessment_v10.pdf"
+    },
+    "G3": {
+      "aquifer": "Open hole in Guelph, Eramosa and Gasport bedrock; only a couple of metres of outwash over bedrock, adjacent to the Grand River",
+      "scope": "Middleton wellfield range",
+      "srcId": "SPA85",
+      "srcUrl": "https://www.sourcewater.ca/media/hg3l5xpw/grspa_ar_ch085-cambridge-area-wellfields-waterloo_v10.pdf",
+      "completion": "open hole",
+      "topM": 29,
+      "bottomM": 60,
+      "gudi": "GUDI-EF",
+      "note": "GUDI-EF discussion: Grand River Assessment Report ch. 8.1.",
+      "gudiSrcUrl": "https://www.sourcewater.ca/media/cyqmrh1w/grspa_ar_ch081-water-quality-risk-assessment_v10.pdf"
+    },
+    "G14": {
+      "aquifer": "Open hole in Guelph, Eramosa and Gasport bedrock; only a couple of metres of outwash over bedrock, adjacent to the Grand River",
+      "scope": "Middleton wellfield range",
+      "srcId": "SPA85",
+      "srcUrl": "https://www.sourcewater.ca/media/hg3l5xpw/grspa_ar_ch085-cambridge-area-wellfields-waterloo_v10.pdf",
+      "completion": "open hole",
+      "topM": 29,
+      "bottomM": 60,
+      "gudi": "GUDI-EF",
+      "note": "GUDI-EF discussion: Grand River Assessment Report ch. 8.1.",
+      "gudiSrcUrl": "https://www.sourcewater.ca/media/cyqmrh1w/grspa_ar_ch081-water-quality-risk-assessment_v10.pdf"
+    },
+    "G15": {
+      "aquifer": "Bedrock, thin gravel overburden (Willard Wellfield)",
+      "scope": "per-well",
+      "srcId": "SPA85",
+      "srcUrl": "https://www.sourcewater.ca/media/hg3l5xpw/grspa_ar_ch085-cambridge-area-wellfields-waterloo_v10.pdf",
+      "completion": "open hole",
+      "topM": 28,
+      "bottomM": 58
+    },
+    "P16": {
+      "aquifer": "Pre-Catfish Creek Aquifer (AFD1), under Port Stanley, Lower Maryhill and Catfish Creek Tills",
+      "scope": "per-well",
+      "srcId": "SPA85",
+      "srcUrl": "https://www.sourcewater.ca/media/hg3l5xpw/grspa_ar_ch085-cambridge-area-wellfields-waterloo_v10.pdf",
+      "completion": "screen",
+      "topM": 33,
+      "bottomM": 38,
+      "note": "A 2014 Class EA also describes P18 (Maple Grove Rd.), screened 43–53 m BGS in the same aquifer; P18 is not in the sim."
+    },
+    "A1": {
+      "aquifer": "Pre-Catfish Creek Aquifer (AFD1)",
+      "scope": "wellfield range",
+      "srcId": "SPA86",
+      "srcUrl": "https://www.sourcewater.ca/media/uf5h32rs/grspa_ar_ch086-rural-wellfields-waterloo_v8_s51.pdf",
+      "completion": "screen",
+      "topM": 43,
+      "bottomM": 51
+    },
+    "A2": {
+      "aquifer": "Pre-Catfish Creek Aquifer (AFD1)",
+      "scope": "wellfield range",
+      "srcId": "SPA86",
+      "srcUrl": "https://www.sourcewater.ca/media/uf5h32rs/grspa_ar_ch086-rural-wellfields-waterloo_v8_s51.pdf",
+      "completion": "screen",
+      "topM": 43,
+      "bottomM": 51
+    },
+    "A3": {
+      "aquifer": "Pre-Catfish Creek Aquifer (AFD1)",
+      "scope": "wellfield range",
+      "srcId": "SPA86",
+      "srcUrl": "https://www.sourcewater.ca/media/uf5h32rs/grspa_ar_ch086-rural-wellfields-waterloo_v8_s51.pdf",
+      "completion": "screen",
+      "topM": 43,
+      "bottomM": 51
+    },
+    "BM2": {
+      "aquifer": "Dense sand-and-gravel conglomerate and Guelph Formation bedrock",
+      "scope": "wellfield range (combined description)",
+      "srcId": "SPA86",
+      "srcUrl": "https://www.sourcewater.ca/media/uf5h32rs/grspa_ar_ch086-rural-wellfields-waterloo_v8_s51.pdf",
+      "completion": "open hole",
+      "topM": 29,
+      "bottomM": 47,
+      "note": "The chapter also names BM1, which is not in the sim. WHPAs were delineated from BM3 only."
+    },
+    "BM3": {
+      "aquifer": "Dense sand-and-gravel conglomerate and Guelph Formation bedrock",
+      "scope": "wellfield range (combined description)",
+      "srcId": "SPA86",
+      "srcUrl": "https://www.sourcewater.ca/media/uf5h32rs/grspa_ar_ch086-rural-wellfields-waterloo_v8_s51.pdf",
+      "completion": "open hole",
+      "topM": 29,
+      "bottomM": 47,
+      "note": "The chapter also names BM1, which is not in the sim. WHPAs were delineated from BM3 only."
+    },
+    "FG1": {
+      "aquifer": "Salina bedrock aquifer",
+      "scope": "wellfield range",
+      "srcId": "SPA86",
+      "srcUrl": "https://www.sourcewater.ca/media/uf5h32rs/grspa_ar_ch086-rural-wellfields-waterloo_v8_s51.pdf",
+      "completion": "open hole",
+      "topM": 47,
+      "bottomM": 67
+    },
+    "FG2A": {
+      "aquifer": "Salina bedrock aquifer",
+      "scope": "wellfield range",
+      "srcId": "SPA86",
+      "srcUrl": "https://www.sourcewater.ca/media/uf5h32rs/grspa_ar_ch086-rural-wellfields-waterloo_v8_s51.pdf",
+      "completion": "open hole",
+      "topM": 47,
+      "bottomM": 67
+    },
+    "FG4": {
+      "aquifer": "Salina bedrock aquifer",
+      "scope": "wellfield range",
+      "srcId": "SPA86",
+      "srcUrl": "https://www.sourcewater.ca/media/uf5h32rs/grspa_ar_ch086-rural-wellfields-waterloo_v8_s51.pdf",
+      "completion": "open hole",
+      "topM": 47,
+      "bottomM": 67
+    },
+    "L1A": {
+      "aquifer": "Bois Blanc / Salina bedrock",
+      "scope": "wellfield range",
+      "srcId": "SPA86",
+      "srcUrl": "https://www.sourcewater.ca/media/uf5h32rs/grspa_ar_ch086-rural-wellfields-waterloo_v8_s51.pdf",
+      "completion": "open hole",
+      "topM": 64,
+      "bottomM": 80
+    },
+    "L2": {
+      "aquifer": "Bois Blanc / Salina bedrock",
+      "scope": "wellfield range",
+      "srcId": "SPA86",
+      "srcUrl": "https://www.sourcewater.ca/media/uf5h32rs/grspa_ar_ch086-rural-wellfields-waterloo_v8_s51.pdf",
+      "completion": "open hole",
+      "topM": 64,
+      "bottomM": 80
+    },
+    "MH1": {
+      "aquifer": "Pre-Catfish Creek Aquifer (AFD1) sand and gravel",
+      "scope": "Maryhill wellfield range",
+      "srcId": "SPA86",
+      "srcUrl": "https://www.sourcewater.ca/media/uf5h32rs/grspa_ar_ch086-rural-wellfields-waterloo_v8_s51.pdf",
+      "completion": "screen",
+      "topM": 18,
+      "bottomM": 33
+    },
+    "MH2": {
+      "aquifer": "Pre-Catfish Creek Aquifer (AFD1) sand and gravel",
+      "scope": "Maryhill wellfield range",
+      "srcId": "SPA86",
+      "srcUrl": "https://www.sourcewater.ca/media/uf5h32rs/grspa_ar_ch086-rural-wellfields-waterloo_v8_s51.pdf",
+      "completion": "screen",
+      "topM": 18,
+      "bottomM": 33
+    },
+    "MH4A": {
+      "aquifer": "Pre-Catfish Creek Aquifer (AFD1) sand and gravel",
+      "scope": "Maryhill Heights wellfield range",
+      "srcId": "SPA86",
+      "srcUrl": "https://www.sourcewater.ca/media/uf5h32rs/grspa_ar_ch086-rural-wellfields-waterloo_v8_s51.pdf",
+      "completion": "screen",
+      "topM": 18,
+      "bottomM": 33,
+      "note": "MH5 replaced MH3."
+    },
+    "MH5": {
+      "aquifer": "Pre-Catfish Creek Aquifer (AFD1) sand and gravel",
+      "scope": "Maryhill Heights wellfield range",
+      "srcId": "SPA86",
+      "srcUrl": "https://www.sourcewater.ca/media/uf5h32rs/grspa_ar_ch086-rural-wellfields-waterloo_v8_s51.pdf",
+      "completion": "screen",
+      "topM": 18,
+      "bottomM": 33,
+      "note": "MH5 replaced MH3."
+    },
+    "ND4": {
+      "aquifer": "Middle Waterloo Moraine Sands (AFB2); AFB1 and AFB2 act as one aquifer here because ATB1 is absent",
+      "scope": "wellfield range",
+      "srcId": "SPA86",
+      "srcUrl": "https://www.sourcewater.ca/media/uf5h32rs/grspa_ar_ch086-rural-wellfields-waterloo_v8_s51.pdf",
+      "completion": "screen",
+      "topM": 14,
+      "bottomM": 16
+    },
+    "ND5": {
+      "aquifer": "Middle Waterloo Moraine Sands (AFB2); AFB1 and AFB2 act as one aquifer here because ATB1 is absent",
+      "scope": "wellfield range",
+      "srcId": "SPA86",
+      "srcUrl": "https://www.sourcewater.ca/media/uf5h32rs/grspa_ar_ch086-rural-wellfields-waterloo_v8_s51.pdf",
+      "completion": "screen",
+      "topM": 14,
+      "bottomM": 16
+    },
+    "NH3": {
+      "aquifer": "Salina Formation bedrock; overburden Catfish Creek Till (ATC1) and AFD1",
+      "scope": "described after introducing NH3 and NH4; treat as the production-well interval pending a well-by-well table",
+      "srcId": "SPA86",
+      "srcUrl": "https://www.sourcewater.ca/media/uf5h32rs/grspa_ar_ch086-rural-wellfields-waterloo_v8_s51.pdf",
+      "completion": "open hole",
+      "topM": 57,
+      "bottomM": 76,
+      "note": "NH4 was built on the same property for operational redundancy and does not increase taking."
+    },
+    "NH4": {
+      "aquifer": "Salina Formation bedrock; overburden Catfish Creek Till (ATC1) and AFD1",
+      "scope": "described after introducing NH3 and NH4; treat as the production-well interval pending a well-by-well table",
+      "srcId": "SPA86",
+      "srcUrl": "https://www.sourcewater.ca/media/uf5h32rs/grspa_ar_ch086-rural-wellfields-waterloo_v8_s51.pdf",
+      "completion": "open hole",
+      "topM": 57,
+      "bottomM": 76,
+      "note": "NH4 was built on the same property for operational redundancy and does not increase taking."
+    },
+    "R5": {
+      "aquifer": "Lower Waterloo Moraine or Catfish Creek Till Outwash Aquifer (AFB3)",
+      "scope": "wellfield range",
+      "srcId": "SPA86",
+      "srcUrl": "https://www.sourcewater.ca/media/uf5h32rs/grspa_ar_ch086-rural-wellfields-waterloo_v8_s51.pdf",
+      "completion": "screen",
+      "topM": 48,
+      "bottomM": 52
+    },
+    "R6": {
+      "aquifer": "Lower Waterloo Moraine or Catfish Creek Till Outwash Aquifer (AFB3)",
+      "scope": "wellfield range",
+      "srcId": "SPA86",
+      "srcUrl": "https://www.sourcewater.ca/media/uf5h32rs/grspa_ar_ch086-rural-wellfields-waterloo_v8_s51.pdf",
+      "completion": "screen",
+      "topM": 48,
+      "bottomM": 52
+    },
+    "SC2": {
+      "aquifer": "Upper Waterloo Moraine Sands (AFB1)",
+      "scope": "per-well group",
+      "srcId": "SPA86",
+      "srcUrl": "https://www.sourcewater.ca/media/uf5h32rs/grspa_ar_ch086-rural-wellfields-waterloo_v8_s51.pdf",
+      "completion": "screen",
+      "topM": 15,
+      "bottomM": 20
+    },
+    "SC3": {
+      "aquifer": "Upper Waterloo Moraine Sands (AFB1)",
+      "scope": "per-well group",
+      "srcId": "SPA86",
+      "srcUrl": "https://www.sourcewater.ca/media/uf5h32rs/grspa_ar_ch086-rural-wellfields-waterloo_v8_s51.pdf",
+      "completion": "screen",
+      "topM": 15,
+      "bottomM": 20
+    },
+    "SC4": {
+      "aquifer": "Middle Waterloo Moraine Sands (AFB2), hydraulically connected to AFB1 because ATB1 is absent",
+      "scope": "per-well",
+      "srcId": "SPA86",
+      "srcUrl": "https://www.sourcewater.ca/media/uf5h32rs/grspa_ar_ch086-rural-wellfields-waterloo_v8_s51.pdf",
+      "completion": "screen",
+      "topM": 30,
+      "bottomM": 37
+    },
+    "WY1": {
+      "aquifer": "Pre-Catfish Creek Aquifer (AFD1) sand and gravel",
+      "scope": "per-well",
+      "srcId": "SPA86",
+      "srcUrl": "https://www.sourcewater.ca/media/uf5h32rs/grspa_ar_ch086-rural-wellfields-waterloo_v8_s51.pdf",
+      "completion": "screen",
+      "topM": 45,
+      "bottomM": 54
+    },
+    "WY5": {
+      "aquifer": "Pre-Catfish Creek Aquifer (AFD1) plus approximately 3 m of dolostone bedrock",
+      "scope": "per-well",
+      "srcId": "SPA86",
+      "srcUrl": "https://www.sourcewater.ca/media/uf5h32rs/grspa_ar_ch086-rural-wellfields-waterloo_v8_s51.pdf",
+      "completion": "screen",
+      "topM": 45,
+      "bottomM": 54,
+      "note": "The sim also lists WY6, which this assessment paragraph does not name."
+    }
+  }
+}
