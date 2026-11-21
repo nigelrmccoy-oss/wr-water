@@ -1,4 +1,4 @@
-/** Training scenarios: setup → timed injections → objectives evaluated live (v0.3.2).
+/** Training scenarios: setup → timed injections → objectives evaluated live (v0.4).
  *  Each scenario: { id, title, brief, start:[y,m0,d,h,mi], durationH, setup(sim), tick(sim,dt), objectives:[{text, eval(state,sim)→'pass'|'fail'|'pending'}],
  *  hints[], optional actions(sim)→[{id,label,run,disabled,title}], actionTitle, decisionNote(sim) }.
  *  Every scenario is proven to NOT pass with no trainee action (tests/scenario_noaction.mjs) and to be passable (tests/scenario_action.mjs). */

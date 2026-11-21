@@ -1,5 +1,5 @@
 /**
- * WR-WATER (v0.2 data, current v0.3.2) – real pressure-zone network for the Integrated Urban System (IUS).
+ * WR-WATER (v0.2 data, current v0.4) – real pressure-zone network for the Integrated Urban System (IUS).
  * Hand-authored from public planning documents (see SRC). Every number carries a status:
  *   'real'  = taken from the cited document,   'est' = training estimate (method in note).
  * Township systems (Ayr, Wellesley, …) are separate real systems and keep their v0.1 definitions (data/facilities.js).

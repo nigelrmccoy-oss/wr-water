@@ -1,4 +1,4 @@
-# WR-WATER v0.3.2 — Region of Waterloo water supply SCADA trainer
+# WR-WATER v0.4 — Region of Waterloo water supply SCADA trainer
 
 Browser training simulator of the **Region of Waterloo municipal water supply** (Integrated Urban System + township systems) for new water technicians.
 Sister project to [`wwtp-na`](https://github.com/nigelrmccoy-oss/wwtp-na). **Unofficial**: not affiliated with or validated by the Region of Waterloo. Training use only; never use for real operating decisions.
@@ -14,6 +14,11 @@ python3 -m http.server 8765
 ```
 
 Three.js r170 is vendored in `vendor/` (copied from wwtp-na's node_modules, MIT, see `vendor/three-LICENSE`), so the app works offline.
+
+## What's new in v0.4
+- **3D scenery from OpenStreetMap**: the 3D overview loads streets, simple extruded buildings, water polygons and OSM water-tower/water-works features around each supply site (© OpenStreetMap contributors, ODbL). Queries go first to a self-hosted Ontario Overpass at `http://127.0.0.1:12346/api/interpreter`, then to overpass-api.de, then kumi.systems. If none answer, the trainer still runs on the bundled river and watermain GeoJSON. Watermains stay visually on top; scenery is muted and sits underneath.
+- **Persistent map cache**: tiles are stored in IndexedDB (`wr-water-map`, keys prefixed `v4:`). The cache is read before the network. The browser is asked for `navigator.storage.persist()`. Cap is 16 GB with LRU eviction (oldest-used first). Help shows the cache size and a **Clear map cache** button. Reference implementation: nig-drives `OverpassCache.ts` (not vendored).
+- New test: `tests/mapcache.mjs` (hit/miss, versioned keys, LRU at a small cap, OSM parse).
 
 ## What's new in v0.3.2
 - Generator-running warning shows any time a standby generator runs (KPI bar, ICI scenario note even before the 14:00 window, Costs tab, free play); Costs tab now carries the diesel emissions / ECA-permit caveat.

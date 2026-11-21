@@ -4,6 +4,8 @@ import { fmt, money, hhmm, esc } from './util.js';
 import { touPeriod, elecRate, ZONE_CFGS } from './sim.js';
 import * as E from './energy.js';
 import { SCENARIOS, startScenario, scenarioStatus } from './scenarios.js';
+import { mapCache } from './mapcache.js';
+import { ATTR as OSM_ATTR } from './scenery.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const A = DATA.assumptions;
@@ -26,6 +28,7 @@ export class UI {
     for (const b of document.querySelectorAll('#tabs button')) b.classList.toggle('on', b.dataset.view === v);
     for (const s of document.querySelectorAll('.view')) s.classList.toggle('on', s.id === 'view-' + v);
     this.onView?.(v); this.lastBoard = 0;
+    if (v === 'help') this.bindMapCacheUi();
   }
   initSpeed() {
     for (const b of document.querySelectorAll('#speed button')) b.onclick = () => {
@@ -408,7 +411,7 @@ export class UI {
     const S = DATA.sources;
     const nReal = DATA.sites.filter(s => s.locQuality === 'real').length;
     $('#view-help').innerHTML = `<div class="help">
-      <h2>What this is</h2><p>WR-WATER v0.3.2 is an <b>unofficial training simulator</b> of the Region of Waterloo water supply (Integrated Urban System + township systems). It is not connected to, endorsed by, or validated against the Region's SCADA. Numbers marked ${EST} are training assumptions; everything else is traceable to the public sources below.</p>
+      <h2>What this is</h2><p>WR-WATER v0.4 is an <b>unofficial training simulator</b> of the Region of Waterloo water supply (Integrated Urban System + township systems). It is not connected to, endorsed by, or validated against the Region's SCADA. Numbers marked ${EST} are training assumptions; everything else is traceable to the public sources below.</p>
       <h2>How to drive it</h2><ul>
       <li><b>Master board</b>: Mannheim panel, real pressure-zone tiles grouped by municipality (dashed = closed zone with no floating storage; its "level" is a supply-balance proxy), and every supply site. Click any tile/row → faceplate.</li>
       <li><b>Transfers</b>: every pump station / PRV / control valve between zones – AUTO (holds receiving-zone level SP), MAN (fixed L/s), CLOSED.</li>
@@ -416,9 +419,12 @@ export class UI {
       <li><b>PLC logic</b>: level lead/lag staging, 5-min min-run/off, clearwell low holds high lift, Cl₂ LOW-LOW 60 s → latched shutdown, UV low → shutdown, Mannheim filtered &gt;1 NTU 2 min → filter-to-waste, 1,4-dioxane &gt; MAC 2 min → Greenbrook shutdown, power loss → pumps stop and (without generator) a power-fail latch blocks AUTO restart until the operator restarts the site.</li>
       <li><b>Electricity</b>: Class A (Mannheim complex) pays market price + PDF × GA, Class B pays market + Class B GA, small sites pay OEB RPP (TOU or tiered). IESO-style ICI peak alerts appear on high-demand days (real 2026 Ontario demand). See Daily totals &amp; cost.</li>
       <li><b>Clock</b>: free play starts Tue 14 Jul 2026 05:00 (a real 2026 ICI top-5 day); speeds 1× – 900×.</li></ul>
-      <h2>Network (v0.3.2)</h2><p>${ZONE_CFGS.filter(z => z.ius && !z.node).length} real IUS pressure zones + the Mannheim reservoir node, ${this.sim.links.size} transfers / boosters / PRVs / valves, and ${ZONE_CFGS.filter(z => !z.ius).length} township systems. Per-zone and per-transfer sources and real/estimate status: <code>docs/network.md</code>.</p>
+      <h2>Network (v0.4)</h2><p>${ZONE_CFGS.filter(z => z.ius && !z.node).length} real IUS pressure zones + the Mannheim reservoir node, ${this.sim.links.size} transfers / boosters / PRVs / valves, and ${ZONE_CFGS.filter(z => !z.ius).length} township systems. Per-zone and per-transfer sources and real/estimate status: <code>docs/network.md</code>.</p>
       <h2>Scenarios</h2><table><tr><th>Scenario</th><th>Objectives</th></tr>${SCENARIOS.map(sc => `<tr><td><b>${esc(sc.title)}</b></td><td>${sc.objectives.map(o => esc(o.text)).join('<br>')}</td></tr>`).join('')}</table>
       <p class="dim">Each scenario is tested to FAIL with no trainee action (tests/scenario_noaction.mjs) and to PASS with the intended actions (tests/scenario_action.mjs).</p>
+      <h2>3D map scenery &amp; cache</h2>
+      <p>The 3D overview can load streets, extruded buildings and water from OpenStreetMap (<b>${OSM_ATTR}</b>, ODbL) via a local Ontario Overpass instance, with public mirrors (overpass-api.de, then kumi.systems) as fallback. Tiles are stored in this browser (IndexedDB, up to 16 GB, oldest-used evicted first; the browser is asked to persist the cache). The trainer still works offline: bundled river and watermain GeoJSON always load. Watermains stay visually on top of the scenery.</p>
+      <p>Cache: <span id="mapCacheStats">…</span> <button type="button" id="mapCacheClear" class="mini">Clear map cache</button></p>
       <h2>Training simplifications to know</h2><ul><li><b>Diesel generator for peak shaving</b>: running the standby generator to shave a peak burns diesel and emits NOx/PM/CO₂; in Ontario a standby generator's Environmental Compliance Approval (ECA) or EASR registration usually limits non-emergency hours (often to testing/maintenance), so peak-shaving may need a permit amendment – confirm with the Region's ECA before using it (training assumption, verify).</li><li><b>Zone pressures are estimates</b>: real per-zone ground elevations are not modelled; each zone uses an estimated customer service depth (50–64 m below the zone HGL), so every pressure shown is marked <i>est.</i> and is not a real reading.</li>
       <li><b>Filtered turbidity</b>: the real Ontario criterion for chemically assisted filtration is ≤ 0.3 NTU in at least 95 % of the measurements each month, and never &gt; 1 NTU (Procedure for Disinfection of Drinking Water in Ontario). The turbidity scenario scores 15-minute readings against that 95 % rule; the board alarm is a simple 0.3 NTU threshold.</li>
       <li><b>Main-break Category 2 reportability</b>: the "correct" answer the main-break scenario scores (Category 2 not reportable vs reportable to MOH/SAC) is a <b>training simplification that needs review by a qualified Ontario operator / the Watermain Disinfection Procedure owner</b>. In particular, how the ≈4 % of customers who lost water and the 140 kPa (20 psi) intrusion rule (an industry convention, not in the Procedure) should drive the decision has not been expert-reviewed.</li>
@@ -440,6 +446,22 @@ export class UI {
       <tr><td>Site coordinates (${nReal} of ${DATA.sites.length} real)</td><td>mixed</td><td><a href="${S.KGIS}" target="_blank">City of Kitchener open data</a> · OSM · Nominatim</td></tr>
       <tr><td>Absolute zone demands (real shares scaled to 2025 production), Kitchener/Cambridge HGLs not published, storage volumes of towers/tanks, transfer capacities &amp; setpoints, pump heads/efficiency, generator sizes, feeder grouping, filter/backwash/AOP kinetics, per-well 1,4-dioxane, chemical prices, delivery adder, Class A/B assignment and assumed PDF, pressure model</td><td>${EST}</td><td>data/network.js, js/energy.js, data/facilities.js → assumptions, docs/research.md</td></tr></table>
       <h2>Acronyms</h2><p>SCADA · PLC · HOA hand-off-auto · CW clearwell · HL high lift · PS pumping station · PRV pressure-reducing valve · MTV motorized throttle valve · CV check/control valve · ET elevated tank · HGL hydraulic grade line · ATS automatic transfer switch · FTW filter-to-waste · AOP advanced oxidation · MAC maximum acceptable concentration · GA Global Adjustment · PDF peak demand factor · ICI Industrial Conservation Initiative · OZP Ontario zonal price · RPP Regulated Price Plan · TOU time-of-use · IUS Integrated Urban System · MOH Medical Officer of Health · SAC Spills Action Centre · BWA boil-water advisory.</p></div>`;
+    this.bindMapCacheUi();
+  }
+
+  bindMapCacheUi() {
+    const stats = document.getElementById('mapCacheStats'), btn = document.getElementById('mapCacheClear');
+    if (!stats) return;
+    const fmt = n => n >= 1048576 ? (n / 1048576).toFixed(1) + ' MB' : n >= 1024 ? (n / 1024).toFixed(0) + ' kB' : n + ' B';
+    const refresh = async () => {
+      try {
+        const s = await mapCache.stats();
+        stats.textContent = `${s.count} tiles, ${fmt(s.bytes)} of ${(s.capBytes / 1073741824).toFixed(0)} GB cap` +
+          (s.persisted ? ' (persistent)' : s.persisted === false ? ' (not persistent)' : '') + (s.notice ? ' · ' + s.notice : '');
+      } catch { stats.textContent = 'unavailable'; }
+    };
+    void refresh();
+    if (btn) btn.onclick = async () => { await mapCache.clear(); await refresh(); };
   }
 }
 

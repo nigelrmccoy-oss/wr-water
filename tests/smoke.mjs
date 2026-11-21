@@ -1,4 +1,4 @@
-// Headless browser smoke test (v0.3.2): loads the app over HTTP, exercises every view, faceplates (power, filters, AOP),
+// Headless browser smoke test (v0.4): loads the app over HTTP, exercises every view, faceplates (power, filters, AOP),
 // transfers, costs/ICI, the 3D map and drives several scenarios THROUGH THE UI. Fails on any console error.
 // Usage: node tests/smoke.mjs [baseUrl]   (needs playwright; see README)
 import { createRequire } from 'module';
@@ -14,9 +14,14 @@ const NOTHROTTLE = ['--disable-backgrounding-occluded-windows', '--disable-rende
 const browser = await pw.chromium.launch(HEADED ? { headless: false, slowMo: +(process.env.SLOWMO || 300), args: NOTHROTTLE } : { args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', ...NOTHROTTLE] });
 const page = await browser.newPage({ viewport: { width: 1500, height: 900 } });
 const errors = [], warns = [], dialogs = [];
-page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); if (m.type() === 'warning') warns.push(m.text()); });
+const overpassUrl = u => /127\.0\.0\.1:12346|overpass-api\.de|kumi\.systems|\/api\/interpreter/.test(u || '');
+page.on('console', m => {
+  const t = m.text();
+  if (m.type() === 'error') { if (overpassUrl(t) || /Failed to load resource: net::ERR_/.test(t) || /Failed to load resource: the server responded with a status of (429|502|503|504)/.test(t)) return; errors.push(t); return; }
+  if (m.type() === 'warning') warns.push(m.text());
+});
 page.on('pageerror', e => errors.push('pageerror: ' + e.message));
-page.on('requestfailed', r => errors.push('requestfailed: ' + r.url()));
+page.on('requestfailed', r => { if (!overpassUrl(r.url())) errors.push('requestfailed: ' + r.url()); });
 page.on('dialog', d => { dialogs.push(d.message()); d.dismiss(); });
 const shots = new URL('./shots/', import.meta.url).pathname; fs.mkdirSync(shots, { recursive: true });
 const shot = n => page.screenshot({ path: shots + n + '.png' });
@@ -45,6 +50,9 @@ await shot('03-faceplate-mannheim'); await close();
 await page.locator('#view-board .zone[data-zone="KIT4"]').click(); await page.waitForTimeout(400); await shot('03b-zone-kit4'); await close();
 const helpOk = await ev(() => document.querySelector('#view-help').innerText.includes('Scenarios') && document.querySelectorAll('#view-help tr').length > 20);
 console.log('help has network + scenarios:', helpOk); if (!helpOk) errors.push('help not updated');
+await page.locator('#tabs [data-view=help]').click(); await page.waitForTimeout(400);
+const cacheUi = await ev(() => { const t = document.querySelector('#view-help').innerText; return { osm: t.includes('OpenStreetMap'), clear: !!document.querySelector('#mapCacheClear'), stats: document.querySelector('#mapCacheStats')?.textContent || '' }; });
+console.log('help map cache UI:', JSON.stringify(cacheUi)); if (!cacheUi.osm || !cacheUi.clear) errors.push('Help missing OSM attribution or map cache Clear button');
 for (const v of ['net', 'alarms', 'costs', 'help']) { await page.locator(`#tabs [data-view=${v}]`).click(); await page.waitForTimeout(700); await shot(`04-${v}`); }
 await page.locator('#tabs [data-view=costs]').click(); await page.waitForTimeout(500);
 const costs = await ev(() => ({ ont: !!document.querySelector('#trOnt'), rpp: !!document.querySelector('#rppPlan'), txt: document.querySelector('#view-costs').innerText.includes('Class A') }));
@@ -59,7 +67,10 @@ console.log('transfers rows:', await page.locator('#view-net tr.link').count(), 
 await page.locator('#tabs [data-view=map]').click(); await page.waitForTimeout(4000);
 await shot('05-map3d');
 const mapReady = await ev(() => window.WR.map.ready);
-console.log('3D map ready:', mapReady, 'mains segments:', await ev(() => window.WR.map.mainsCount));
+const mapOsm = await ev(() => ({ attr: (document.querySelector('#mapLegend')?.innerText || '').includes('© OpenStreetMap contributors'), mains: window.WR.map.mainsCount, cache: !!window.WR.mapCache }));
+console.log('3D map ready:', mapReady, 'mains segments:', mapOsm.mains, 'osm:', JSON.stringify(mapOsm));
+if (!mapOsm.attr) errors.push('map legend missing OSM attribution');
+if (!mapOsm.cache) errors.push('WR.mapCache not exposed');
 await page.locator('#tabs [data-view=board]').click();
 
 // ── cl2: switch to pump B via the faceplate

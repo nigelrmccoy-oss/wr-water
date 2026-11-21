@@ -3,6 +3,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { DATA } from '../data/facilities.js';
 import { STORAGE_ZONE } from '../data/network.js';
+import { loadAllTiles, ATTR as OSM_ATTR } from './scenery.js';
 
 const LAT0 = 43.43, LON0 = -80.49;
 const KX = Math.cos(LAT0 * Math.PI / 180) * 1113.2, KZ = 1105.4; // 1 unit = 100 m
@@ -23,12 +24,15 @@ export class Map3D {
     const ground = new THREE.Mesh(new THREE.PlaneGeometry(900, 800), new THREE.MeshLambertMaterial({ color: '#1c2a20' })); ground.rotation.x = -Math.PI / 2; ground.position.y = -0.05; scene.add(ground);
     const grid = new THREE.GridHelper(900, 90, '#24352a', '#24352a'); grid.position.y = 0; scene.add(grid);
     this.legend = [];
+    this.scRoads = new THREE.Group(); this.scBuild = new THREE.Group(); this.scWater = new THREE.Group(); this.scTowers = new THREE.Group();
+    this.sceneryInfo = null;
     await Promise.all([this.loadRivers(), this.loadMains(), this.loadZones()]);
     this.addSites();
     this.ray = new THREE.Raycaster(); this.mouse = new THREE.Vector2();
     this.canvas.addEventListener('pointermove', e => this.hover(e));
     this.canvas.addEventListener('click', e => this.click(e));
     this.ready = true; this.resize(); this.renderLegend();
+    void this.loadScenery(); // non-blocking: bundled rivers/mains already shown; OSM scenery fills in from cache or Overpass
   }
   async fetchJson(u) { const res = await fetch(u); if (!res.ok) throw new Error(u + ' ' + res.status); return res.json(); }
   lines(features, colorFn, y) {
@@ -96,14 +100,76 @@ export class Map3D {
     }
     this.legend.push(['#9fe8b8', 'Site label green = location from Kitchener GIS / OSM; white = approximate']);
   }
+
+  async loadScenery() {
+    this.scene.add(this.scRoads, this.scBuild, this.scWater, this.scTowers);
+    this._matBld = new THREE.MeshLambertMaterial({ color: '#3a332c' });
+    this._matWater = new THREE.MeshLambertMaterial({ color: '#16324a' });
+    this._matTower = new THREE.MeshLambertMaterial({ color: '#5c6a78' });
+    try {
+      const info = await loadAllTiles(DATA.sites, feat => this.addSceneryTile(feat));
+      this.sceneryInfo = info;
+    } catch { this.sceneryInfo = { loaded: 0, total: 0, fromCache: 0, fromNet: 0, source: null }; }
+    this.renderLegend();
+  }
+
+  addSceneryTile(feat) {
+    if (feat.roads?.length) {
+      const feats = feat.roads.map(r => ({ geometry: { type: 'LineString', coordinates: r.pts }, properties: { kind: r.kind } }));
+      const col = f => (f.properties.kind === 'motorway' || f.properties.kind === 'trunk') ? '#3e464c' : (f.properties.kind === 'primary' || f.properties.kind === 'secondary') ? '#353c42' : '#2c3238';
+      this.scRoads.add(this.lines(feats, col, 0.05));
+    }
+    if (feat.water?.length) {
+      for (const w of feat.water) {
+        const pts = w.ring.map(([lon, lat]) => proj(lat, lon)); if (pts.length < 3) continue;
+        try {
+          const sh = new THREE.Shape(); sh.moveTo(pts[0][0], pts[0][1]); for (let i = 1; i < pts.length; i++) sh.lineTo(pts[i][0], pts[i][1]);
+          const m = new THREE.Mesh(new THREE.ShapeGeometry(sh), this._matWater); m.rotation.x = -Math.PI / 2; m.position.y = 0.02; this.scWater.add(m);
+        } catch { /* skip degenerate rings */ }
+      }
+    }
+    if (feat.buildings?.length) {
+      const pos = [];
+      const tri = (a, b, c) => pos.push(a[0], a[1], a[2], b[0], b[1], b[2], c[0], c[1], c[2]);
+      for (const b of feat.buildings) {
+        const pts = b.ring.map(([lon, lat]) => proj(lat, lon));
+        if (pts.length && (pts[0][0] !== pts.at(-1)[0] || pts[0][1] !== pts.at(-1)[1])) pts.push(pts[0]);
+        if (pts.length < 4) continue;
+        const h = Math.min(Math.max(b.h || 7, 4), 50) / 100; // metres → 100 m units; modest, visible when zoomed
+        const n = pts.length - 1;
+        for (let i = 1; i < n - 1; i++) tri([pts[0][0], h, pts[0][1]], [pts[i][0], h, pts[i][1]], [pts[i + 1][0], h, pts[i + 1][1]]);
+        for (let i = 0; i < n; i++) {
+          const [x1, z1] = pts[i], [x2, z2] = pts[i + 1];
+          tri([x1, 0, z1], [x2, 0, z2], [x2, h, z2]); tri([x1, 0, z1], [x2, h, z2], [x1, h, z1]);
+        }
+      }
+      if (pos.length) {
+        const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.computeVertexNormals();
+        this.scBuild.add(new THREE.Mesh(g, this._matBld));
+      }
+    }
+    if (feat.towers?.length) {
+      for (const t of feat.towers) {
+        const [x, z] = proj(t.lat, t.lon);
+        const m = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.16, 0.7, 6), this._matTower); m.position.set(x, 0.35, z);
+        this.scTowers.add(m);
+      }
+    }
+  }
+
   renderLegend() {
     const zones = Object.entries(this.zoneColor).map(([n, c]) => `<span style="white-space:nowrap"><i style="background:${c}"></i>${n}</span>`).join(' ');
     document.getElementById('mapLegend').innerHTML = `<b>Region of Waterloo – 3D overview</b><br>${this.legend.map(([c, t]) => `<div><i style="background:${c}"></i>${t}</div>`).join('')}
       <div style="margin-top:4px">Treated mains coloured by GIS pressure zone (${this.mainsCount || 0} Region-owned segments, Kitchener + Waterloo open data; Cambridge/townships not published):</div><div style="font-size:11px">${zones}</div>
       <div class="dim">Beacon: green running · grey idle · red alarm/interlock · dark = standby. Click a site for its faceplate. Drag = orbit, wheel = zoom, right-drag = pan.</div>
-      <label><input type="checkbox" id="mainsTog" checked> mains</label> <label><input type="checkbox" id="trunkTog" checked> trunk ≥600 mm</label>`;
+      <div class="dim">${OSM_ATTR}. Roads, buildings and water load from OpenStreetMap (Overpass) when available; otherwise the bundled river geojson is shown. Watermains stay on top.</div>
+      ${this.sceneryInfo ? `<div class="dim">OSM scenery: ${this.sceneryInfo.loaded}/${this.sceneryInfo.total} tiles${this.sceneryInfo.fromCache ? ` (${this.sceneryInfo.fromCache} from cache)` : ''}${this.sceneryInfo.fromNet ? ` (${this.sceneryInfo.fromNet} fetched)` : ''}.</div>` : '<div class="dim">OSM scenery: loading or unavailable (offline / no Overpass)…</div>'}
+      <label><input type="checkbox" id="mainsTog" checked> mains</label> <label><input type="checkbox" id="trunkTog" checked> trunk ≥600 mm</label>
+      <label><input type="checkbox" id="scRoadTog" checked> streets</label> <label><input type="checkbox" id="scBldTog" checked> buildings</label> <label><input type="checkbox" id="scWatTog" checked> water</label>`;
     document.getElementById('mainsTog').onchange = e => { if (this.mains) this.mains.visible = e.target.checked; };
     document.getElementById('trunkTog').onchange = e => { if (this.trunk) this.trunk.visible = e.target.checked; };
+    const bind = (id, g) => { const el = document.getElementById(id); if (el) el.onchange = e => { g.visible = e.target.checked; }; };
+    bind('scRoadTog', this.scRoads); bind('scBldTog', this.scBuild); bind('scWatTog', this.scWater);
   }
   pick(e) {
     const r = this.canvas.getBoundingClientRect(); this.mouse.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);

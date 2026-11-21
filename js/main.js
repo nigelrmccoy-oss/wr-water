@@ -2,6 +2,7 @@ import { Sim } from './sim.js';
 import { UI } from './ui.js';
 import { Map3D } from './map3d.js';
 import { saveLocal, loadLocal, hasSave, saveInfo } from './save.js';
+import { mapCache } from './mapcache.js';
 
 let sim = new Sim();
 const ui = new UI(sim);
@@ -30,7 +31,7 @@ btnResume.onclick = () => {
 setInterval(() => { if (!sim.paused) try { saveLocal(sim); refreshResume(); } catch {} }, 60000); // autosave every real minute
 window.addEventListener('beforeunload', () => { try { saveLocal(sim); } catch {} });
 refreshResume();
-window.WR = { get sim() { return sim; }, ui, map, save: () => btnSave.click(), resume: () => btnResume.click(), hasSave }; // console access for instructors
+window.WR = { get sim() { return sim; }, ui, map, mapCache, save: () => btnSave.click(), resume: () => btnResume.click(), hasSave }; // console access for instructors
 
 let last = performance.now(), statusT = 0;
 function frame(now) {

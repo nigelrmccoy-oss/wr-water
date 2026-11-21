@@ -45,3 +45,9 @@ WR-WATER v0.1 deliberately ships **no build step** (plain ES modules + vendored 
 - Coagulation: def = under-dose fraction; over = max(0, dose/jar − 1.6). settled = raw·(0.05 + 0.6·def + 0.25·over). Filter turbidity adds 0.35·over^1.3·√(raw/20) and carry-over 0.06·settled·loadF. Solids loading ∝ (0.5 + 3·settled).
 - Save format v3 (`js/save.js`): JSON of dynamic state, with zone/site/link object refs replaced by ids. Scenario `hooks(sim)` re-register event listeners on resume.
 - Peak projection: PDF_next = Σ_top5 (Mannheim MW in hour) ÷ Σ_top5 Ontario MW. Unsimulated hours are assumed at 2.5 MW. GA_next ≈ PDF_next × 12-month GA.
+
+## v0.4 map scenery
+- OSM tiles (~3.3 km) with a 1-tile halo around every supply site. Overpass query: highways, buildings, water/reservoirs, man_made=water_tower/water_works/reservoir_covered.
+- Endpoints (in order): local `127.0.0.1:12346`, overpass-api.de, overpass.kumi.systems. Fail soft; bundled `data/osm_rivers.geojson` and Region watermain GeoJSON always load.
+- Cache: `js/mapcache.js`, IndexedDB database `wr-water-map`, keys `v4:osm:<tileId>`. Read before fetch. `navigator.storage.persist()`. 16 GB cap, evict oldest `used` timestamp first.
+- Rendering: muted road lines under the mains (y=0.05 vs mains at 0.35), flat water polygons, extruded buildings in metres/100, optional OSM tower cylinders. Layer toggles on the map legend.
