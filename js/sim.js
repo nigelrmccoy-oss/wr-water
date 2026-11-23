@@ -1,5 +1,5 @@
 /**
- * wr-water v0.4.1 process + PLC-ish model.
+ * wr-water v0.5 process + PLC-ish model.
  *  - real IUS pressure zones (data/network.js) + inter-zone transfers (pump stations, PRVs, control valves)
  *  - per-site pumps with HOA, level lead/lag staging, anti-short-cycle, chlorination, interlocks
  *  - Mannheim WTP (Grand River): coag/ozone/4 filters with headloss, breakthrough and backwash sequence

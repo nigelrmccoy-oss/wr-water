@@ -97,7 +97,10 @@ export class MapCache {
         for (const r of await st.all()) { count++; bytes += r.bytes || 0; }
       } catch { /* ignore */ }
     }
-    return { count, bytes, persisted: this.persisted, notice: this.notice, capBytes: this.capBytes };
+    let quota = null;
+    try { if (typeof navigator !== 'undefined' && navigator.storage?.estimate) { const e = await navigator.storage.estimate(); quota = e?.quota ?? null; } } catch { /* ignore */ }
+    const effectiveCap = quota != null ? Math.min(this.capBytes, quota) : this.capBytes;
+    return { count, bytes, persisted: this.persisted, notice: this.notice, capBytes: this.capBytes, quota, effectiveCap };
   }
 
   async clear() {

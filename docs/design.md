@@ -51,3 +51,10 @@ WR-WATER v0.1 deliberately ships **no build step** (plain ES modules + vendored 
 - Endpoints (in order): local `127.0.0.1:12346`, overpass-api.de, overpass.kumi.systems. Fail soft; bundled `data/osm_rivers.geojson` and Region watermain GeoJSON always load.
 - Cache: `js/mapcache.js`, IndexedDB database `wr-water-map`, keys `v4:osm:<tileId>`. Read before fetch. `navigator.storage.persist()`. 16 GB cap, evict oldest `used` timestamp first.
 - Rendering: muted road lines under the mains (y=0.05 vs mains at 0.35), flat water polygons, extruded buildings in metres/100, optional OSM tower cylinders. Layer toggles on the map legend.
+
+## v0.5 detail and polish
+- Overpass (local, 2026-11-20 base) vs bundled mains: official GIS watermains (1,654 Kitchener + Waterloo segments) are far denser than OSM water pipelines (no useful transmission/distribution ways in the IUS bbox). Bundled GIS kept. Cambridge/township mains still unpublished in both sources.
+- Bundled `data/osm_site_footprints.geojson`: 22 OSM drinking-water footprints. Named matches: Greenbrook PS ≈ GRB (GIS, 16 m), Well W10, Erb Street Reservoir ≈ ERR (10 m), unnamed water_works ≈ Strange Street WTP/STR (20 m), Freeport tower ≈ FPT (10 m).
+- Conflict: OSM William Street Pumping Station (way/722813129) is not a separate sim site; its wells are grouped under Strange Street (~2 km from the OSM yard).
+- Greenbrook Reservoir (GBR) stays ESTIMATE (Nominatim); it is 175 m from the OSM Greenbrook PS footprint, which is not enough to snap.
+- Help cache cap: `effectiveCap = min(16 GiB, navigator.storage.estimate().quota)`.

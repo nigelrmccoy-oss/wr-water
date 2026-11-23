@@ -85,3 +85,12 @@ body.sc-on #scenarioPanel { top: var(--topH, 84px); bottom: 30px; left: 0; width
 #scShow.hidden { display: none; }
 #btnSave, #btnResume { margin-left: 6px; }
 .pdfbox { border: 1px solid #3d6a91; padding: 6px 8px; margin: 6px 0; max-width: 820px; background: #141a20; }
+
+/* v0.5 polish */
+.fp-sec { margin: 8px 0 12px; }
+.fp-sec h3 { margin: 10px 0 4px; font-size: 13px; }
+.fp-sec a, .help a, header a, .dim a { overflow-wrap: anywhere; }
+#fpAl .dim, .fp-sec > p.dim { padding: 4px 0; }
+#mapCacheStats { font-variant-numeric: tabular-nums; }
+.help ol { padding-left: 1.3em; } .help ol li { margin: 0.25em 0; }
+table.grid td .est { margin-left: 2px; }

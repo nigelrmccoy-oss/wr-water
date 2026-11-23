@@ -26,7 +26,7 @@ export class Map3D {
     this.legend = [];
     this.scRoads = new THREE.Group(); this.scBuild = new THREE.Group(); this.scWater = new THREE.Group(); this.scTowers = new THREE.Group();
     this.sceneryInfo = null;
-    await Promise.all([this.loadRivers(), this.loadMains(), this.loadZones()]);
+    await Promise.all([this.loadRivers(), this.loadMains(), this.loadZones(), this.loadFootprints()]);
     this.addSites();
     this.ray = new THREE.Raycaster(); this.mouse = new THREE.Vector2();
     this.canvas.addEventListener('pointermove', e => this.hover(e));
@@ -69,6 +69,47 @@ export class Map3D {
   }
   async loadZones() {
     try { const d = await this.fetchJson('data/waterloo_pressure_zones.geojson'); const zl = this.lines(d.features, () => '#b48cff', 0.2); zl.material.transparent = true; zl.material.opacity = 0.6; this.scene.add(zl); this.legend.push(['#b48cff', 'Waterloo pressure-zone boundaries (City GIS, HGL)']); } catch (e) { console.warn('zones', e.message); }
+  }
+  async loadFootprints() {
+    // Bundled OSM drinking-water footprints (queried from local Overpass). Offline, ODbL.
+    try {
+      const d = await this.fetchJson('data/osm_site_footprints.geojson');
+      this.scFoot = new THREE.Group();
+      const mat = new THREE.MeshLambertMaterial({ color: '#5a6570' });
+      const matPt = new THREE.MeshLambertMaterial({ color: '#6a7884' });
+      let nPoly = 0, nPt = 0;
+      for (const f of d.features || []) {
+        const g = f.geometry, pr = f.properties || {};
+        if (g?.type === 'Polygon') {
+          const ring = g.coordinates[0] || [];
+          const pts = ring.map(([lon, lat]) => proj(lat, lon));
+          if (pts.length && (pts[0][0] !== pts.at(-1)[0] || pts[0][1] !== pts.at(-1)[1])) pts.push(pts[0]);
+          if (pts.length < 4) continue;
+          const h = pr.man_made === 'water_tower' ? 0.6 : pr.man_made === 'reservoir_covered' ? 0.12 : 0.25;
+          const pos = [];
+          const tri = (a, b, c) => pos.push(a[0], a[1], a[2], b[0], b[1], b[2], c[0], c[1], c[2]);
+          const n = pts.length - 1;
+          for (let i = 1; i < n - 1; i++) tri([pts[0][0], h, pts[0][1]], [pts[i][0], h, pts[i][1]], [pts[i + 1][0], h, pts[i + 1][1]]);
+          for (let i = 0; i < n; i++) {
+            const [x1, z1] = pts[i], [x2, z2] = pts[i + 1];
+            tri([x1, 0, z1], [x2, 0, z2], [x2, h, z2]); tri([x1, 0, z1], [x2, h, z2], [x1, h, z1]);
+          }
+          const geo = new THREE.BufferGeometry(); geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); geo.computeVertexNormals();
+          const m = new THREE.Mesh(geo, mat);
+          m.userData = { name: (pr.name || pr.man_made) + (pr.sim ? ' · sim ' + pr.sim : '') + ' (OSM ' + pr.osm_id + ')', osm: true };
+          this.scFoot.add(m); nPoly++;
+        } else if (g?.type === 'Point') {
+          const [x, z] = proj(g.coordinates[1], g.coordinates[0]);
+          const m = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, pr.man_made === 'water_tower' ? 0.9 : 0.3, 8), matPt);
+          m.position.set(x, pr.man_made === 'water_tower' ? 0.45 : 0.15, z);
+          m.userData = { name: (pr.name || pr.man_made) + ' (OSM ' + pr.osm_id + ')', osm: true };
+          this.scFoot.add(m); nPt++;
+        }
+      }
+      this.scene.add(this.scFoot);
+      this.footCount = nPoly + nPt;
+      this.legend.push(['#5a6570', `OSM drinking-water footprints (${this.footCount}: works, reservoirs, towers, pumping stations) — ${OSM_ATTR}`]);
+    } catch (e) { console.warn('footprints', e.message); }
   }
   label(text, x, y, z, color = '#d7dee6') {
     const cv = document.createElement('canvas'); const g = cv.getContext('2d'); g.font = 'bold 26px system-ui'; const w = Math.ceil(g.measureText(text).width) + 12; cv.width = w; cv.height = 34;
@@ -174,7 +215,8 @@ export class Map3D {
   pick(e) {
     const r = this.canvas.getBoundingClientRect(); this.mouse.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
     this.ray.setFromCamera(this.mouse, this.camera);
-    const hit = this.ray.intersectObjects(this.markers, true)[0]; if (!hit) return null;
+    const extra = this.scFoot ? this.scFoot.children : [];
+    const hit = this.ray.intersectObjects([...this.markers, ...extra], true)[0]; if (!hit) return null;
     let o = hit.object; while (o && !o.userData.name) o = o.parent; return o;
   }
   hover(e) {

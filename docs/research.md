@@ -80,3 +80,12 @@ The per-zone and per-transfer details, with status and source for each value, ar
 | Value of 5CP avoidance | 12-month GA ≈ $4.76 B ⇒ ≈ $195k per MW drawn in all 5 peaks (≈ $39k per MW per peak hour) | derived |
 
 **Gaps:** as of 2018/19 these Region facilities were opted into Class A: Waterloo, Galt and Kitchener WWTPs plus Hidden Valley Water PS (Corporate Energy Plan 2019–2028, https://www.regionofwaterloo.ca/media/bp3n0pmm/corporate-energy-plan-access.pdf). Mannheim WTP was not listed; current (2026) class and PDF are unpublished. The 2.5 MW peak contribution used in the sim is a training estimate, not a published Regional share. LDC delivery charges and generator sizes are not public. Pump counts and capacities for transfer stations are not in the master plans reviewed. Per-zone ground elevations and pump heads remain unresolved; pressures stay labelled est. Kitchener and Cambridge zone HGLs are partly unpublished. Well construction, WWIS matching and remaining open items: `docs/research-wells-v04.md`.
+
+## v0.5 Overpass geometry check (21–23 Nov 2026, no new web sweep)
+
+Queried the local Ontario Overpass (`http://127.0.0.1:12346/api/interpreter`, OSM base 2026-11-20T21:15:19Z) for `man_made=pipeline` (substance/content water), water_works, pumping_station, water_tower and reservoir_covered in 43.26,−80.80,43.62,−80.22.
+
+- Official bundled watermains (City of Kitchener + City of Waterloo open data): **1,654** segments. OSM water pipelines in the same bbox: **no useful ways**. Keep the GIS layer.
+- Cambridge and township mains: still not published in either source.
+- Footprints worth keeping are in `data/osm_site_footprints.geojson` (22 features, ODbL).
+- **Conflict:** OSM *William Street Pumping Station* (Region of Waterloo, [way/722813129](https://www.openstreetmap.org/way/722813129), 43.46245, −80.51984) vs the trainer's Strange Street WTP location from [Kitchener Drinking Water WFL](https://services1.arcgis.com/qAo1OsXi67t7XgmS/ArcGIS/rest/services/Drinking_Water_WFL1/FeatureServer/0) (43.44647, −80.50686, about 2 km). Wells W1B/W2B/W2C/W3A stay under Strange Street in the sim.

@@ -1,5 +1,5 @@
 /**
- * WR-WATER v0.4.1 electricity pricing (Ontario). All rates are public and cited; the delivery adder, Class assignment and
+ * WR-WATER v0.5 electricity pricing (Ontario). All rates are public and cited; the delivery adder, Class assignment and
  * the 2.5 MW Class A peak contribution used for PDF are TRAINING ESTIMATES (2.5 MW is not a published Regional share).
  */
 import { IESO } from '../data/ieso.js';

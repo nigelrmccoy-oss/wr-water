@@ -1,4 +1,4 @@
-# WR-WATER v0.4.1 — Region of Waterloo water supply SCADA trainer
+# WR-WATER v0.5 — Region of Waterloo water supply SCADA trainer
 
 Browser training simulator of the **Region of Waterloo municipal water supply** (Integrated Urban System + township systems) for new water technicians.
 Sister project to [`wwtp-na`](https://github.com/nigelrmccoy-oss/wwtp-na). **Unofficial**: not affiliated with or validated by the Region of Waterloo. Training use only; never use for real operating decisions.
@@ -14,6 +14,11 @@ python3 -m http.server 8765
 ```
 
 Three.js r170 is vendored in `vendor/` (copied from wwtp-na's node_modules, MIT, see `vendor/three-LICENSE`), so the app works offline.
+
+## What's new in v0.5
+- **Detail:** 22 OSM drinking-water footprints (works, pumping stations, covered reservoirs, towers) from the local Ontario Overpass (OSM base 2026-11-20) are bundled as `data/osm_site_footprints.geojson` and drawn on the 3D map. Official Kitchener + Waterloo watermain GeoJSON (1,654 segments) remains the mains layer — OSM pipelines in the IUS bbox were not more detailed. Faceplates now always show a location source link, and well-construction empty states (including Mannheim's Hidden Valley intake, which is not a well).
+- **Labels:** board and faceplate use the same *est* / sourced pills; estimated locations keep the Nominatim URL. Help documents the William Street PS (OSM) vs Strange Street WTP (Kitchener GIS, ~2 km) grouping of W1B/W2B/W2C/W3A as a modelling simplification.
+- **Polish:** “If you're new” walkthrough for small-system operators; tighter faceplate sections; alarm empty state; Help cache line shows the **effective cap** (min of 16 GB and the browser quota).
 
 ## What's new in v0.4.1
 - **Well construction on the site faceplate**: aquifer, screen or open-hole interval (m BGS) and GUDI flag from the 2025 Grand River Source Protection Assessment Report, with a source note. Site coordinates were not changed. WWIS spatial candidates were not added to the shipped data.
